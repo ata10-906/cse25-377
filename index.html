@@ -1,146 +1,126 @@
-<DOCTYPE html>
-  <html>
+<!DOCTYPE html>
+  <html lang="en">
     <head>
       <title>ProSport Gear</title>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, intial-scale=1.0">
+		
+		<!--BOOTSTRAP 5-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+		<!--FONT AWESOME-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   		
     </head>
 
     <body>
 		<!--NAVBAR-->
 		<header>
-		<div class="container">
-      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-		  <div class="container-fluid">
-		    <a class="navbar-brand" href="#"><img src="" alt="LOGO"></a>
-		    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-		      <ul class="navbar-nav">
+			<nav class="navbar navbar-expand-lg">
+				<div class="container-fluid px-0">
+					<a class="navbar-brand ms-0" href="index.html">
+						<img src="logo.png" alt="ProSport Gear Logo">			
+					</a>
 
-				  <!--HOME-->
-		        <li class="nav-item">
-		          <a class="nav-link" href="index.html">Home</a>
-		        </li>
-				  <!--ABOUT-->
-		        <li class="nav-item">
-		          <a class="nav-link" href="about.html">About</a>
-		        </li>
-				  
-		       <!--CLOTHING DROPDOWN-->
-		        <li class="nav-item dropdown">
-		          <a class="nav-link dropdown-toggle" href="clothing.html" role="button" data-bs-toggle="dropdown">Clothing</a>
-		          <ul class="dropdown-menu">
-		            <li><a class="dropdown-item" href="#">Men</a></li>
-		            <li><a class="dropdown-item" href="#">Women</a></li>
-		            <li><a class="dropdown-item" href="#">Kids</a></li>
-		          </ul>
-		        </li>
+					<button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+						style="border-color:#fff;">
+						<span class="navbar-toggler-icon"></span>
+					</button>
 
-				  <!--EQUIPMENT DROPDOWN-->
-				  <li class="nav-item dropdown">
-		          <a class="nav-link dropdown-toggle" href="equipment.html" role="button" data-bs-toggle="dropdown">Equipment</a>
-		          <ul class="dropdown-menu">
-		            <li><a class="dropdown-item" href="#">Football</a></li>
-		            <li><a class="dropdown-item" href="#">Basketball</a></li>
-		            <li><a class="dropdown-item" href="#">Tennis</a></li>
-		          </ul>
-		        </li>
+					<div class="collapse navbar-collapse" id="mainNav">
+						<ul class="navbar-nav mx-auto gap-1 align-items-center">
 
-				  <!--FEEDBACK-->
-				   <li class="nav-item">
-		          <a class="nav-link" href="feedback.html">Feedback</a>
-		        </li>
-				 
-				 <!--SEARCH + CART-->
-				    <li class="nav-item">
-		         <input type="text"  placeholder="Search..."  class="form-control">
-		        </li>
+							<!--HOME-->
+							<li class="nav-item">
+								<a class="nav-link" href="index.html">Home</a>
+							</li>
+							
+							<!--ABOUT-->
+							<li class="nav-item">
+								<a class="nav-link" href="about.html">About</a>
+							</li>
 
-				   <li class="nav-item text-white ms-2">🛒</li>	 
-		      </ul>
-		    </div>
-		  </div>
-      </nav>
-		</div>
+							<!--CLOTHING DROPDOWN-->
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="clothing.html" role="button" data-bs-toggle="dropdown">Clothing</a>
+								<ul class="dropdown-menu">
+									<li><a class="dropdown-item" href="#men"></a>Men</li>
+									<li><a class="dropdown-item" href="#women">Women</a></li>
+									<li><a class="dropdown-item" href="#kids">Kids</a></li>
+								</ul>
+							</li>
+
+							<!--EQUIPMENT DROPDOWN-->
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="equipment.html" role="button" data-bs-toggle="dropdown">Equipment</a>
+								<ul class="dropdown-menu">
+									<li><a class="dropdown-item" href="#football">Football</a></li>
+									<li><a class="dropdown-item" href="#basketball">Basketball</a></li>
+									<li><a class="dropdown-item" href="#tennis">Tennis</a></li>
+								</ul>
+							</li>
+
+							<!--FEEDBACK-->
+							<li class="nav-item">
+								<a class="nav-link" href="feedback.html"></a>
+							</li>
+
+							<!--SEARCH-->
+							<li class="nav-item d-flex align-items-center ms-2">
+								<input type="text" placeholder="Search..." class="search-input">
+								<button class="search-btn"><i class="fas fa-search"></i></button>
+							</li>
+
+							<!--CART-->
+							<li class="nav-item d-flex align-items-center">
+								<i class="fas fa-shopping-cart cart-icon"></i>
+							</li>
+						</ul>
+					</div>
+					
+				</div>
+			</nav>
 		</header>
 
-        <!--HERO SECTION-->
-		<div class="container">
-        <section class="hero">
-          <h1>Welcome to ProSport Gear</h1>
-          <p>Your one-stop shop for quality sport gear.</p>
-			<img src="" alt="SPORT PROMOTIONS">
-          <a href="#" class="btn">SHOP NOW</a>   
-        </section>
-
-        <!--PRODUCTS-->
-        <section class="products">
-          <h2>Featured Products</h2>
-			<div class="product-container">
-          <article>
-            <img src="" alt="Football Boots">
-            <p>P500.00</p>
-            <a href="#" class="btn">BUY NOW</a>
-          </article>
-
-          <article>
-            <img src="" alt="Whistle">
-            <p>P100.00</p>
-            <a href="#" class="btn">BUY NOW</a>
-          </article>
-          
-          <article>
-            <img src="" alt="Tennis Racket">
-            <p>P1200.00</p>
-            <a href="#" class="btn">BUY NOW</a>
-          </article>
-			</div>
-        </section>
-
-        <!--ADS + VIDEO-->
-        <section class="ads-container">
-			
-          <div>
-			  <h3>Ad Banner</h3>
-			  <img src="" alt="">
-			  <p>Sport Brand Promotion</p>
-		</div>
-			<div>
-				<video controls>
-					<source src="" type="video/mp4">
-				</video>
-			</div>
-			
-		</section>
+		<!--HERO VIDEO-->
+		<div class="hero-video-section">
+			<video controls poster="">
+				<source src="" type="video/mp4">
+			</video>
+			<div class="play-overlay"><i class="fas fa-play"></i></div>
 		</div>
 
-      <!--FOOTER-->
-      <footer>
-		  <div class="container">
-			  <div>
-        <p>&copy: 2026 ProSport Gear</p>
-			  </div>
+		<!--SHOP NOW-->
+		<div>
+			<a href="clothing.html" class="btn-shop-now">
+				<span class="cart-circle"><i class="fas fa-shopping-cart"></i></span>
+				SHOP NOW
+			</a>
+		</div>
 
-			  <div>
-				  <p>Contact Info:</p>
-				  <p>+267 71828180</p>
-				  <p><a href="info@prosportgear.com" class="btn btn-success">info@prosportgear.com</a>.</p> 
-			  </div>
+		<!--PRODUCTS + ADS-->
+		<div class="products-ads-section">
 
-			  <div>
-		  <p>Social</p>
-		  <a href="#"><i>Facebook</i></a>
-		   <a href="#"><i>Instagram</i></a>
-		   <a href="#"><i>Twitter</i></a> 
-			  </div>
+			<!--LEFT: Ad Image + Ad Video-->
+			<div class="ads-left">
+				<div class="ads-left">
+					<img src="" alt="Nike Ad">
+				</div>
+				<div class="ad-video-box">
+					<video controls poster="">
+						<source src="" type="videp/mp4">
+					</video>
+					<div class="play-overlay"><i class="fas fa-play"></i></div>
+				</div>
+			</div>
 
-			  <div>
-		  <p>Need Help?</p>
-			  <a href="#">Terms and Conditions</a>
-			  <a href="#">Privacy Policy</a>
-		  </div>
-		  </div>
-	  </footer>
+			<!--RIGHT:Featured Products-->
+			<div class="products-right">
+				<div class="product-cards-row">
+					
+				</div>
+			</div>
+		</div>
+
 		
 	</body>   
   </html>
