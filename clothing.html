@@ -100,7 +100,7 @@
 			  </div>
 
 			  <!--MEN SECTION-->
-			  <div>
+			  <div id="men" class="clothing-section active">
 				  <div class="section-heading"><i class="fas fa-male me-2"></i >Men's Clothing</div>
 
 				  <!--ROW 1-->
@@ -172,8 +172,8 @@
 
 
 			  
-			  <!--MEN SECTION-->
-			  <div>
+			  <!--WOMEN SECTION-->
+			  <div id="women" class="clothing-section">
 				  <div class="section-heading"><i class="fas fa-female me-2"></i >Women's Clothing</div>
 
 				  <!--ROW 1-->
@@ -245,7 +245,7 @@
 
 			  
 			  <!--KIDS SECTION-->
-			  <div>
+			  <div id="kids" class="clothing-section">
 				  <div class="section-heading"><i class="fas fa-child me-2"></i >Kid's Clothing</div>
 
 				  <!--ROW 1-->
@@ -352,7 +352,25 @@
 		<!--BOOTSTRAP 5-->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 		<script>
-			
+			 function showSection(sectionId) {
+		        document.querySelectorAll('.equip-section').forEach(s => s.classList.remove('active'));
+		        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+		        const section = document.getElementById(sectionId);
+		        if (section) section.classList.add('active');
+		        document.querySelectorAll('.tab-btn').forEach(b => {
+		          if (b.textContent.trim().toLowerCase().includes(sectionId)) {
+		            b.classList.add('active');
+		          }
+		        });
+		        if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		      }
+	
+		      window.addEventListener('DOMContentLoaded', () => {
+		        const hash = window.location.hash.replace('#','');
+		        if (hash && ['football','basketball','tennis'].includes(hash)) {
+		          showSection(hash);
+		        }
+		      });
 		</script>
 				  
 		  
