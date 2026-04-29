@@ -6,6 +6,7 @@
       <meta name="viewport" content="width=device-width, intial-scale=1.0">
 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+	  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     </head>
 
 	  <body>
@@ -37,9 +38,9 @@
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" href="clothing.html" role="button" data-bs-toggle="dropdown">Clothing</a>
 								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="#men">Men</a></li>
-									<li><a class="dropdown-item" href="#women">Women</a></li>
-									<li><a class="dropdown-item" href="#kids">Kids</a></li>
+									<li><a class="dropdown-item" href="#men" onClick="showSection('men')">Men</a></li>
+									<li><a class="dropdown-item" href="#women" onClick="showSection('women')">Women</a></li>
+									<li><a class="dropdown-item" href="#kids" onClick="showSection('kids')">Kids</a></li>
 								</ul>
 							</li>
 
@@ -72,6 +73,255 @@
 				  </div>
 			  </nav>
 		  </header>
+
+		  <!--MAIN CONTENT-->
+		  <div class="clothing-main">
+			  <div class="sidebar-img-box">
+				  <img src="" alt="Clothing Promo">
+			  </div>
+			  <div>
+				  <video controls poster="">
+				  <source src="" type="video/mp4">
+				  </video>
+				  <div class="play-overlay"><div class="play-circle"><i class="fas fa-play"></i></div></div>
+			  </div>
+		  </div>
+
+		  <!--PRODUCTS-->
+		  <div CLASS="clothing-content">
+
+			  <!--SECTION TABS-->
+			  <div class="section-tabs">
+				  <button class="tab-btn active" onClick="showSection('men')">
+					  <i class="fas fa-chevron-right me-1"></i>MEN
+				  </button>
+				  <button class="tab-btn" onClick="showSection('women')">WOMEN</button>
+				  <button class="tab-btn" onClick="showSection('kids')">KIDS</button>
+			  </div>
+
+			  <!--MEN SECTION-->
+			  <div>
+				  <div class="section-heading"><i class="fas fa-male me-2"></i >Men's Clothing</div>
+
+				  <!--ROW 1-->
+				  <div class="row">
+					  <div class="product-card">
+						  <img src="" alt="Vest">
+						  <div class="p-name">VEST</div>
+						  <div class="p-price">P110.00</div>
+						  <a href="#" class="btn-buy">BUY NOW</a>
+					  </div>
+					   <div class="product-card">
+						  <img src="" alt="Shorts">
+						  <div class="p-name">SHORTS</div>
+						  <div class="p-price">P250.00</div>
+						  <a href="#" class="btn-buy">BUY NOW</a>
+					  </div>
+					   <div class="product-card">
+						  <img src="" alt="Socks">
+						  <div class="p-name">SOCKS</div>
+						  <div class="p-price">P25.00</div>
+						  <a href="#" class="btn-buy">BUY NOW</a>
+					  </div>
+				  </div>
+
+				   <!--ROW 2-->
+				  <div class="row">
+					  <div class="product-card">
+						  <img src="" alt="">
+						  <div class="p-name"></div>
+						  <div class="p-price">P.00</div>
+						  <a href="#" class="btn-buy">BUY NOW</a>
+					  </div>
+					   <div class="product-card">
+						  <img src="" alt="">
+						  <div class="p-name"></div>
+						  <div class="p-price">P.00</div>
+						  <a href="#" class="btn-buy">BUY NOW</a>
+					  </div>
+					   <div class="product-card">
+						  <img src="" alt="">
+						  <div class="p-name"></div>
+						  <div class="p-price">P.00</div>
+						  <a href="#" class="btn-buy">BUY NOW</a>
+					  </div>
+				  </div>
+
+				   <!--ROW 3-->
+				  <div class="row">
+					  <div class="product-card">
+						  <img src="" alt="">
+						  <div class="p-name">V</div>
+						  <div class="p-price">P.00</div>
+						  <a href="#" class="btn-buy">BUY NOW</a>
+					  </div>
+					   <div class="product-card">
+						  <img src="" alt="">
+						  <div class="p-name"></div>
+						  <div class="p-price">P.00</div>
+						  <a href="#" class="btn-buy">BUY NOW</a>
+					  </div>
+					   <div class="product-card">
+						  <img src="" alt="">
+						  <div class="p-name"></div>
+						  <div class="p-price">P.00</div>
+						  <a href="#" class="btn-buy">BUY NOW</a>
+					  </div>
+				  </div>
+			  </div>
+
+
+			  
+			  <!--MEN SECTION-->
+			  <div>
+				  <div class="section-heading"><i class="fas fa-female me-2"></i >Women's Clothing</div>
+
+				  <!--ROW 1-->
+				  <div class="row">
+					  <div class="product-card">
+						  <img src="" alt="">
+						  <div class="p-name"></div>
+						  <div class="p-price">P.00</div>
+						  <a href="#" class="btn-buy">BUY NOW</a>
+					  </div>
+					   <div class="product-card">
+						  <img src="" alt="">
+						  <div class="p-name"></div>
+						  <div class="p-price">P.00</div>
+						  <a href="#" class="btn-buy">BUY NOW</a>
+					  </div>
+					   <div class="product-card">
+						  <img src="" alt="">
+						  <div class="p-name"></div>
+						  <div class="p-price">P.00</div>
+						  <a href="#" class="btn-buy">BUY NOW</a>
+					  </div>
+				  </div>
+
+				   <!--ROW 2-->
+				  <div class="row">
+					  <div class="product-card">
+						  <img src="" alt="">
+						  <div class="p-name"></div>
+						  <div class="p-price">P.00</div>
+						  <a href="#" class="btn-buy">BUY NOW</a>
+					  </div>
+					   <div class="product-card">
+						  <img src="" alt="">
+						  <div class="p-name"></div>
+						  <div class="p-price">P.00</div>
+						  <a href="#" class="btn-buy">BUY NOW</a>
+					  </div>
+					   <div class="product-card">
+						  <img src="" alt="">
+						  <div class="p-name"></div>
+						  <div class="p-price">P.00</div>
+						  <a href="#" class="btn-buy">BUY NOW</a>
+					  </div>
+				  </div>
+
+				   <!--ROW 3-->
+				  <div class="row">
+					  <div class="product-card">
+						  <img src="" alt="">
+						  <div class="p-name">V</div>
+						  <div class="p-price">P.00</div>
+						  <a href="#" class="btn-buy">BUY NOW</a>
+					  </div>
+					   <div class="product-card">
+						  <img src="" alt="">
+						  <div class="p-name"></div>
+						  <div class="p-price">P.00</div>
+						  <a href="#" class="btn-buy">BUY NOW</a>
+					  </div>
+					   <div class="product-card">
+						  <img src="" alt="">
+						  <div class="p-name"></div>
+						  <div class="p-price">P.00</div>
+						  <a href="#" class="btn-buy">BUY NOW</a>
+					  </div>
+				  </div>
+			  </div>
+
+			  
+			  <!--KIDS SECTION-->
+			  <div>
+				  <div class="section-heading"><i class="fas fa-child me-2"></i >Kid's Clothing</div>
+
+				  <!--ROW 1-->
+				  <div class="row">
+					  <div class="product-card">
+						  <img src="" alt="">
+						  <div class="p-name"></div>
+						  <div class="p-price">P.00</div>
+						  <a href="#" class="btn-buy">BUY NOW</a>
+					  </div>
+					   <div class="product-card">
+						  <img src="" alt="">
+						  <div class="p-name"></div>
+						  <div class="p-price">P.00</div>
+						  <a href="#" class="btn-buy">BUY NOW</a>
+					  </div>
+					   <div class="product-card">
+						  <img src="" alt="">
+						  <div class="p-name"></div>
+						  <div class="p-price">P.00</div>
+						  <a href="#" class="btn-buy">BUY NOW</a>
+					  </div>
+				  </div>
+
+				   <!--ROW 2-->
+				  <div class="row">
+					  <div class="product-card">
+						  <img src="" alt="">
+						  <div class="p-name"></div>
+						  <div class="p-price">P.00</div>
+						  <a href="#" class="btn-buy">BUY NOW</a>
+					  </div>
+					   <div class="product-card">
+						  <img src="" alt="">
+						  <div class="p-name"></div>
+						  <div class="p-price">P.00</div>
+						  <a href="#" class="btn-buy">BUY NOW</a>
+					  </div>
+					   <div class="product-card">
+						  <img src="" alt="">
+						  <div class="p-name"></div>
+						  <div class="p-price">P.00</div>
+						  <a href="#" class="btn-buy">BUY NOW</a>
+					  </div>
+				  </div>
+
+				   <!--ROW 3-->
+				  <div class="row">
+					  <div class="product-card">
+						  <img src="" alt="">
+						  <div class="p-name">V</div>
+						  <div class="p-price">P.00</div>
+						  <a href="#" class="btn-buy">BUY NOW</a>
+					  </div>
+					   <div class="product-card">
+						  <img src="" alt="">
+						  <div class="p-name"></div>
+						  <div class="p-price">P.00</div>
+						  <a href="#" class="btn-buy">BUY NOW</a>
+					  </div>
+					   <div class="product-card">
+						  <img src="" alt="">
+						  <div class="p-name"></div>
+						  <div class="p-price">P.00</div>
+						  <a href="#" class="btn-buy">BUY NOW</a>
+					  </div>
+				  </div>
+			  </div>
+		  </div> 
+	  </div>
+
+		  <!--FOOTER-->
+		  
+		  
+		  
+		  
 
 	  </body>
 
