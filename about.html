@@ -8,6 +8,228 @@
 		  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 		   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 		  <script src="main.js"></script>
+
+		   <style>
+      :root {
+        --green-dark: #3d5a45;
+        --green-nav: #4a6741;
+        --orange: #e87722;
+        --orange-dark: #c96010;
+        --black: #111111;
+        --white: #ffffff;
+        --card-bg: #3d5a45;
+        --footer-bg: #0d0d0d;
+      }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: 'Open Sans', sans-serif; background: #b0b8b0; }
+
+      /* ===== NAVBAR ===== */
+      .navbar {
+        background-color: var(--green-nav) !important;
+        padding: 0;
+        min-height: 90px;
+      }
+      .navbar-brand img {
+        width: 90px;
+        height: 90px;
+        object-fit: contain;
+        background: #fff;
+      }
+      .navbar .nav-link {
+        color: var(--white) !important;
+        font-family: 'Oswald', sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        padding: 0.5rem 1rem !important;
+        text-transform: uppercase;
+      }
+      .navbar .nav-link:hover { color: var(--orange) !important; }
+      .navbar .dropdown-menu {
+        background-color: var(--green-dark);
+        border: none;
+        border-radius: 0;
+      }
+      .navbar .dropdown-item {
+        color: var(--white);
+        font-family: 'Oswald', sans-serif;
+        letter-spacing: 1px;
+      }
+      .navbar .dropdown-item:hover {
+        background-color: var(--orange);
+        color: var(--white);
+      }
+      .search-input {
+        border-radius: 20px 0 0 20px;
+        border: none;
+        padding: 6px 14px;
+        font-size: 0.9rem;
+        outline: none;
+        width: 150px;
+      }
+      .search-btn {
+        background: var(--white);
+        border: none;
+        border-radius: 0 20px 20px 0;
+        padding: 6px 10px;
+        cursor: pointer;
+        color: #555;
+      }
+      .cart-icon {
+        color: var(--orange);
+        font-size: 1.6rem;
+        cursor: pointer;
+        margin-left: 10px;
+      }
+
+      /* ===== HERO IMAGE ===== */
+      .about-hero {
+        width: 100%;
+        height: 240px;
+        overflow: hidden;
+        background: #222;
+      }
+      .about-hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* ===== INFO CARDS SECTION ===== */
+      .about-cards-section {
+        background: var(--card-bg);
+        padding: 20px 16px;
+      }
+      .about-cards-row {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .about-card {
+        flex: 1;
+        min-width: 220px;
+        max-width: 300px;
+        border-radius: 8px;
+        overflow: hidden;
+        position: relative;
+        height: 160px;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+      .about-card:hover { transform: scale(1.02); }
+      .about-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(0.55);
+      }
+      .about-card-label {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--white);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      /* ===== ABOUT DETAIL SECTIONS ===== */
+      .about-detail {
+        background: #b0b8b0;
+        padding: 30px 20px;
+        max-width: 860px;
+        margin: 0 auto;
+      }
+      .about-detail h3 {
+        font-family: 'Oswald', sans-serif;
+        color: var(--green-nav);
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        border-left: 5px solid var(--orange);
+        padding-left: 12px;
+      }
+      .about-detail p {
+        font-size: 0.97rem;
+        color: #333;
+        line-height: 1.8;
+        margin-bottom: 24px;
+      }
+
+      /* ===== FOOTER ===== */
+      footer {
+        background: var(--footer-bg);
+        color: var(--white);
+        padding: 24px 0;
+      }
+      .footer-inner {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-between;
+        align-items: flex-start;
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      .footer-col { min-width: 150px; }
+      .footer-copy {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.9rem;
+      }
+      .footer-copy i { color: var(--white); font-size: 1rem; }
+      .contact-title, .social-title, .help-title {
+        color: var(--orange);
+        font-family: 'Oswald', sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
+      }
+      .contact-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.88rem;
+        margin-bottom: 4px;
+      }
+      .contact-row i { color: var(--orange); width: 18px; }
+      .social-icons { display: flex; gap: 10px; }
+      .social-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        color: #fff;
+        text-decoration: none;
+        transition: opacity 0.2s;
+      }
+      .social-icon:hover { opacity: 0.8; }
+      .social-icon.ig { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
+      .social-icon.fb { background: #1877f2; }
+      .social-icon.tw { background: #1da1f2; }
+      .footer-help a {
+        color: var(--white);
+        display: block;
+        font-size: 0.88rem;
+        text-decoration: none;
+        margin-bottom: 4px;
+      }
+      .footer-help a:hover { color: var(--orange); }
+    </style>
 	  </head>
 
 	  <body>
