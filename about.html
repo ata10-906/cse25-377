@@ -1,356 +1,229 @@
 <!DOCTYPE html>
-  <html lang="en">
-	  <head>
-		  <title>About - ProSport Gear</title>
-		  <meta charset="UTF-8">
-		  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
-		  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-		   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-		  <script src="main.js"></script>
+<html lang="en">
+  <head>
+    <title>About - ProSport Gear</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- FIX: script moved to bottom of page -->
 
-		   <style>
+    <style>
       :root {
+        --green-nav:  #4a6741;
         --green-dark: #3d5a45;
-        --green-nav: #4a6741;
-        --orange: #e87722;
-        --orange-dark: #c96010;
-        --black: #111111;
-        --white: #ffffff;
-        --card-bg: #3d5a45;
-        --footer-bg: #0d0d0d;
+        --orange:     #e87722;
+        --white:      #ffffff;
+        --card-bg:    #3d5a45;
+        --footer-bg:  #0d0d0d;
       }
-
       * { box-sizing: border-box; margin: 0; padding: 0; }
       body { font-family: 'Open Sans', sans-serif; background: #b0b8b0; }
 
-      /* ===== NAVBAR ===== */
-      .navbar {
-        background-color: var(--green-nav) !important;
-        padding: 0;
-        min-height: 90px;
-      }
-      .navbar-brand img {
-        width: 90px;
-        height: 90px;
-        object-fit: contain;
-        background: #fff;
-      }
+      /* NAVBAR */
+      .navbar { background-color: var(--green-nav) !important; padding: 0; min-height: 90px; }
+      .navbar-brand img { width: 90px; height: 90px; object-fit: contain; background: #fff; }
       .navbar .nav-link {
-        color: var(--white) !important;
-        font-family: 'Oswald', sans-serif;
-        font-size: 1rem;
-        font-weight: 600;
-        letter-spacing: 1px;
-        padding: 0.5rem 1rem !important;
-        text-transform: uppercase;
+        color: var(--white) !important; font-family: 'Oswald', sans-serif;
+        font-size: 1rem; font-weight: 600; letter-spacing: 1px;
+        padding: 0.5rem 1rem !important; text-transform: uppercase;
       }
       .navbar .nav-link:hover { color: var(--orange) !important; }
-      .navbar .dropdown-menu {
-        background-color: var(--green-dark);
-        border: none;
-        border-radius: 0;
-      }
-      .navbar .dropdown-item {
-        color: var(--white);
-        font-family: 'Oswald', sans-serif;
-        letter-spacing: 1px;
-      }
-      .navbar .dropdown-item:hover {
-        background-color: var(--orange);
-        color: var(--white);
-      }
-      .search-input {
-        border-radius: 20px 0 0 20px;
-        border: none;
-        padding: 6px 14px;
-        font-size: 0.9rem;
-        outline: none;
-        width: 150px;
-      }
-      .search-btn {
-        background: var(--white);
-        border: none;
-        border-radius: 0 20px 20px 0;
-        padding: 6px 10px;
-        cursor: pointer;
-        color: #555;
-      }
-      .cart-icon {
-        color: var(--orange);
-        font-size: 1.6rem;
-        cursor: pointer;
-        margin-left: 10px;
-      }
+      .navbar .dropdown-menu { background-color: var(--green-dark); border: none; border-radius: 0; }
+      .navbar .dropdown-item { color: var(--white); font-family: 'Oswald', sans-serif; letter-spacing: 1px; }
+      .navbar .dropdown-item:hover { background-color: var(--orange); color: var(--white); }
+      .search-input { border-radius: 20px 0 0 20px; border: none; padding: 6px 12px; font-size: 0.88rem; outline: none; width: 130px; }
+      .search-btn { background: var(--white); border: none; border-radius: 0 20px 20px 0; padding: 6px 10px; cursor: pointer; color: #555; }
+      .cart-icon { color: var(--orange); font-size: 1.5rem; cursor: pointer; margin-left: 8px; }
 
-      /* ===== HERO IMAGE ===== */
-      .about-hero {
-        width: 100%;
-        height: 240px;
-        overflow: hidden;
-        background: #222;
-      }
-      .about-hero img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
+      /* HERO IMAGE (full width) */
+      .about-hero { width: 100%; height: 240px; overflow: hidden; background: #222; }
+      .about-hero img { width: 100%; height: 100%; object-fit: cover; }
 
-      /* ===== INFO CARDS SECTION ===== */
-      .about-cards-section {
-        background: var(--card-bg);
-        padding: 20px 16px;
-      }
+      /* INFO CARDS */
+      /* FIX: original used class="cards-row" but CSS had .about-cards-row – name mismatch */
+      .about-cards-section { background: var(--card-bg); padding: 24px 16px; }
       .about-cards-row {
-        display: flex;
-        gap: 16px;
-        flex-wrap: wrap;
-        justify-content: center;
+        display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;
       }
       .about-card {
-        flex: 1;
-        min-width: 220px;
-        max-width: 300px;
-        border-radius: 8px;
-        overflow: hidden;
-        position: relative;
-        height: 160px;
-        cursor: pointer;
-        transition: transform 0.2s;
+        flex: 1; min-width: 200px; max-width: 280px;
+        border-radius: 8px; overflow: hidden; position: relative;
+        height: 160px; cursor: pointer; transition: transform 0.2s;
+        background: #555;
       }
-      .about-card:hover { transform: scale(1.02); }
+      .about-card:hover { transform: scale(1.03); }
+      .about-card img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.55); }
+      /* FIX: original used class="card-label" but CSS had .about-card-label – name mismatch */
       .about-card-label {
-        position: absolute;
-        inset: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: 'Oswald', sans-serif;
-        font-size: 1.2rem;
-        font-weight: 700;
-        color: var(--white);
-        letter-spacing: 2px;
-        text-transform: uppercase;
+        position: absolute; inset: 0;
+        display: flex; align-items: center; justify-content: center;
+        font-family: 'Oswald', sans-serif; font-size: 1.15rem; font-weight: 700;
+        color: var(--white); letter-spacing: 2px; text-transform: uppercase;
       }
 
-      /* ===== ABOUT DETAIL SECTIONS ===== */
-      .about-detail {
-        background: #b0b8b0;
-        padding: 30px 20px;
-        max-width: 860px;
-        margin: 0 auto;
-      }
+      /* DETAIL TEXT */
+      .about-detail { background: #b0b8b0; padding: 28px 20px; max-width: 860px; margin: 0 auto; }
       .about-detail h3 {
-        font-family: 'Oswald', sans-serif;
-        color: var(--green-nav);
-        font-size: 1.5rem;
-        font-weight: 700;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        margin-bottom: 10px;
-        border-left: 5px solid var(--orange);
-        padding-left: 12px;
+        font-family: 'Oswald', sans-serif; color: var(--green-nav);
+        font-size: 1.4rem; font-weight: 700; letter-spacing: 2px;
+        text-transform: uppercase; margin-bottom: 8px;
+        border-left: 5px solid var(--orange); padding-left: 12px;
       }
-      .about-detail p {
-        font-size: 0.97rem;
-        color: #333;
-        line-height: 1.8;
-        margin-bottom: 24px;
-      }
+      .about-detail p { font-size: 0.95rem; color: #333; line-height: 1.8; margin-bottom: 22px; }
 
-      /* ===== FOOTER ===== */
-      footer {
-        background: var(--footer-bg);
-        color: var(--white);
-        padding: 24px 0;
-      }
+      /* FOOTER */
+      footer { background: var(--footer-bg); color: var(--white); padding: 24px 0; }
       .footer-inner {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: space-between;
-        align-items: flex-start;
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 0 20px;
+        display: flex; flex-wrap: wrap; gap: 20px;
+        justify-content: space-between; align-items: flex-start;
+        max-width: 960px; margin: 0 auto; padding: 0 20px;
       }
-      .footer-col { min-width: 150px; }
-      .footer-copy {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 0.9rem;
-      }
-      .footer-copy i { color: var(--white); font-size: 1rem; }
+      .footer-col { min-width: 140px; }
+      .footer-copy { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; }
       .contact-title, .social-title, .help-title {
-        color: var(--orange);
-        font-family: 'Oswald', sans-serif;
-        font-size: 1rem;
-        font-weight: 600;
-        letter-spacing: 1px;
-        margin-bottom: 8px;
+        color: var(--orange); font-family: 'Oswald', sans-serif;
+        font-size: 1rem; font-weight: 600; letter-spacing: 1px; margin-bottom: 8px;
       }
-      .contact-row {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 0.88rem;
-        margin-bottom: 4px;
-      }
+      .contact-row { display: flex; align-items: center; gap: 8px; font-size: 0.88rem; margin-bottom: 4px; }
       .contact-row i { color: var(--orange); width: 18px; }
       .social-icons { display: flex; gap: 10px; }
       .social-icon {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.1rem;
-        color: #fff;
-        text-decoration: none;
-        transition: opacity 0.2s;
+        width: 38px; height: 38px; border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 1rem; color: #fff; text-decoration: none; transition: opacity 0.2s;
       }
       .social-icon:hover { opacity: 0.8; }
       .social-icon.ig { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
       .social-icon.fb { background: #1877f2; }
       .social-icon.tw { background: #1da1f2; }
-      .footer-help a {
-        color: var(--white);
-        display: block;
-        font-size: 0.88rem;
-        text-decoration: none;
-        margin-bottom: 4px;
-      }
+      .footer-help a { color: var(--white); display: block; font-size: 0.88rem; text-decoration: none; margin-bottom: 4px; }
       .footer-help a:hover { color: var(--orange); }
     </style>
-	  </head>
+  </head>
 
-	  <body>
+  <body>
 
-		  <!--NAVBAR-->
-		  <header>
-			  <nav class="navbar navbar-expand-lg">
-				  <div class="container-fluid px-0">
-					 <a class="navbar-brand ms-0" href="index.html">
-						 <img src="" alt="ProSport Gear">
-					 </a>
-					  <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar"
-						  style="border-color:#fff;">
-						  <span class="navbar-toggler-icon"></span>
-					  </button>
-					  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-						<ul class="navbar-nav mx-auto gap-1 align-items-center">
+    <!-- NAVBAR -->
+    <header>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid px-0">
+          <a class="navbar-brand ms-0" href="index.html">
+            <img src="logo.png" alt="ProSport Gear Logo">
+          </a>
+          <button class="navbar-toggler me-3" type="button"
+            data-bs-toggle="collapse" data-bs-target="#mainNav" style="border-color:#fff;">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav mx-auto gap-1 align-items-center">
+              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="clothing.html" role="button" data-bs-toggle="dropdown">Clothing</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="clothing.html#men">Men</a></li>
+                  <li><a class="dropdown-item" href="clothing.html#women">Women</a></li>
+                  <li><a class="dropdown-item" href="clothing.html#kids">Kids</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="equipment.html" role="button" data-bs-toggle="dropdown">Equipment</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="equipment.html#football">Football</a></li>
+                  <li><a class="dropdown-item" href="equipment.html#basketball">Basketball</a></li>
+                  <li><a class="dropdown-item" href="equipment.html#tennis">Tennis</a></li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+              <li class="nav-item d-flex align-items-center ms-2">
+                <input type="text" placeholder="Search..." class="search-input">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+              </li>
+              <li class="nav-item d-flex align-items-center">
+                <i class="fas fa-shopping-cart cart-icon"></i>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
 
-							<!--HOME-->
-							<li class="nav-item">
-								<a class="nav-link" href="index.html">Home</a>
-							</li>
-							
-							<!--ABOUT-->
-							<li class="nav-item">
-								<a class="nav-link" href="about.html">About</a>
-							</li>
+    <!-- HERO IMAGE -->
+    <div class="about-hero">
+      <img src="about-hero.jpg" alt="ProSport Gear">
+    </div>
 
-							<!--CLOTHING DROPDOWN-->
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="clothing.html" role="button" data-bs-toggle="dropdown">Clothing</a>
-								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="#men">Men</a></li>
-									<li><a class="dropdown-item" href="#women">Women</a></li>
-									<li><a class="dropdown-item" href="#kids">Kids</a></li>
-								</ul>
-							</li>
+    <!-- INFO CARDS -->
+    <!-- FIX: class was "cards-row" – changed to "about-cards-row" to match CSS -->
+    <div class="about-cards-section">
+      <div class="about-cards-row">
 
-							<!--EQUIPMENT DROPDOWN-->
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="equipment.html" role="button" data-bs-toggle="dropdown">Equipment</a>
-								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="#football">Football</a></li>
-									<li><a class="dropdown-item" href="#basketball">Basketball</a></li>
-									<li><a class="dropdown-item" href="#tennis">Tennis</a></li>
-								</ul>
-							</li>
+        <div class="about-card">
+          <img src="company-bg.jpg" alt="Company Info">
+          <!-- FIX: class was "card-label" – changed to "about-card-label" to match CSS -->
+          <div class="about-card-label">COMPANY INFO</div>
+        </div>
 
-							<!--FEEDBACK-->
-							<li class="nav-item">
-								<a class="nav-link" href="feedback.html">Feedback</a>
-							</li>
+        <div class="about-card">
+          <img src="mission-bg.jpg" alt="Mission">
+          <div class="about-card-label">MISSION</div>
+        </div>
 
-							<!--SEARCH-->
-							<li class="nav-item d-flex align-items-center ms-2">
-								<input type="text" placeholder="Search..." class="search-input">
-								<button class="search-btn"><i class="fas fa-search"></i></button>
-							</li>
+        <div class="about-card">
+          <img src="values-bg.jpg" alt="Values">
+          <div class="about-card-label">VALUES</div>
+        </div>
 
-							<!--CART-->
-							<li class="nav-item d-flex align-items-center">
-								<i class="fas fa-shopping-cart cart-icon"></i>
-							</li>
-						</ul>
-				  </div>
-			  </nav>
-		  </header>
+      </div>
+    </div>
 
-		  <!--HERO IMAGE-->
-		  <div class="about-hero">
-			  <img src="" alt="ProSport Gear About">
-		  </div>
+    <!-- DETAIL TEXT -->
+    <div class="about-detail">
+      <h3>Company Info</h3>
+      <p>ProSport Gear is Botswana's premier destination for quality sporting goods.
+         Founded in 2020, we bring athletes and enthusiasts the best equipment and
+         apparel at competitive prices, covering football, basketball, tennis, and more.</p>
 
-		  <!--INFO CARDS-->
-		  <div class="about-cards-section">
-			  <div class="cards-row">
-				  <div class="about-card">
-					  <div class="card-label">COMPANY INFO</div>
-					  <div class="card-detail"><p></p></div>
-				  </div>
-				  
-				  <div class="about-card">
-					  <div class="card-label">MISSION</div>
-					  <div class="card-detail"><p></p></div>
-				  </div>
+      <h3>Mission</h3>
+      <p>Our mission is to inspire and equip every athlete — from beginners to professionals —
+         with top-quality sport gear that enhances performance and promotes an active lifestyle.</p>
 
-				  <div class="about-card">
-					  <div class="card-label">VALUES</div>
-					  <div class="card-detail"><p></p></div> 
-				  </div>
-			  </div>
-		  </div>
-		  <!--FOOTER-->
-		<footer>
-			<div class="footer-inner">
+      <h3>Values</h3>
+      <p>We uphold <strong>Excellence</strong> in quality, <strong>Integrity</strong> in all dealings,
+         <strong>Community</strong> by supporting local sport, and <strong>Passion</strong> for the
+         sporting lifestyle.</p>
+    </div>
 
-				<div class="footer-col footer-copy">
-					<i class="far fa-copyright"></i>
-					<span>2026 ProSport Gear</span>
-				</div>
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-col footer-copy">
+          <i class="far fa-copyright"></i><span>2026 ProSport Gear</span>
+        </div>
+        <div class="footer-col">
+          <p class="contact-title">CONTACT INFO</p>
+          <div class="contact-row"><i class="far fa-envelope"></i><span>info@prosportgear.com</span></div>
+          <div class="contact-row"><i class="fas fa-phone"></i><span>+267 71828180</span></div>
+        </div>
+        <div class="footer-col">
+          <p class="social-title">SOCIAL LINKS</p>
+          <div class="social-icons">
+            <a href="#" class="social-icon ig"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon fb"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon tw"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="footer-col footer-help">
+          <p class="help-title">NEED HELP ?</p>
+          <a href="#">T's and C's</a>
+          <a href="#">Privacy Policy</a>
+        </div>
+      </div>
+    </footer>
 
-				<div class="footer-col footer-contact">
-					<p class="contact-title">CONTACT INFO</p>
-					<div class="contact-row"><i class="far fa-envelope"></i><span>info@prosportgear.com</span></div>
-					<div class="contact-row"><i class="fas fa-phone"></i><span>+267 71828180</span></div>
-				</div>
-
-				<div class="footer-col footer-social">
-					<p class="social-title">SOCIAL LINKS</p>
-					<div class="social-icons">
-						<a href="#" class="social-icon ig"><i class="fab fa-instagram"></i></a>
-						<a href="#" class="social-icon fb"><i class="fab fa-facebook-f"></i></a>
-						<a href="#" class="social-icon tw"><i class="fab fa-twitter"></i></a>
-					</div>
-				</div>
-
-				<div class="footer-col footer-help">
-					<p class="help-title">NEED HELP ?</p>
-					<a href="#">T's and C's</a>
-					<a href="#">Privacy Policy</a>
-				</div>
-				
-			</div>
-		</footer>
-		<!--BOOTSTRAP 5-->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-				  
-	  </body>
-  </html>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
