@@ -21,58 +21,135 @@
         --card-bg:    #3d5a45;
         --footer-bg:  #0d0d0d;
       }
-      * { box-sizing: border-box; margin: 0; padding: 0; }
-      body { font-family: 'Open Sans', sans-serif; background: #b0b8b0; }
+      * { 
+        box-sizing: border-box;
+        margin: 0; 
+        padding: 0; 
+      }
+      body { 
+        font-family: 'Open Sans', sans-serif; 
+        background: #b0b8b0;
+      }
 
       /* NAVBAR */
-      .navbar { background-color: var(--green-nav) !important; padding: 0; min-height: 90px; }
-      .navbar-brand img { width: 90px; height: 90px; object-fit: contain; background: #fff; }
-      .navbar .nav-link {
-        color: var(--white) !important; font-family: 'Oswald', sans-serif;
-        font-size: 1rem; font-weight: 600; letter-spacing: 1px;
-        padding: 0.5rem 1rem !important; text-transform: uppercase;
+      .navbar { 
+        background-color: var(--green-nav) !important; 
+        padding: 0; 
+        min-height: 90px;
       }
-      .navbar .nav-link:hover { color: var(--orange) !important; }
-      .navbar .dropdown-menu { background-color: var(--green-dark); border: none; border-radius: 0; }
-      .navbar .dropdown-item { color: var(--white); font-family: 'Oswald', sans-serif; letter-spacing: 1px; }
-      .navbar .dropdown-item:hover { background-color: var(--orange); color: var(--white); }
+      .navbar-brand img { 
+        width: 90px; 
+        height: 90px; 
+        object-fit: contain;
+        background: #fff; 
+      }
+      .navbar .nav-link {
+        color: var(--white) !important; 
+        font-family: 'Oswald', sans-serif;
+        font-size: 1rem; 
+        font-weight: 600;
+        letter-spacing: 1px;
+        padding: 0.5rem 1rem !important; 
+        text-transform: uppercase;
+      }
+      .navbar .nav-link:hover { color: var(--orange) !important;}
+      .navbar .dropdown-menu { 
+        background-color: var(--green-dark);
+        border: none; 
+        border-radius: 0;
+      }
+      .navbar .dropdown-item { 
+        color: var(--white);
+        font-family: 'Oswald', sans-serif; 
+        letter-spacing: 1px; 
+      }
+      .navbar .dropdown-item:hover { 
+        background-color: var(--orange); 
+        color: var(--white); 
+      }
       .search-input {
-        border-radius: 20px 0 0 20px; border: none;
-        padding: 6px 12px; font-size: 0.88rem; outline: none; width: 130px;
+        border-radius: 20px 0 0 20px; 
+        border: none;
+        padding: 6px 12px; 
+        font-size: 0.88rem;
+        outline: none; 
+        width: 130px;
       }
       .search-btn {
-        background: var(--white); border: none;
-        border-radius: 0 20px 20px 0; padding: 6px 10px; cursor: pointer; color: #555;
+        background: var(--white);
+        border: none;
+        border-radius: 0 20px 20px 0;
+        padding: 6px 10px; 
+        cursor: pointer; 
+        color: #555;
       }
-      .cart-icon { color: var(--orange); font-size: 1.5rem; cursor: pointer; margin-left: 8px; }
+      .cart-icon { 
+        color: var(--orange);
+        font-size: 1.5rem;
+        cursor: pointer; 
+        margin-left: 8px; 
+      }
 
       /* HERO VIDEO */
       .hero-video-section {
-        width: 100%; height: 220px; background: #222;
-        display: flex; align-items: center; justify-content: center;
-        overflow: hidden; position: relative;
+        width: 100%; 
+        height: 220px;
+        background: #222;
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
       }
-      .hero-video-section video { width: 100%; height: 100%; object-fit: cover; }
+      .hero-video-section video { 
+        width: 100%;
+        height: 100%; 
+        object-fit: cover; 
+      }
       .play-overlay {
-        position: absolute; width: 52px; height: 52px; border-radius: 50%;
+        position: absolute; 
+        width: 52px; 
+        height: 52px;
+        border-radius: 50%;
         background: rgba(255,255,255,0.85);
-        display: flex; align-items: center; justify-content: center;
-        font-size: 1.3rem; color: var(--green-dark); pointer-events: none;
+        display: flex; 
+        align-items: center; 
+        justify-content: center;
+        font-size: 1.3rem; 
+        color: var(--green-dark); 
+        ointer-events: none;
       }
 
-      /* SHOP NOW – centred, pill-shaped, small */
-      /* FIX: original wrapper <div> had no class so CSS rule .shop-now-wrap never applied */
-      .shop-now-wrap { display: flex; justify-content: center; padding: 14px 0 10px; background: #b0b8b0; }
-      .btn-shop-now {
-        background: var(--orange); color: var(--white);
-        font-family: 'Oswald', sans-serif; font-size: 0.9rem; font-weight: 700;
-        letter-spacing: 2px; padding: 7px 22px 7px 12px;
-        border: none; border-radius: 30px;
-        display: inline-flex; align-items: center; gap: 8px;
-        text-decoration: none; text-transform: uppercase;
-        box-shadow: 2px 3px 8px rgba(0,0,0,0.2); transition: background 0.2s;
+      /* SHOP NOW */
+    
+      .shop-now-wrap { 
+        display: flex;
+        justify-content: center;
+        padding: 14px 0 10px;
+        background: #b0b8b0;
       }
-      .btn-shop-now:hover { background: var(--orange-dark); color: #fff; }
+      .btn-shop-now {
+        background: var(--orange); 
+        color: var(--white);
+        font-family: 'Oswald', sans-serif; 
+        font-size: 0.9rem;
+        font-weight: 700;
+        letter-spacing: 2px; 
+        padding: 7px 22px 7px 12px;
+        border: none; 
+        border-radius: 30px;
+        display: inline-flex; 
+        align-items:center;
+        gap: 8px;
+        text-decoration: none;
+        text-transform: uppercase;
+        box-shadow: 2px 3px 8px rgba(0,0,0,0.2); 
+        transition: background 0.2s;
+      }
+      .btn-shop-now:hover { 
+        background: var(--orange-dark);
+        color: #fff; 
+      }
       .btn-shop-now .cart-circle {
         background: #000; border-radius: 50%; width: 26px; height: 26px;
         display: flex; align-items: center; justify-content: center;
@@ -86,7 +163,7 @@
         display: flex; gap: 16px; flex-wrap: wrap;
       }
 
-      /* LEFT 50% – video on top, banner below, both floated left */
+      /* LEFT */
       .ads-left {
         width: 50%; min-width: 200px; flex-shrink: 0;
         display: flex; flex-direction: column; gap: 10px;
