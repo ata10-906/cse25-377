@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <!-- FIX: script moved to bottom -->
+     <script src="javascript.js"></script>
 
     <style>
       :root {
@@ -254,26 +254,6 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-    <script src="main.js"></script>
-
-    <!-- Star rating visual update – runs after page is loaded -->
-    <script>
-      document.querySelectorAll('.star-rating input').forEach(function(radio) {
-        radio.addEventListener('change', function() {
-          var val = parseInt(radio.value);
-          document.querySelectorAll('.star-rating label').forEach(function(lbl, i) {
-            var starNum = 5 - i; /* labels are reversed: index 0 = star 5 */
-            var icon = lbl.querySelector('i');
-            if (starNum <= val) {
-              icon.className = 'fas fa-star';
-              lbl.style.color = '#e87722';
-            } else {
-              icon.className = 'far fa-star';
-              lbl.style.color = '#555';
-            }
-          });
-        });
-      });
-    </script>
+    
   </body>
 </html>
