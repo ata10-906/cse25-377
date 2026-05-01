@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <!-- FIX: script moved to bottom -->
 
     <style>
       :root {
@@ -39,8 +38,18 @@
       .cart-icon { color: var(--orange); font-size: 1.5rem; cursor: pointer; margin-left: 8px; }
 
       /* HERO VIDEO + BANNER (full width, stacked) */
-      .clothing-hero { width: 100%; display: flex; flex-direction: column; }
-      .hero-video-box { width: 100%; height: 180px; background: #222; overflow: hidden; position: relative; }
+      .clothing-hero {
+        width: 100%; 
+        display: flex;
+        flex-direction: column; 
+      }
+      .hero-video-box {
+        width: 100%;
+        height: 180px;
+        background: #222; 
+        overflow: hidden;
+        position: relative;
+      }
       .hero-video-box video { width: 100%; height: 100%; object-fit: cover; }
       .hero-banner-box { width: 100%; height: 100px; background: #444; overflow: hidden; }
       .hero-banner-box img { width: 100%; height: 100%; object-fit: cover; }
@@ -51,10 +60,10 @@
         display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #333;
       }
 
-      /* MAIN LAYOUT: sidebar 25% | products 75% */
+      /* MAIN LAYOUT */
       .clothing-main { display: flex; background: var(--card-bg); min-height: 400px; }
 
-      /* SIDEBAR – 25% */
+      /* SIDEBAR */
       .clothing-sidebar {
         width: 25%; min-width: 160px; flex-shrink: 0;
         background: var(--card-bg); padding: 12px;
@@ -67,7 +76,7 @@
       .sidebar-img-box  { height: 110px; }
       .sidebar-img-box img, .sidebar-video-box video { width: 100%; height: 100%; object-fit: cover; }
 
-      /* PRODUCT AREA – 75% */
+      /* PRODUCT AREA */
       .clothing-content { flex: 1; padding: 16px; overflow: hidden; }
 
       /* Tab buttons */
@@ -81,8 +90,6 @@
       .tab-btn:hover, .tab-btn.active { background: var(--orange); border-color: var(--orange); color: #fff; }
 
       /* Sections – hidden by default, shown when active */
-      /* FIX: ALL three sections had class="clothing-section active" in the original,
-         so all three showed at once. Only the first should start with "active". */
       .clothing-section { display: none; }
       .clothing-section.active { display: block; }
 
@@ -94,8 +101,6 @@
       }
 
       /* Product rows */
-      /* FIX: product rows used class="row" (Bootstrap row) instead of class="product-row".
-         Bootstrap's .row uses negative margins and breaks the flex card layout. */
       .product-row { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
       .product-card {
         background: var(--orange); border-radius: 8px; padding: 10px;
@@ -159,7 +164,7 @@
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid px-0">
           <a class="navbar-brand ms-0" href="index.html">
-            <img src="logo.png" alt="ProSport Gear Logo">
+            <img src="" alt="logo">
           </a>
           <button class="navbar-toggler me-3" type="button"
             data-bs-toggle="collapse" data-bs-target="#mainNav" style="border-color:#fff;">
@@ -210,19 +215,6 @@
       </div>
     </div>
 
-    <!-- MAIN: sidebar 25% | products 75% -->
-    <div class="clothing-main">
-
-      <!-- SIDEBAR -->
-      <div class="clothing-sidebar">
-        <div class="sidebar-video-box">
-          <video controls poster=""><source src="" type="video/mp4"></video>
-        </div>
-        <div class="sidebar-img-box">
-          <img src="clothing-promo.jpg" alt="Clothing Promo">
-        </div>
-      </div>
-
       <!-- PRODUCTS -->
       <div class="clothing-content">
 
@@ -235,24 +227,23 @@
           <button class="tab-btn" onclick="showClothingSection('kids')">KIDS</button>
         </div>
 
-        <!-- MEN – only this one starts visible -->
-        <!-- FIX: all three had "active" class so all showed at once -->
+        <!-- CLOTHING SECTION -->
         <div id="men" class="clothing-section active">
           <div class="section-heading"><i class="fas fa-male me-2"></i>Men's Clothing</div>
           <div class="product-row">
-            <div class="product-card"><img src="vest.jpg" alt="Vest"><div class="p-name">VEST</div><div class="p-price">P110.00</div><a href="#" class="btn-buy" onclick="buyNow('Vest',110);return false;">BUY NOW</a></div>
-            <div class="product-card"><img src="shorts.jpg" alt="Shorts"><div class="p-name">SHORTS</div><div class="p-price">P250.00</div><a href="#" class="btn-buy" onclick="buyNow('Shorts',250);return false;">BUY NOW</a></div>
-            <div class="product-card"><img src="socks.jpg" alt="Socks"><div class="p-name">SOCKS</div><div class="p-price">P25.00</div><a href="#" class="btn-buy" onclick="buyNow('Socks',25);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="" alt="Vest"><div class="p-name">VEST</div><div class="p-price">P110.00</div><a href="#" class="btn-buy" onclick="buyNow('Vest',110);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="" alt="Shorts"><div class="p-name">SHORTS</div><div class="p-price">P250.00</div><a href="#" class="btn-buy" onclick="buyNow('Shorts',250);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="" alt="Socks"><div class="p-name">SOCKS</div><div class="p-price">P25.00</div><a href="#" class="btn-buy" onclick="buyNow('Socks',25);return false;">BUY NOW</a></div>
           </div>
           <div class="product-row">
-            <div class="product-card"><img src="m-jersey.jpg" alt="Jersey"><div class="p-name">JERSEY</div><div class="p-price">P300.00</div><a href="#" class="btn-buy" onclick="buyNow('Jersey',300);return false;">BUY NOW</a></div>
-            <div class="product-card"><img src="tracksuit.jpg" alt="Tracksuit"><div class="p-name">TRACKSUIT</div><div class="p-price">P650.00</div><a href="#" class="btn-buy" onclick="buyNow('Tracksuit',650);return false;">BUY NOW</a></div>
-            <div class="product-card"><img src="cap.jpg" alt="Cap"><div class="p-name">CAP</div><div class="p-price">P80.00</div><a href="#" class="btn-buy" onclick="buyNow('Cap',80);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="" alt="Jersey"><div class="p-name">JERSEY</div><div class="p-price">P300.00</div><a href="#" class="btn-buy" onclick="buyNow('Jersey',300);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="" alt=""><div class="p-name">TRACKSUIT</div><div class="p-price">P650.00</div><a href="#" class="btn-buy" onclick="buyNow('Tracksuit',650);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="" alt=""><div class="p-name">CAP</div><div class="p-price">P80.00</div><a href="#" class="btn-buy" onclick="buyNow('Cap',80);return false;">BUY NOW</a></div>
           </div>
           <div class="product-row">
-            <div class="product-card"><img src="hoodie.jpg" alt="Hoodie"><div class="p-name">HOODIE</div><div class="p-price">P450.00</div><a href="#" class="btn-buy" onclick="buyNow('Hoodie',450);return false;">BUY NOW</a></div>
-            <div class="product-card"><img src="polo.jpg" alt="Polo"><div class="p-name">POLO SHIRT</div><div class="p-price">P220.00</div><a href="#" class="btn-buy" onclick="buyNow('Polo Shirt',220);return false;">BUY NOW</a></div>
-            <div class="product-card"><img src="gloves.jpg" alt="Gloves"><div class="p-name">GLOVES</div><div class="p-price">P120.00</div><a href="#" class="btn-buy" onclick="buyNow('Gloves',120);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="" alt="Hoodie"><div class="p-name">HOODIE</div><div class="p-price">P450.00</div><a href="#" class="btn-buy" onclick="buyNow('Hoodie',450);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="" alt="Polo"><div class="p-name">POLO SHIRT</div><div class="p-price">P220.00</div><a href="#" class="btn-buy" onclick="buyNow('Polo Shirt',220);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="" alt="Gloves"><div class="p-name">GLOVES</div><div class="p-price">P120.00</div><a href="#" class="btn-buy" onclick="buyNow('Gloves',120);return false;">BUY NOW</a></div>
           </div>
         </div>
 
@@ -260,19 +251,19 @@
         <div id="women" class="clothing-section">
           <div class="section-heading"><i class="fas fa-female me-2"></i>Women's Clothing</div>
           <div class="product-row">
-            <div class="product-card"><img src="w-vest.jpg" alt="Vest"><div class="p-name">SPORTS VEST</div><div class="p-price">P130.00</div><a href="#" class="btn-buy" onclick="buyNow('Sports Vest',130);return false;">BUY NOW</a></div>
-            <div class="product-card"><img src="w-leggings.jpg" alt="Leggings"><div class="p-name">LEGGINGS</div><div class="p-price">P280.00</div><a href="#" class="btn-buy" onclick="buyNow('Leggings',280);return false;">BUY NOW</a></div>
-            <div class="product-card"><img src="w-shorts.jpg" alt="Shorts"><div class="p-name">SHORTS</div><div class="p-price">P200.00</div><a href="#" class="btn-buy" onclick="buyNow('Shorts',200);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="" alt="Vest"><div class="p-name">SPORTS VEST</div><div class="p-price">P130.00</div><a href="#" class="btn-buy" onclick="buyNow('Sports Vest',130);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="" alt="Leggings"><div class="p-name">LEGGINGS</div><div class="p-price">P280.00</div><a href="#" class="btn-buy" onclick="buyNow('Leggings',280);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="" alt="Shorts"><div class="p-name">SHORTS</div><div class="p-price">P200.00</div><a href="#" class="btn-buy" onclick="buyNow('Shorts',200);return false;">BUY NOW</a></div>
           </div>
           <div class="product-row">
-            <div class="product-card"><img src="w-jersey.jpg" alt="Jersey"><div class="p-name">JERSEY</div><div class="p-price">P320.00</div><a href="#" class="btn-buy" onclick="buyNow('Jersey',320);return false;">BUY NOW</a></div>
-            <div class="product-card"><img src="w-bra.jpg" alt="Sports Bra"><div class="p-name">SPORTS BRA</div><div class="p-price">P180.00</div><a href="#" class="btn-buy" onclick="buyNow('Sports Bra',180);return false;">BUY NOW</a></div>
-            <div class="product-card"><img src="w-jacket.jpg" alt="Jacket"><div class="p-name">JACKET</div><div class="p-price">P550.00</div><a href="#" class="btn-buy" onclick="buyNow('Jacket',550);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="" alt="Jersey"><div class="p-name">JERSEY</div><div class="p-price">P320.00</div><a href="#" class="btn-buy" onclick="buyNow('Jersey',320);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="" alt="Sports Bra"><div class="p-name">SPORTS BRA</div><div class="p-price">P180.00</div><a href="#" class="btn-buy" onclick="buyNow('Sports Bra',180);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="" alt="Jacket"><div class="p-name">JACKET</div><div class="p-price">P550.00</div><a href="#" class="btn-buy" onclick="buyNow('Jacket',550);return false;">BUY NOW</a></div>
           </div>
           <div class="product-row">
-            <div class="product-card"><img src="w-hoodie.jpg" alt="Hoodie"><div class="p-name">HOODIE</div><div class="p-price">P420.00</div><a href="#" class="btn-buy" onclick="buyNow('Hoodie',420);return false;">BUY NOW</a></div>
-            <div class="product-card"><img src="w-cap.jpg" alt="Cap"><div class="p-name">CAP</div><div class="p-price">P75.00</div><a href="#" class="btn-buy" onclick="buyNow('Cap',75);return false;">BUY NOW</a></div>
-            <div class="product-card"><img src="w-socks.jpg" alt="Socks"><div class="p-name">SOCKS</div><div class="p-price">P25.00</div><a href="#" class="btn-buy" onclick="buyNow('Socks',25);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="" alt="Hoodie"><div class="p-name">HOODIE</div><div class="p-price">P420.00</div><a href="#" class="btn-buy" onclick="buyNow('Hoodie',420);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="" alt="Cap"><div class="p-name">CAP</div><div class="p-price">P75.00</div><a href="#" class="btn-buy" onclick="buyNow('Cap',75);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="" alt="Socks"><div class="p-name">SOCKS</div><div class="p-price">P25.00</div><a href="#" class="btn-buy" onclick="buyNow('Socks',25);return false;">BUY NOW</a></div>
           </div>
         </div>
 
@@ -280,19 +271,19 @@
         <div id="kids" class="clothing-section">
           <div class="section-heading"><i class="fas fa-child me-2"></i>Kids' Clothing</div>
           <div class="product-row">
-            <div class="product-card"><img src="k-vest.jpg" alt="Vest"><div class="p-name">KIDS VEST</div><div class="p-price">P90.00</div><a href="#" class="btn-buy" onclick="buyNow('Kids Vest',90);return false;">BUY NOW</a></div>
-            <div class="product-card"><img src="k-shorts.jpg" alt="Shorts"><div class="p-name">SHORTS</div><div class="p-price">P150.00</div><a href="#" class="btn-buy" onclick="buyNow('Shorts',150);return false;">BUY NOW</a></div>
-            <div class="product-card"><img src="k-socks.jpg" alt="Socks"><div class="p-name">SOCKS</div><div class="p-price">P20.00</div><a href="#" class="btn-buy" onclick="buyNow('Socks',20);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="" alt="Vest"><div class="p-name">KIDS VEST</div><div class="p-price">P90.00</div><a href="#" class="btn-buy" onclick="buyNow('Kids Vest',90);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="" alt="Shorts"><div class="p-name">SHORTS</div><div class="p-price">P150.00</div><a href="#" class="btn-buy" onclick="buyNow('Shorts',150);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="" alt="Socks"><div class="p-name">SOCKS</div><div class="p-price">P20.00</div><a href="#" class="btn-buy" onclick="buyNow('Socks',20);return false;">BUY NOW</a></div>
           </div>
           <div class="product-row">
-            <div class="product-card"><img src="k-jersey.jpg" alt="Jersey"><div class="p-name">JERSEY</div><div class="p-price">P220.00</div><a href="#" class="btn-buy" onclick="buyNow('Jersey',220);return false;">BUY NOW</a></div>
-            <div class="product-card"><img src="k-tracksuit.jpg" alt="Tracksuit"><div class="p-name">TRACKSUIT</div><div class="p-price">P400.00</div><a href="#" class="btn-buy" onclick="buyNow('Tracksuit',400);return false;">BUY NOW</a></div>
-            <div class="product-card"><img src="k-cap.jpg" alt="Cap"><div class="p-name">CAP</div><div class="p-price">P60.00</div><a href="#" class="btn-buy" onclick="buyNow('Cap',60);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="" alt="Jersey"><div class="p-name">JERSEY</div><div class="p-price">P220.00</div><a href="#" class="btn-buy" onclick="buyNow('Jersey',220);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="" alt="Tracksuit"><div class="p-name">TRACKSUIT</div><div class="p-price">P400.00</div><a href="#" class="btn-buy" onclick="buyNow('Tracksuit',400);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="" alt="Cap"><div class="p-name">CAP</div><div class="p-price">P60.00</div><a href="#" class="btn-buy" onclick="buyNow('Cap',60);return false;">BUY NOW</a></div>
           </div>
           <div class="product-row">
-            <div class="product-card"><img src="k-hoodie.jpg" alt="Hoodie"><div class="p-name">HOODIE</div><div class="p-price">P320.00</div><a href="#" class="btn-buy" onclick="buyNow('Hoodie',320);return false;">BUY NOW</a></div>
-            <div class="product-card"><img src="k-boots.jpg" alt="Boots"><div class="p-name">BOOTS</div><div class="p-price">P380.00</div><a href="#" class="btn-buy" onclick="buyNow('Boots',380);return false;">BUY NOW</a></div>
-            <div class="product-card"><img src="k-gloves.jpg" alt="Gloves"><div class="p-name">GLOVES</div><div class="p-price">P85.00</div><a href="#" class="btn-buy" onclick="buyNow('Gloves',85);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="" alt="Hoodie"><div class="p-name">HOODIE</div><div class="p-price">P320.00</div><a href="#" class="btn-buy" onclick="buyNow('Hoodie',320);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="" alt="Boots"><div class="p-name">BOOTS</div><div class="p-price">P380.00</div><a href="#" class="btn-buy" onclick="buyNow('Boots',380);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="" alt="Gloves"><div class="p-name">GLOVES</div><div class="p-price">P85.00</div><a href="#" class="btn-buy" onclick="buyNow('Gloves',85);return false;">BUY NOW</a></div>
           </div>
         </div>
 
