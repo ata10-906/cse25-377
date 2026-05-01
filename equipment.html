@@ -1,570 +1,301 @@
-<DOCTYPE html>
-  <html>
-    <head>
-      <title>Equipment - ProSport Gear</title>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, intial-scale=1.0">
-	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> 
-	 <script src="main.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Equipment - ProSport Gear</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
-		 <style>
+    <style>
       :root {
+        --green-nav:  #4a6741;
         --green-dark: #3d5a45;
-        --green-nav: #4a6741;
-        --orange: #e87722;
-        --orange-dark: #c96010;
-        --white: #ffffff;
-        --card-bg: #3d5a45;
-        --footer-bg: #0d0d0d;
+        --orange:     #e87722;
+        --orange-dark:#c96010;
+        --white:      #ffffff;
+        --card-bg:    #3d5a45;
+        --footer-bg:  #0d0d0d;
       }
       * { box-sizing: border-box; margin: 0; padding: 0; }
       body { font-family: 'Open Sans', sans-serif; background: #b0b8b0; }
 
-      /* ===== NAVBAR ===== */
-      .navbar {
-        background-color: var(--green-nav) !important;
-        padding: 0; min-height: 90px;
-      }
+      /* NAVBAR */
+      .navbar { background-color: var(--green-nav) !important; padding: 0; min-height: 90px; }
       .navbar-brand img { width: 90px; height: 90px; object-fit: contain; background: #fff; }
       .navbar .nav-link {
-        color: var(--white) !important;
-        font-family: 'Oswald', sans-serif;
-        font-size: 1rem; font-weight: 600;
-        letter-spacing: 1px; padding: 0.5rem 1rem !important; text-transform: uppercase;
+        color: var(--white) !important; font-family: 'Oswald', sans-serif;
+        font-size: 1rem; font-weight: 600; letter-spacing: 1px;
+        padding: 0.5rem 1rem !important; text-transform: uppercase;
       }
       .navbar .nav-link:hover { color: var(--orange) !important; }
       .navbar .dropdown-menu { background-color: var(--green-dark); border: none; border-radius: 0; }
       .navbar .dropdown-item { color: var(--white); font-family: 'Oswald', sans-serif; letter-spacing: 1px; }
       .navbar .dropdown-item:hover { background-color: var(--orange); color: var(--white); }
-      .search-input {
-        border-radius: 20px 0 0 20px; border: none;
-        padding: 6px 14px; font-size: 0.9rem; outline: none; width: 150px;
-      }
-      .search-btn {
-        background: var(--white); border: none;
-        border-radius: 0 20px 20px 0; padding: 6px 10px; cursor: pointer; color: #555;
-      }
-      .cart-icon { color: var(--orange); font-size: 1.6rem; cursor: pointer; margin-left: 10px; }
+      .search-input { border-radius: 20px 0 0 20px; border: none; padding: 6px 12px; font-size: 0.88rem; outline: none; width: 130px; }
+      .search-btn { background: var(--white); border: none; border-radius: 0 20px 20px 0; padding: 6px 10px; cursor: pointer; color: #555; }
+      .cart-icon { color: var(--orange); font-size: 1.5rem; cursor: pointer; margin-left: 8px; }
 
-      /* ===== MAIN LAYOUT ===== */
-      .equip-main {
-        display: flex;
-        background: var(--card-bg);
-        min-height: 400px;
-      }
+      /* HERO: video on top, banner below, both full width */
+      .equip-hero { width: 100%; display: flex; flex-direction: column; }
+      .hero-video-box { width: 100%; height: 180px; background: #222; overflow: hidden; position: relative; }
+      .hero-video-box video { width: 100%; height: 100%; object-fit: cover; }
+      .hero-banner-box { width: 100%; height: 100px; background: #444; overflow: hidden; }
+      .hero-banner-box img { width: 100%; height: 100%; object-fit: cover; }
+      .small-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+      .small-play span { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.82); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #333; }
 
-      /* LEFT SIDEBAR */
-      .equip-sidebar {
-        width: 220px; min-width: 180px;
-        display: flex; flex-direction: column;
-        gap: 10px; flex-shrink: 0;
-        background: var(--card-bg);
-        padding: 12px;
-      }
-      .sidebar-img-box, .sidebar-video-box {
-        width: 100%; height: 155px;
-        background: #222; overflow: hidden;
-        position: relative; border-radius: 4px;
-      }
-      .sidebar-img-box img, .sidebar-video-box video {
-        width: 100%; height: 100%; object-fit: cover;
-      }
-      .play-overlay {
-        position: absolute; inset: 0;
-        display: flex; align-items: center; justify-content: center;
-        pointer-events: none;
-      }
-      .play-circle {
-        width: 40px; height: 40px; border-radius: 50%;
-        background: rgba(255,255,255,0.82);
-        display: flex; align-items: center; justify-content: center;
-        font-size: 0.95rem; color: #333;
-      }
+      /* MAIN: sidebar 25% | products 75% */
+      .equip-main { display: flex; background: var(--card-bg); min-height: 400px; }
 
-      /* RIGHT PRODUCTS */
+      .equip-sidebar { width: 25%; min-width: 160px; flex-shrink: 0; background: var(--card-bg); padding: 12px; display: flex; flex-direction: column; gap: 10px; }
+      .sidebar-video-box, .sidebar-img-box { width: 100%; background: #222; overflow: hidden; border-radius: 4px; }
+      .sidebar-video-box { height: 140px; }
+      .sidebar-img-box  { height: 110px; }
+      .sidebar-video-box video, .sidebar-img-box img { width: 100%; height: 100%; object-fit: cover; }
+
       .equip-content { flex: 1; padding: 16px; overflow: hidden; }
 
-      /* Section tabs */
+      /* Tabs */
       .section-tabs { display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
       .tab-btn {
-        background: transparent;
-        border: 2px solid var(--white);
-        color: var(--white);
-        font-family: 'Oswald', sans-serif;
-        font-size: 0.95rem; font-weight: 600;
-        letter-spacing: 2px; padding: 6px 20px;
-        border-radius: 2px; cursor: pointer;
-        text-transform: uppercase;
-        transition: background 0.2s, color 0.2s;
-        text-decoration: none;
+        background: transparent; border: 2px solid var(--white); color: var(--white);
+        font-family: 'Oswald', sans-serif; font-size: 0.92rem; font-weight: 600;
+        letter-spacing: 1px; padding: 5px 18px; border-radius: 20px; cursor: pointer;
+        text-transform: uppercase; transition: background 0.2s, color 0.2s;
       }
-      .tab-btn:hover, .tab-btn.active {
-        background: var(--orange); border-color: var(--orange); color: #fff;
-      }
+      .tab-btn:hover, .tab-btn.active { background: var(--orange); border-color: var(--orange); color: #fff; }
 
-      /* Product section */
       .equip-section { display: none; }
       .equip-section.active { display: block; }
 
       .section-heading {
         font-family: 'Oswald', sans-serif; color: var(--white);
-        font-size: 1.2rem; font-weight: 700; letter-spacing: 2px;
+        font-size: 1.1rem; font-weight: 700; letter-spacing: 2px;
         text-transform: uppercase; margin-bottom: 12px;
         border-left: 4px solid var(--orange); padding-left: 10px;
       }
 
-      .product-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+      .product-row { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
       .product-card {
-        background: var(--orange); border-radius: 6px; padding: 10px;
-        width: 140px; min-width: 120px;
+        background: var(--orange); border-radius: 8px; padding: 10px;
+        width: 155px; min-width: 120px;
         display: flex; flex-direction: column; align-items: center; gap: 5px;
-        cursor: pointer; transition: transform 0.15s, box-shadow 0.15s;
-        border: 2px solid transparent;
+        cursor: pointer; border: 2px solid transparent; transition: transform 0.15s, box-shadow 0.15s;
       }
-      .product-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 6px 18px rgba(0,0,0,0.3);
-        border-color: var(--white);
-      }
-      .product-card img {
-        width: 80px; height: 70px;
-        object-fit: contain; background: #fff;
-        border-radius: 4px; padding: 4px;
-      }
-      .product-card .p-name {
-        font-family: 'Oswald', sans-serif; color: var(--white);
-        font-size: 0.85rem; font-weight: 600; text-align: center;
-      }
-      .product-card .p-price { color: var(--white); font-size: 0.8rem; font-weight: 700; }
+      .product-card:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); border-color: var(--white); }
+      .product-card img { width: 90px; height: 76px; object-fit: contain; background: #fff; border-radius: 4px; padding: 4px; }
+      .product-card .p-name { font-family: 'Oswald', sans-serif; color: var(--white); font-size: 0.82rem; font-weight: 600; text-align: center; }
+      .product-card .p-price { color: var(--white); font-size: 0.78rem; font-weight: 700; }
       .product-card .btn-buy {
-        background: #000; color: var(--orange); border: none;
-        border-radius: 12px; padding: 4px 12px;
-        font-family: 'Oswald', sans-serif; font-size: 0.75rem; font-weight: 700;
-        cursor: pointer; text-decoration: none; margin-top: 3px;
-        display: inline-block; transition: background 0.2s;
+        background: #000; color: var(--orange); border: none; border-radius: 14px;
+        padding: 4px 14px; font-family: 'Oswald', sans-serif; font-size: 0.75rem; font-weight: 700;
+        cursor: pointer; text-decoration: none; margin-top: 3px; display: inline-block; transition: background 0.2s;
       }
       .product-card .btn-buy:hover { background: #222; }
 
-      /* ===== FOOTER ===== */
+      /* FOOTER */
       footer { background: var(--footer-bg); color: var(--white); padding: 24px 0; }
-      .footer-inner {
-        display: flex; flex-wrap: wrap; gap: 20px;
-        justify-content: space-between; align-items: flex-start;
-        max-width: 960px; margin: 0 auto; padding: 0 20px;
-      }
-      .footer-col { min-width: 150px; }
+      .footer-inner { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; align-items: flex-start; max-width: 960px; margin: 0 auto; padding: 0 20px; }
+      .footer-col { min-width: 140px; }
       .footer-copy { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; }
-      .contact-title, .social-title, .help-title {
-        color: var(--orange); font-family: 'Oswald', sans-serif;
-        font-size: 1rem; font-weight: 600; letter-spacing: 1px; margin-bottom: 8px;
-      }
+      .contact-title, .social-title, .help-title { color: var(--orange); font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 600; letter-spacing: 1px; margin-bottom: 8px; }
       .contact-row { display: flex; align-items: center; gap: 8px; font-size: 0.88rem; margin-bottom: 4px; }
       .contact-row i { color: var(--orange); width: 18px; }
       .social-icons { display: flex; gap: 10px; }
-      .social-icon {
-        width: 40px; height: 40px; border-radius: 50%;
-        display: flex; align-items: center; justify-content: center;
-        font-size: 1.1rem; color: #fff; text-decoration: none; transition: opacity 0.2s;
-      }
+      .social-icon { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; color: #fff; text-decoration: none; transition: opacity 0.2s; }
       .social-icon:hover { opacity: 0.8; }
       .social-icon.ig { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
       .social-icon.fb { background: #1877f2; }
       .social-icon.tw { background: #1da1f2; }
       .footer-help a { color: var(--white); display: block; font-size: 0.88rem; text-decoration: none; margin-bottom: 4px; }
       .footer-help a:hover { color: var(--orange); }
-
-      @media (max-width: 768px) {
-        .equip-main { flex-direction: column; }
-        .equip-sidebar { width: 100%; flex-direction: row; }
-        .sidebar-img-box, .sidebar-video-box { flex: 1; }
-      }
     </style>
-    </head>
+  </head>
 
-    <body>
-		 <!--NAVBAR-->
-		   <header>
-			  <nav class="navbar navbar-expand-lg">
-				  <div class="container-fluid px-0">
-					 <a class="navbar-brand ms-0" href="index.html">
-						 <img src="" alt="ProSport Gear">
-					 </a>
-					  <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar"
-						  style="border-color:#fff;">
-						  <span class="navbar-toggler-icon"></span>
-					  </button>
-					  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-						<ul class="navbar-nav mx-auto gap-1 align-items-center">
+  <body>
 
-							<!--HOME-->
-							<li class="nav-item">
-								<a class="nav-link" href="index.html">Home</a>
-							</li>
-							
-							<!--ABOUT-->
-							<li class="nav-item">
-								<a class="nav-link" href="about.html">About</a>
-							</li>
+    <!-- NAVBAR -->
+    <header>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid px-0">
+          <a class="navbar-brand ms-0" href="index.html"><img src="logo.png" alt="ProSport Gear Logo"></a>
+          <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" style="border-color:#fff;">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav mx-auto gap-1 align-items-center">
+              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="clothing.html" role="button" data-bs-toggle="dropdown">Clothing</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="clothing.html#men">Men</a></li>
+                  <li><a class="dropdown-item" href="clothing.html#women">Women</a></li>
+                  <li><a class="dropdown-item" href="clothing.html#kids">Kids</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="equipment.html" role="button" data-bs-toggle="dropdown">Equipment</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#football" onclick="showEquipSection('football')">Football</a></li>
+                  <li><a class="dropdown-item" href="#basketball" onclick="showEquipSection('basketball')">Basketball</a></li>
+                  <li><a class="dropdown-item" href="#tennis" onclick="showEquipSection('tennis')">Tennis</a></li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+              <li class="nav-item d-flex align-items-center ms-2">
+                <input type="text" placeholder="Search..." class="search-input">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+              </li>
+              <li class="nav-item d-flex align-items-center">
+                <i class="fas fa-shopping-cart cart-icon"></i>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
 
-							<!--CLOTHING DROPDOWN-->
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="clothing.html" role="button" data-bs-toggle="dropdown">Clothing</a>
-								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="#men">Men</a></li>
-									<li><a class="dropdown-item" href="#women">Women</a></li>
-									<li><a class="dropdown-item" href="#kids">Kids</a></li>
-								</ul>
-							</li>
+    <!-- HERO -->
+    <div class="equip-hero">
+      <div class="hero-video-box">
+        <video controls poster=""><source src="" type="video/mp4"></video>
+        <div class="small-play"><span><i class="fas fa-play"></i></span></div>
+      </div>
+      <div class="hero-banner-box">
+        <img src="equipment-banner.jpg" alt="Equipment Banner">
+      </div>
+    </div>
 
-							<!--EQUIPMENT DROPDOWN-->
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="equipment.html" role="button" data-bs-toggle="dropdown">Equipment</a>
-								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="#football" onClick="showSection('football')">Football</a></li>
-									<li><a class="dropdown-item" href="#basketball" onClick="showSection('basketball')">Basketball</a></li>
-									<li><a class="dropdown-item" href="#tennis" onClick="showSection('tennis')">Tennis</a></li>
-								</ul>
-							</li>
+    <!-- MAIN -->
+    <div class="equip-main">
 
-							<!--FEEDBACK-->
-							<li class="nav-item">
-								<a class="nav-link" href="feedback.html">Feedback</a>
-							</li>
+      <!-- SIDEBAR -->
+      <div class="equip-sidebar">
+        <div class="sidebar-video-box">
+          <video controls poster=""><source src="" type="video/mp4"></video>
+        </div>
+        <div class="sidebar-img-box">
+          <img src="equipment-promo.jpg" alt="Promo">
+        </div>
+      </div>
 
-							<!--SEARCH-->
-							<li class="nav-item d-flex align-items-center ms-2">
-								<input type="text" placeholder="Search..." class="search-input">
-								<button class="search-btn"><i class="fas fa-search"></i></button>
-							</li>
+      <!-- PRODUCTS -->
+      <div class="equip-content">
 
-							<!--CART-->
-							<li class="nav-item d-flex align-items-center">
-								<i class="fas fa-shopping-cart cart-icon"></i>
-							</li>
-						</ul>
-				  </div>
-			  </nav>
-		  </header>
-		 <!--FOOTER-->
+        <div class="section-tabs">
+          <button class="tab-btn active" onclick="showEquipSection('football')"><i class="fas fa-chevron-right me-1"></i> FOOTBALL</button>
+          <button class="tab-btn" onclick="showEquipSection('basketball')">BASKETBALL</button>
+          <button class="tab-btn" onclick="showEquipSection('tennis')">TENNIS</button>
+        </div>
 
-		<!--MAIN CONTENT-->
-		<div class="equip-main">
+        <!-- FOOTBALL -->
+        <div id="football" class="equip-section active">
+          <div class="section-heading"><i class="fas fa-futbol me-2"></i>Football Equipment</div>
+          <div class="product-row">
+            <div class="product-card"><img src="whistle.jpg" alt="Whistle"><div class="p-name">WHISTLE</div><div class="p-price">P25.00</div><a href="#" class="btn-buy" onclick="buyNow('Whistle',25);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="football.jpg" alt="Football"><div class="p-name">FOOTBALL</div><div class="p-price">P180.00</div><a href="#" class="btn-buy" onclick="buyNow('Football',180);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="f-boots.jpg" alt="Boots"><div class="p-name">BOOTS</div><div class="p-price">P500.00</div><a href="#" class="btn-buy" onclick="buyNow('Boots',500);return false;">BUY NOW</a></div>
+          </div>
+          <div class="product-row">
+            <div class="product-card"><img src="shin-guards.jpg" alt="Shin Guards"><div class="p-name">SHIN GUARDS</div><div class="p-price">P90.00</div><a href="#" class="btn-buy" onclick="buyNow('Shin Guards',90);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="gk-gloves.jpg" alt="GK Gloves"><div class="p-name">GK GLOVES</div><div class="p-price">P220.00</div><a href="#" class="btn-buy" onclick="buyNow('GK Gloves',220);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="cones.jpg" alt="Cones"><div class="p-name">CONES SET</div><div class="p-price">P60.00</div><a href="#" class="btn-buy" onclick="buyNow('Cones Set',60);return false;">BUY NOW</a></div>
+          </div>
+          <div class="product-row">
+            <div class="product-card"><img src="goal-net.jpg" alt="Goal Net"><div class="p-name">GOAL NET</div><div class="p-price">P350.00</div><a href="#" class="btn-buy" onclick="buyNow('Goal Net',350);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="pump.jpg" alt="Pump"><div class="p-name">BALL PUMP</div><div class="p-price">P45.00</div><a href="#" class="btn-buy" onclick="buyNow('Ball Pump',45);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="scoreboard.jpg" alt="Scoreboard"><div class="p-name">SCOREBOARD</div><div class="p-price">P120.00</div><a href="#" class="btn-buy" onclick="buyNow('Scoreboard',120);return false;">BUY NOW</a></div>
+          </div>
+        </div>
 
-			<!--SIDEBAR-->
-			<div class="equip-sidebar">
-				<div class="sidebar-video-box">
-					<video controls poster="">
-						<source src="" type="video/mp4">
-					</video>
-					<div class="play-overlay"><div class="play-circle"><i class="fas fa-play"></i></div></div>
-				</div>
-				<div class="sidebar-img-box">
-					<img src="" alt="Equipment Promo">
-				</div>
-			</div>
-		</div>
+        <!-- BASKETBALL -->
+        <div id="basketball" class="equip-section">
+          <div class="section-heading"><i class="fas fa-basketball-ball me-2"></i>Basketball Equipment</div>
+          <div class="product-row">
+            <div class="product-card"><img src="bball-net.jpg" alt="Net"><div class="p-name">NET</div><div class="p-price">P100.00</div><a href="#" class="btn-buy" onclick="buyNow('Net',100);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="basketball.jpg" alt="Ball"><div class="p-name">BALL</div><div class="p-price">P120.00</div><a href="#" class="btn-buy" onclick="buyNow('Ball',120);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="bball-shoes.jpg" alt="Shoes"><div class="p-name">SHOES</div><div class="p-price">P680.00</div><a href="#" class="btn-buy" onclick="buyNow('Shoes',680);return false;">BUY NOW</a></div>
+          </div>
+          <div class="product-row">
+            <div class="product-card"><img src="bball-hoop.jpg" alt="Hoop"><div class="p-name">HOOP RING</div><div class="p-price">P250.00</div><a href="#" class="btn-buy" onclick="buyNow('Hoop Ring',250);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="kneepads.jpg" alt="Knee Pads"><div class="p-name">KNEE PADS</div><div class="p-price">P110.00</div><a href="#" class="btn-buy" onclick="buyNow('Knee Pads',110);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="bball-pump.jpg" alt="Pump"><div class="p-name">BALL PUMP</div><div class="p-price">P45.00</div><a href="#" class="btn-buy" onclick="buyNow('Ball Pump',45);return false;">BUY NOW</a></div>
+          </div>
+          <div class="product-row">
+            <div class="product-card"><img src="headband.jpg" alt="Headband"><div class="p-name">HEADBAND</div><div class="p-price">P35.00</div><a href="#" class="btn-buy" onclick="buyNow('Headband',35);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="bball-bag.jpg" alt="Ball Bag"><div class="p-name">BALL BAG</div><div class="p-price">P160.00</div><a href="#" class="btn-buy" onclick="buyNow('Ball Bag',160);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="wristband.jpg" alt="Wristband"><div class="p-name">WRISTBAND</div><div class="p-price">P20.00</div><a href="#" class="btn-buy" onclick="buyNow('Wristband',20);return false;">BUY NOW</a></div>
+          </div>
+        </div>
 
-		<!--PRODUCTS-->
-		<div class="equip-content">
+        <!-- TENNIS -->
+        <div id="tennis" class="equip-section">
+          <div class="section-heading"><i class="fas fa-table-tennis me-2"></i>Tennis Equipment</div>
+          <div class="product-row">
+            <div class="product-card"><img src="racket.jpg" alt="Racket"><div class="p-name">RACKET</div><div class="p-price">P1500.00</div><a href="#" class="btn-buy" onclick="buyNow('Racket',1500);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="tennis-balls.jpg" alt="Balls"><div class="p-name">BALLS (3pk)</div><div class="p-price">P80.00</div><a href="#" class="btn-buy" onclick="buyNow('Tennis Balls',80);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="tennis-shoes.jpg" alt="Shoes"><div class="p-name">SHOES</div><div class="p-price">P750.00</div><a href="#" class="btn-buy" onclick="buyNow('Tennis Shoes',750);return false;">BUY NOW</a></div>
+          </div>
+          <div class="product-row">
+            <div class="product-card"><img src="racket-bag.jpg" alt="Bag"><div class="p-name">RACKET BAG</div><div class="p-price">P320.00</div><a href="#" class="btn-buy" onclick="buyNow('Racket Bag',320);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="grip-tape.jpg" alt="Grip"><div class="p-name">GRIP TAPE</div><div class="p-price">P40.00</div><a href="#" class="btn-buy" onclick="buyNow('Grip Tape',40);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="elbow-brace.jpg" alt="Elbow Brace"><div class="p-name">ELBOW BRACE</div><div class="p-price">P150.00</div><a href="#" class="btn-buy" onclick="buyNow('Elbow Brace',150);return false;">BUY NOW</a></div>
+          </div>
+          <div class="product-row">
+            <div class="product-card"><img src="tennis-net.jpg" alt="Net"><div class="p-name">NET</div><div class="p-price">P480.00</div><a href="#" class="btn-buy" onclick="buyNow('Tennis Net',480);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="dampener.jpg" alt="Dampener"><div class="p-name">DAMPENER</div><div class="p-price">P25.00</div><a href="#" class="btn-buy" onclick="buyNow('Dampener',25);return false;">BUY NOW</a></div>
+            <div class="product-card"><img src="tennis-cap.jpg" alt="Cap"><div class="p-name">TENNIS CAP</div><div class="p-price">P90.00</div><a href="#" class="btn-buy" onclick="buyNow('Tennis Cap',90);return false;">BUY NOW</a></div>
+          </div>
+        </div>
 
-			<!--SECTION TABS-->
-			<div>
-				<button class="tab-btn active" onClick="showSection('football')">
-					<i class="fas fa-chevron-right me-1"></i>FOOTBALL
-				</button>
-				<button class="tab-btn active" onClick="showSection('basketball')">
-					<i class="fas fa-chevron-right me-1"></i>BASKETBALL
-				</button>
-				<button class="tab-btn active" onClick="showSection('tennis')">
-					<i class="fas fa-chevron-right me-1"></i>TENNIS
-				</button>
-			</div>
+      </div>
+    </div>
 
-			<!--FOOTBALL SECTION-->
-			<div id="football" class="equip-section active">
-				<div class="section-heading"><i class="fas fa-fubol me-2"></i>Football Equipment</div>
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-col footer-copy"><i class="far fa-copyright"></i><span>2026 ProSport Gear</span></div>
+        <div class="footer-col">
+          <p class="contact-title">CONTACT INFO</p>
+          <div class="contact-row"><i class="far fa-envelope"></i><span>info@prosportgear.com</span></div>
+          <div class="contact-row"><i class="fas fa-phone"></i><span>+267 71828180</span></div>
+        </div>
+        <div class="footer-col">
+          <p class="social-title">SOCIAL LINKS</p>
+          <div class="social-icons">
+            <a href="#" class="social-icon ig"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon fb"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon tw"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="footer-col footer-help">
+          <p class="help-title">NEED HELP ?</p>
+          <a href="#">T's and C's</a>
+          <a href="#">Privacy Policy</a>
+        </div>
+      </div>
+    </footer>
 
-				<!--ROW 1-->
-				<div class="product-row">
-					<div class="product-card">
-						<img src="" alt="Whistle">
-						<div class="p-name">WHISTLE</div>
-						<div class="p-price">P45.00</div>
-						<a href="#" class="btn-buy">BUY NOW</a>
-					</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
 
-					<div class="product-card">
-						<img src="" alt="Football">
-						<div class="p-name">FOOTBALL</div>
-						<div class="p-price">P180.00</div>
-						<a href="#" class="btn-buy">BUY NOW</a>
-					</div>
-
-					<div class="product-card">
-						<img src="" alt="Football Boots">
-						<div class="p-name">BOOTS</div>
-						<div class="p-price">P500.00</div>
-						<a href="#" class="btn-buy">BUY NOW</a>
-					</div>
-				</div>
-
-				<!--ROW 2-->
-				<div class="product-row">
-					<div class="product-card">
-						<img src="" alt="Shin Guards">
-						<div class="p-name">SHIN GUARDS</div>
-						<div class="p-price">P90.00</div>
-						<a href="#" class="btn-buy">BUY NOW</a>
-					</div>
-
-					<div class="product-card">
-						<img src="" alt="GK Gloves">
-						<div class="p-name">GK GLOVES</div>
-						<div class="p-price">P220.00</div>
-						<a href="#" class="btn-buy">BUY NOW</a>
-					</div>
-
-					<div class="product-card">
-						<img src="" alt="Training Cones">
-						<div class="p-name">CONES SET</div>
-						<div class="p-price">P80.00</div>
-						<a href="#" class="btn-buy">BUY NOW</a>
-					</div>
-				</div>
-
-				<!--ROW 3-->
-				<div class="product-row">
-					<div class="product-card">
-						<img src="" alt="Goal Net">
-						<div class="p-name">GOAL NET</div>
-						<div class="p-price">P350.00</div>
-						<a href="#" class="btn-buy">BUY NOW</a>
-					</div>
-
-					<div class="product-card">
-						<img src="" alt="Ball Pump">
-						<div class="p-name">BALL PUMP</div>
-						<div class="p-price">P45.00</div>
-						<a href="#" class="btn-buy">BUY NOW</a>
-					</div>
-
-					<div class="product-card">
-						<img src="" alt="Scoreboard">
-						<div class="p-name">SCOREBOARD</div>
-						<div class="p-price">P120.00</div>
-						<a href="#" class="btn-buy">BUY NOW</a>
-					</div>
-				</div>
-			</div>
-
-			<!--BASKETBALL SECTION-->
-			<div id="basketball" class="equip-section active">
-				<div class="section-heading"><i class="fas fa-basketball-ball me-2"></i>Basketball Equipment</div>
-
-				<!--ROW 1-->
-				<div class="product-row">
-					<div class="product-card">
-						<img src="" alt="Net">
-						<div class="p-name">NET</div>
-						<div class="p-price">P100.00</div>
-						<a href="#" class="btn-buy">BUY NOW</a>
-					</div>
-
-					<div class="product-card">
-						<img src="" alt="Basketball">
-						<div class="p-name">BASKETBALL</div>
-						<div class="p-price">P190.00</div>
-						<a href="#" class="btn-buy">BUY NOW</a>
-					</div>
-
-					<div class="product-card">
-						<img src="" alt="Basketball Shoes">
-						<div class="p-name">SHOES</div>
-						<div class="p-price">P780.00</div>
-						<a href="#" class="btn-buy">BUY NOW</a>
-					</div>
-				</div>
-
-				<!--ROW 2-->
-				<div class="product-row">
-					<div class="product-card">
-						<img src="" alt="Hoop">
-						<div class="p-name">HOOP RING</div>
-						<div class="p-price">P250.00</div>
-						<a href="#" class="btn-buy">BUY NOW</a>
-					</div>
-
-					<div class="product-card">
-						<img src="" alt="Knee Pads">
-						<div class="p-name">KNEE PADS</div>
-						<div class="p-price">P110.00</div>
-						<a href="#" class="btn-buy">BUY NOW</a>
-					</div>
-
-					<div class="product-card">
-						<img src="" alt="Ball Pump">
-						<div class="p-name">BALL PUMP</div>
-						<div class="p-price">P45.00</div>
-						<a href="#" class="btn-buy">BUY NOW</a>
-					</div>
-				</div>
-
-				<!--ROW 3-->
-				<div class="product-row">
-					<div class="product-card">
-						<img src="" alt="Headband">
-						<div class="p-name">HEADBAND</div>
-						<div class="p-price">P45.00</div>
-						<a href="#" class="btn-buy">BUY NOW</a>
-					</div>
-
-					<div class="product-card">
-						<img src="" alt="Ball Bag">
-						<div class="p-name">BALL BAG</div>
-						<div class="p-price">P160.00</div>
-						<a href="#" class="btn-buy">BUY NOW</a>
-					</div>
-
-					<div class="product-card">
-						<img src="" alt="Wristband">
-						<div class="p-name">WRISTBAND</div>
-						<div class="p-price">P20.00</div>
-						<a href="#" class="btn-buy">BUY NOW</a>
-					</div>
-				</div>
-			</div>
-
-			<!--TENNIS SECTION-->
-			<div id="tennis" class="equip-section active">
-				<div class="section-heading"><i class="fas fa-table-tennis me-2"></i>Tennis Equipment</div>
-
-				<!--ROW 1-->
-				<div class="product-row">
-					<div class="product-card">
-						<img src="" alt="Racket">
-						<div class="p-name">RACKET</div>
-						<div class="p-price">P1700.00</div>
-						<a href="#" class="btn-buy">BUY NOW</a>
-					</div>
-
-					<div class="product-card">
-						<img src="" alt="Tennis Balls">
-						<div class="p-name">BALL (3pk)</div>
-						<div class="p-price">P80.00</div>
-						<a href="#" class="btn-buy">BUY NOW</a>
-					</div>
-
-					<div class="product-card">
-						<img src="" alt="Tennis Shoes">
-						<div class="p-name">SHOES</div>
-						<div class="p-price">P750.00</div>
-						<a href="#" class="btn-buy">BUY NOW</a>
-					</div>
-				</div>
-
-				<!--ROW 2-->
-				<div class="product-row">
-					<div class="product-card">
-						<img src="" alt="Racket Bag">
-						<div class="p-name">RACKET BAG</div>
-						<div class="p-price">P320.00</div>
-						<a href="#" class="btn-buy">BUY NOW</a>
-					</div>
-
-					<div class="product-card">
-						<img src="" alt="Tennis Net">
-						<div class="p-name">NET</div>
-						<div class="p-price">P480.00</div>
-						<a href="#" class="btn-buy">BUY NOW</a>
-					</div>
-
-					<div class="product-card">
-						<img src="" alt="Grip Tape">
-						<div class="p-name">GRIP TAPE</div>
-						<div class="p-price">P35.00</div>
-						<a href="#" class="btn-buy">BUY NOW</a>
-					</div>
-				</div>
-
-				<!--ROW 3-->
-				<div class="product-row">
-					<div class="product-card">
-						<img src="" alt="Elbow Brace">
-						<div class="p-name">ELBOW BRACE</div>
-						<div class="p-price">P150.00</div>
-						<a href="#" class="btn-buy">BUY NOW</a>
-					</div>
-
-					<div class="product-card">
-						<img src="" alt="Dampener">
-						<div class="p-name">DAMPENER</div>
-						<div class="p-price">P25.00</div>
-						<a href="#" class="btn-buy">BUY NOW</a>
-					</div>
-
-					<div class="product-card">
-						<img src="" alt="Tennis Cap">
-						<div class="p-name">TENNIS CAP</div>
-						<div class="p-price">P90.00</div>
-						<a href="#" class="btn-buy">BUY NOW</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-		<!--END OF EQUIP-CONTENT-->
-		
-		<!--FOOTER-->
-      <footer>
-		  <div class="container">
-			  <div>
-        <p>&copy: 2026 ProSport Gear</p>
-			  </div>
-
-			  <div>
-				  <p>Contact Info:</p>
-				  <p>+267 71828180</p>
-				  <p><a href="info@prosportgear.com" class="btn btn-success">info@prosportgear.com</a>.</p> 
-			  </div>
-
-			  <div>
-		  <p>Social</p>
-		  <a href="#"><i>Facebook</i></a>
-		   <a href="#"><i>Instagram</i></a>
-		   <a href="#"><i>Twitter</i></a> 
-			  </div>
-
-			  <div>
-		  <p>Need Help?</p>
-			  <a href="#">Terms and Conditions</a>
-			  <a href="#">Privacy Policy</a>
-		  </div>
-		  </div>
-	  </footer>
-	  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-	  <script>
-		  function showSection(sectionId) {
+    <script>
+      function showEquipSection(id) {
         document.querySelectorAll('.equip-section').forEach(s => s.classList.remove('active'));
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        const section = document.getElementById(sectionId);
+        var section = document.getElementById(id);
         if (section) section.classList.add('active');
-        document.querySelectorAll('.tab-btn').forEach(b => {
-          if (b.textContent.trim().toLowerCase().includes(sectionId)) {
-            b.classList.add('active');
-          }
+        document.querySelectorAll('.tab-btn').forEach(function(b) {
+          if (b.textContent.trim().toLowerCase().includes(id)) b.classList.add('active');
         });
-        if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
-
-      window.addEventListener('DOMContentLoaded', () => {
-        const hash = window.location.hash.replace('#','');
-        if (hash && ['football','basketball','tennis'].includes(hash)) {
-          showSection(hash);
-        }
+      window.addEventListener('DOMContentLoaded', function () {
+        var hash = window.location.hash.replace('#', '');
+        if (['football','basketball','tennis'].includes(hash)) showEquipSection(hash);
       });
-	  </script>
-		
-    </body>
-  </html>
-
+    </script>
+  </body>
+</html>
