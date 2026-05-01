@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-
+     <script src="javascript.js"></script>
     <style>
       :root {
         --green-nav:  #4a6741;
@@ -285,22 +285,6 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-    <script src="main.js"></script>
-
-    <script>
-      function showEquipSection(id) {
-        document.querySelectorAll('.equip-section').forEach(s => s.classList.remove('active'));
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        var section = document.getElementById(id);
-        if (section) section.classList.add('active');
-        document.querySelectorAll('.tab-btn').forEach(function(b) {
-          if (b.textContent.trim().toLowerCase().includes(id)) b.classList.add('active');
-        });
-      }
-      window.addEventListener('DOMContentLoaded', function () {
-        var hash = window.location.hash.replace('#', '');
-        if (['football','basketball','tennis'].includes(hash)) showEquipSection(hash);
-      });
-    </script>
+   
   </body>
 </html>
