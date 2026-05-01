@@ -3,7 +3,6 @@
   <head>
     <title>ProSport Gear</title>
     <meta charset="UTF-8">
-    <!-- FIX: "intial" → "initial" (typo in viewport meta) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -154,7 +153,7 @@
         font-size: 0.75rem; color: var(--orange);
       }
 
-      /* PRODUCTS + ADS  –  50 / 50 split */
+      /* PRODUCTS + ADS */
       /* FIX: original wrapper used class="main" which had no CSS at all */
       .products-ads-section {
         background: var(--card-bg); padding: 16px;
@@ -166,9 +165,6 @@
         width: 50%; min-width: 200px; flex-shrink: 0;
         display: flex; flex-direction: column; gap: 10px;
       }
-      /* FIX: original had a <div class="ads-left"> nested INSIDE another .ads-left
-         (copy-paste mistake). That inner div held the image but had the wrong class.
-         Now using .ad-video-box and .ad-img-box clearly. */
       .ad-video-box { width: 100%; height: 140px; background: #222; overflow: hidden; position: relative; border-radius: 4px; }
       .ad-img-box   { width: 100%; height: 108px; background: #444; overflow: hidden; border-radius: 4px; }
       .ad-video-box video, .ad-img-box img { width: 100%; height: 100%; object-fit: cover; }
@@ -179,7 +175,7 @@
         display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #333;
       }
 
-      /* RIGHT 50% – product cards */
+      /* RIGHT PRODUCTS */
       .products-right { flex: 1; display: flex; flex-direction: column; gap: 12px; }
       .product-cards-row { display: flex; gap: 10px; flex-wrap: wrap; }
       .product-card {
@@ -195,8 +191,7 @@
       .product-card .p-name { font-family: 'Oswald', sans-serif; color: var(--white); font-size: 0.8rem; font-weight: 600; text-align: center; }
       .product-card .p-price { color: var(--white); font-size: 0.77rem; font-weight: 700; }
 
-      /* BUY ROW – small rounded buttons */
-      /* FIX: original class was "buy-now" – no CSS matched it. Now "buy-row". */
+      /* BUY ROW */
       .buy-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
       .btn-buy {
         background: var(--orange); color: #fff; border: none;
@@ -257,10 +252,8 @@
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid px-0">
           <a class="navbar-brand ms-0" href="index.html">
-            <img src="logo.png" alt="ProSport Gear Logo">
+            <img src="" alt="ProSport Gear Logo">
           </a>
-          <!-- FIX: data-bs-target and the collapse div id must MATCH exactly.
-               Original had id="collapsableNavbar" vs target="#collapsibleNavbar" – mismatch! -->
           <button class="navbar-toggler me-3" type="button"
             data-bs-toggle="collapse" data-bs-target="#mainNav" style="border-color:#fff;">
             <span class="navbar-toggler-icon"></span>
@@ -271,8 +264,6 @@
               <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
               <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
 
-              <!-- FIX: dropdown items pointed to #men / #women / #kids (anchors on THIS page).
-                   They must link to clothing.html#men etc. so the browser goes to that page. -->
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="clothing.html" role="button" data-bs-toggle="dropdown">Clothing</a>
                 <ul class="dropdown-menu">
@@ -282,7 +273,6 @@
                 </ul>
               </li>
 
-              <!-- FIX: same problem for equipment + typo "shoSection" → "showEquipmentSection" -->
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="equipment.html" role="button" data-bs-toggle="dropdown">Equipment</a>
                 <ul class="dropdown-menu">
@@ -330,7 +320,6 @@
       <!-- LEFT: video on top, banner below -->
       <div class="ads-left">
         <div class="ad-video-box">
-          <!-- FIX: type was "videp/mp4" (typo) → "video/mp4" -->
           <video controls poster=""><source src="" type="video/mp4"></video>
           <div class="small-play"><span><i class="fas fa-play"></i></span></div>
         </div>
@@ -364,7 +353,6 @@
         </div>
 
         <!-- BUY ROW -->
-        <!-- FIX: <li class="fas…"> inside <a> is invalid. Icons use <i>, not <li>. -->
         <div class="buy-row">
           <a href="#" class="btn-buy" onclick="buyNow('Jersey', 1000); return false;">BUY NOW</a>
           <span class="or-text">OR ADD TO</span>
@@ -405,7 +393,7 @@
 
     <!-- Bootstrap JS first, then our script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-    <script src="main.js"></script>
+    <script src="javascipt.js"></script>
 
   </body>
 </html>
