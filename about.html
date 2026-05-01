@@ -18,63 +18,164 @@
         --card-bg:    #3d5a45;
         --footer-bg:  #0d0d0d;
       }
-      * { box-sizing: border-box; margin: 0; padding: 0; }
-      body { font-family: 'Open Sans', sans-serif; background: #b0b8b0; }
+      * {
+        box-sizing: border-box; 
+        margin: 0; 
+        padding: 0; 
+      }
+      body { 
+        font-family: 'Open Sans', sans-serif; 
+        background: #b0b8b0; 
+      }
 
       /* NAVBAR */
-      .navbar { background-color: var(--green-nav) !important; padding: 0; min-height: 90px; }
-      .navbar-brand img { width: 90px; height: 90px; object-fit: contain; background: #fff; }
+      .navbar { 
+        background-color: var(--green-nav) !important; 
+        padding: 0;
+        min-height: 90px; 
+      }
+      .navbar-brand img { 
+        width: 90px;
+        height: 90px; 
+        object-fit: contain; 
+        background: #fff; 
+      }
       .navbar .nav-link {
-        color: var(--white) !important; font-family: 'Oswald', sans-serif;
-        font-size: 1rem; font-weight: 600; letter-spacing: 1px;
-        padding: 0.5rem 1rem !important; text-transform: uppercase;
+        color: var(--white) !important; 
+        font-family: 'Oswald', sans-serif;
+        font-size: 1rem; 
+        font-weight: 600;
+        letter-spacing: 1px;
+        padding: 0.5rem 1rem !important;
+        text-transform: uppercase;
       }
       .navbar .nav-link:hover { color: var(--orange) !important; }
-      .navbar .dropdown-menu { background-color: var(--green-dark); border: none; border-radius: 0; }
-      .navbar .dropdown-item { color: var(--white); font-family: 'Oswald', sans-serif; letter-spacing: 1px; }
-      .navbar .dropdown-item:hover { background-color: var(--orange); color: var(--white); }
-      .search-input { border-radius: 20px 0 0 20px; border: none; padding: 6px 12px; font-size: 0.88rem; outline: none; width: 130px; }
-      .search-btn { background: var(--white); border: none; border-radius: 0 20px 20px 0; padding: 6px 10px; cursor: pointer; color: #555; }
-      .cart-icon { color: var(--orange); font-size: 1.5rem; cursor: pointer; margin-left: 8px; }
+      .navbar .dropdown-menu { 
+        background-color: var(--green-dark); 
+        border: none; 
+        border-radius: 0;
+      }
+      .navbar .dropdown-item { 
+        color: var(--white);
+        font-family: 'Oswald', sans-serif; 
+        letter-spacing: 1px; 
+      }
+      .navbar .dropdown-item:hover { 
+        background-color: var(--orange); 
+        color: var(--white); 
+      }
+      .search-input { 
+        border-radius: 20px 0 0 20px; 
+        border: none;
+        padding: 6px 12px; 
+        font-size: 0.88rem; 
+        outline: none; 
+        width: 130px; 
+      }
+      .search-btn { 
+        background: var(--white); 
+        border: none; 
+        border-radius: 0 20px 20px 0; 
+        padding: 6px 10px; 
+        cursor: pointer;
+        color: #555; 
+      }
+      .cart-icon { 
+        color: var(--orange); 
+        font-size: 1.5rem; 
+        cursor: pointer; 
+        margin-left: 8px; 
+      }
 
       /* HERO IMAGE (full width) */
-      .about-hero { width: 100%; height: 240px; overflow: hidden; background: #222; }
-      .about-hero img { width: 100%; height: 100%; object-fit: cover; }
+      .about-hero { 
+        width: 100%; 
+        height: 240px; 
+        overflow: hidden;
+        background: #222; 
+      }
+      .about-hero img { 
+        width: 100%;
+        height: 100%; 
+        object-fit: cover; 
+      }
 
       /* INFO CARDS */
-      /* FIX: original used class="cards-row" but CSS had .about-cards-row – name mismatch */
-      .about-cards-section { background: var(--card-bg); padding: 24px 16px; }
+      .about-cards-section { 
+        background: var(--card-bg); 
+        padding: 24px 16px;
+      }
       .about-cards-row {
-        display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;
+        display: flex; 
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
       }
       .about-card {
-        flex: 1; min-width: 200px; max-width: 280px;
-        border-radius: 8px; overflow: hidden; position: relative;
-        height: 160px; cursor: pointer; transition: transform 0.2s;
+        flex: 1; 
+        min-width: 200px; 
+        max-width: 280px;
+        border-radius: 8px; 
+        overflow: hidden;
+        position: relative;
+        height: 160px;
+        cursor: pointer;
+        transition: transform 0.2s;
         background: #555;
       }
       .about-card:hover { transform: scale(1.03); }
-      .about-card img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.55); }
-      /* FIX: original used class="card-label" but CSS had .about-card-label – name mismatch */
-      .about-card-label {
-        position: absolute; inset: 0;
-        display: flex; align-items: center; justify-content: center;
-        font-family: 'Oswald', sans-serif; font-size: 1.15rem; font-weight: 700;
-        color: var(--white); letter-spacing: 2px; text-transform: uppercase;
+      .about-card img {
+        width: 100%;
+        height: 100%; 
+        object-fit: cover;
+        filter: brightness(0.55); 
+      }
+
+        .about-card-label {
+        position: absolute; 
+        inset: 0;
+        display: flex; 
+        align-items: center; 
+        justify-content: center;
+        font-family: 'Oswald', sans-serif; 
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--white);
+        letter-spacing: 2px;
+        text-transform: uppercase;
       }
 
       /* DETAIL TEXT */
-      .about-detail { background: #b0b8b0; padding: 28px 20px; max-width: 860px; margin: 0 auto; }
-      .about-detail h3 {
-        font-family: 'Oswald', sans-serif; color: var(--green-nav);
-        font-size: 1.4rem; font-weight: 700; letter-spacing: 2px;
-        text-transform: uppercase; margin-bottom: 8px;
-        border-left: 5px solid var(--orange); padding-left: 12px;
+      .about-detail { 
+        background: #b0b8b0;
+        padding: 28px 20px; 
+        max-width: 860px; 
+        margin: 0 auto;
       }
-      .about-detail p { font-size: 0.95rem; color: #333; line-height: 1.8; margin-bottom: 22px; }
+      .about-detail h3 {
+        font-family: 'Oswald', sans-serif;
+        color: var(--green-nav);
+        font-size: 1.4rem; 
+        font-weight: 700; 
+        letter-spacing: 2px;
+        text-transform: uppercase; 
+        margin-bottom: 8px;
+        border-left: 5px solid var(--orange); 
+        padding-left: 12px;
+      }
+      .about-detail p { 
+        font-size: 0.95rem; 
+        color: #333;
+        line-height: 1.8;
+        margin-bottom: 22px;
+      }
 
       /* FOOTER */
-      footer { background: var(--footer-bg); color: var(--white); padding: 24px 0; }
+      footer {
+        background: var(--footer-bg);
+        color: var(--white); 
+        padding: 24px 0;
+      }
       .footer-inner {
         display: flex; flex-wrap: wrap; gap: 20px;
         justify-content: space-between; align-items: flex-start;
