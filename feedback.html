@@ -1,235 +1,106 @@
 <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <title>Feedback - ProSport Gear</title>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, intial-scale=1.0">
-  	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-	  <script src="main.js"></script>
+<html lang="en">
+  <head>
+    <title>Feedback - ProSport Gear</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- FIX: script moved to bottom -->
 
-		 <style>
+    <style>
       :root {
+        --green-nav:  #4a6741;
         --green-dark: #3d5a45;
-        --green-nav: #4a6741;
-        --orange: #e87722;
-        --orange-dark: #c96010;
-        --white: #ffffff;
-        --card-bg: #3d5a45;
-        --footer-bg: #0d0d0d;
+        --orange:     #e87722;
+        --orange-dark:#c96010;
+        --white:      #ffffff;
+        --card-bg:    #3d5a45;
+        --footer-bg:  #0d0d0d;
       }
       * { box-sizing: border-box; margin: 0; padding: 0; }
       body { font-family: 'Open Sans', sans-serif; background: #b0b8b0; }
 
-      /* ===== NAVBAR ===== */
-      .navbar {
-        background-color: var(--green-nav) !important;
-        padding: 0; min-height: 90px;
-      }
+      /* NAVBAR */
+      .navbar { background-color: var(--green-nav) !important; padding: 0; min-height: 90px; }
       .navbar-brand img { width: 90px; height: 90px; object-fit: contain; background: #fff; }
       .navbar .nav-link {
-        color: var(--white) !important;
-        font-family: 'Oswald', sans-serif;
-        font-size: 1rem; font-weight: 600;
-        letter-spacing: 1px; padding: 0.5rem 1rem !important; text-transform: uppercase;
+        color: var(--white) !important; font-family: 'Oswald', sans-serif;
+        font-size: 1rem; font-weight: 600; letter-spacing: 1px;
+        padding: 0.5rem 1rem !important; text-transform: uppercase;
       }
       .navbar .nav-link:hover { color: var(--orange) !important; }
       .navbar .dropdown-menu { background-color: var(--green-dark); border: none; border-radius: 0; }
       .navbar .dropdown-item { color: var(--white); font-family: 'Oswald', sans-serif; letter-spacing: 1px; }
       .navbar .dropdown-item:hover { background-color: var(--orange); color: var(--white); }
-      .search-input {
-        border-radius: 20px 0 0 20px; border: none;
-        padding: 6px 14px; font-size: 0.9rem; outline: none; width: 150px;
-      }
-      .search-btn {
-        background: var(--white); border: none;
-        border-radius: 0 20px 20px 0; padding: 6px 10px; cursor: pointer; color: #555;
-      }
-      .cart-icon { color: var(--orange); font-size: 1.6rem; cursor: pointer; margin-left: 10px; }
+      .search-input { border-radius: 20px 0 0 20px; border: none; padding: 6px 12px; font-size: 0.88rem; outline: none; width: 130px; }
+      .search-btn { background: var(--white); border: none; border-radius: 0 20px 20px 0; padding: 6px 10px; cursor: pointer; color: #555; }
+      .cart-icon { color: var(--orange); font-size: 1.5rem; cursor: pointer; margin-left: 8px; }
 
-      /* ===== FEEDBACK LAYOUT ===== */
+      /* FEEDBACK LAYOUT */
       .feedback-main {
-        display: flex;
-        gap: 24px;
-        padding: 24px 20px;
-        max-width: 1000px;
-        margin: 0 auto;
-        flex-wrap: wrap;
+        display: flex; gap: 24px; padding: 24px 20px;
+        max-width: 1000px; margin: 0 auto; flex-wrap: wrap;
       }
 
       /* CONTACT FORM */
       .feedback-form-wrap {
-        flex: 1.2;
-        min-width: 280px;
-        background: #111;
-        border-radius: 4px;
-        padding: 24px;
-        color: var(--white);
+        flex: 1.2; min-width: 280px; background: #111;
+        border-radius: 4px; padding: 24px; color: var(--white);
       }
       .feedback-form-wrap h4 {
-        font-family: 'Oswald', sans-serif;
-        font-size: 1.2rem;
-        font-weight: 700;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        margin-bottom: 18px;
-        color: var(--white);
+        font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 700;
+        letter-spacing: 2px; text-transform: uppercase; margin-bottom: 18px; color: var(--white);
       }
       .form-group { margin-bottom: 14px; }
-      .form-group label {
-        display: block;
-        font-size: 0.82rem;
-        font-weight: 600;
-        color: #ccc;
-        margin-bottom: 4px;
-        letter-spacing: 0.5px;
-      }
-      .form-group input,
-      .form-group textarea {
-        width: 100%;
-        background: transparent;
-        border: none;
-        border-bottom: 1px solid #555;
-        color: var(--white);
-        padding: 6px 0;
-        font-family: 'Open Sans', sans-serif;
-        font-size: 0.9rem;
-        outline: none;
+      .form-group label { display: block; font-size: 0.82rem; font-weight: 600; color: #ccc; margin-bottom: 4px; }
+      .form-group input, .form-group textarea {
+        width: 100%; background: transparent; border: none;
+        border-bottom: 1px solid #555; color: var(--white);
+        padding: 6px 0; font-family: 'Open Sans', sans-serif; font-size: 0.9rem; outline: none;
         transition: border-color 0.2s;
       }
-      .form-group input:focus,
-      .form-group textarea:focus {
-        border-bottom-color: var(--orange);
-      }
-      .form-group textarea {
-        resize: none;
-        height: 60px;
-      }
+      .form-group input:focus, .form-group textarea:focus { border-bottom-color: var(--orange); }
+      .form-group textarea { resize: none; height: 60px; }
 
-      /* Star Rating */
-      .rating-label {
-        font-size: 0.82rem; font-weight: 600; color: #ccc;
-        letter-spacing: 0.5px; margin-bottom: 6px; display: block;
-      }
-      .star-rating { display: flex; gap: 8px; margin-bottom: 14px; }
+      /* STAR RATING */
+      .rating-label { font-size: 0.82rem; font-weight: 600; color: #ccc; margin-bottom: 6px; display: block; }
+      .star-rating { display: flex; flex-direction: row-reverse; justify-content: flex-end; gap: 8px; margin-bottom: 14px; }
       .star-rating input { display: none; }
-      .star-rating label {
-        font-size: 1.4rem;
-        color: #555;
-        cursor: pointer;
-        transition: color 0.15s;
-      }
-      .star-rating label:hover,
-      .star-rating label:hover ~ label,
-      .star-rating input:checked ~ label {
-        color: var(--orange);
-      }
-      /* Reverse trick for CSS-only star rating */
-      .star-rating { flex-direction: row-reverse; justify-content: flex-end; }
-      .star-rating label:hover,
-      .star-rating label:hover ~ label { color: var(--orange); }
+      .star-rating label { font-size: 1.4rem; color: #555; cursor: pointer; transition: color 0.15s; }
+      .star-rating label:hover, .star-rating label:hover ~ label { color: var(--orange); }
       .star-rating input:checked ~ label { color: var(--orange); }
 
       .btn-submit {
-        background: var(--orange);
-        color: #fff;
-        border: none;
-        width: 100%;
-        padding: 10px;
-        font-family: 'Oswald', sans-serif;
-        font-size: 1rem;
-        font-weight: 700;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        border-radius: 2px;
-        cursor: pointer;
-        transition: background 0.2s;
-        margin-top: 4px;
+        background: var(--orange); color: #fff; border: none; width: 100%; padding: 10px;
+        font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 700;
+        letter-spacing: 2px; text-transform: uppercase; border-radius: 4px;
+        cursor: pointer; transition: background 0.2s; margin-top: 4px;
       }
       .btn-submit:hover { background: var(--orange-dark); }
-
-      .form-disclaimer {
-        font-size: 0.72rem;
-        color: #888;
-        text-align: center;
-        margin-top: 8px;
-        line-height: 1.4;
-      }
+      .form-disclaimer { font-size: 0.72rem; color: #888; text-align: center; margin-top: 8px; line-height: 1.4; }
       .form-disclaimer a { color: #aaa; text-decoration: underline; }
 
       /* RIGHT PANEL */
-      .feedback-right {
-        flex: 0.8;
-        min-width: 220px;
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-      }
+      .feedback-right { flex: 0.8; min-width: 220px; display: flex; flex-direction: column; gap: 16px; }
+      .contact-box { background: var(--card-bg); color: var(--white); border-radius: 6px; padding: 18px 20px; }
+      .contact-box h5 { font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 2px; text-align: center; margin-bottom: 12px; text-transform: uppercase; }
+      .contact-box p { font-size: 0.9rem; text-align: center; line-height: 2; }
+      .hours-box { background: #cce0f0; color: #111; border-radius: 6px; padding: 18px 20px; }
+      .hours-box h5 { font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 2px; text-align: center; margin-bottom: 12px; text-transform: uppercase; }
+      .hours-box p { font-size: 0.88rem; text-align: center; line-height: 2; font-weight: 600; }
 
-      .contact-box, .hours-box {
-        border-radius: 6px;
-        padding: 18px 20px;
-      }
-      .contact-box {
-        background: var(--card-bg);
-        color: var(--white);
-      }
-      .contact-box h5 {
-        font-family: 'Oswald', sans-serif;
-        font-size: 1rem;
-        font-weight: 700;
-        letter-spacing: 2px;
-        text-align: center;
-        margin-bottom: 12px;
-        text-transform: uppercase;
-      }
-      .contact-box p {
-        font-size: 0.9rem;
-        text-align: center;
-        line-height: 2;
-      }
-
-      .hours-box {
-        background: #cce0f0;
-        color: #111;
-      }
-      .hours-box h5 {
-        font-family: 'Oswald', sans-serif;
-        font-size: 1rem;
-        font-weight: 700;
-        letter-spacing: 2px;
-        text-align: center;
-        margin-bottom: 12px;
-        text-transform: uppercase;
-      }
-      .hours-box p {
-        font-size: 0.88rem;
-        text-align: center;
-        line-height: 2;
-        font-weight: 600;
-      }
-
-      /* ===== FOOTER ===== */
+      /* FOOTER */
       footer { background: var(--footer-bg); color: var(--white); padding: 24px 0; }
-      .footer-inner {
-        display: flex; flex-wrap: wrap; gap: 20px;
-        justify-content: space-between; align-items: flex-start;
-        max-width: 960px; margin: 0 auto; padding: 0 20px;
-      }
-      .footer-col { min-width: 150px; }
+      .footer-inner { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; align-items: flex-start; max-width: 960px; margin: 0 auto; padding: 0 20px; }
+      .footer-col { min-width: 140px; }
       .footer-copy { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; }
-      .contact-title, .social-title, .help-title {
-        color: var(--orange); font-family: 'Oswald', sans-serif;
-        font-size: 1rem; font-weight: 600; letter-spacing: 1px; margin-bottom: 8px;
-      }
+      .contact-title, .social-title, .help-title { color: var(--orange); font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 600; letter-spacing: 1px; margin-bottom: 8px; }
       .contact-row { display: flex; align-items: center; gap: 8px; font-size: 0.88rem; margin-bottom: 4px; }
       .contact-row i { color: var(--orange); width: 18px; }
       .social-icons { display: flex; gap: 10px; }
-      .social-icon {
-        width: 40px; height: 40px; border-radius: 50%;
-        display: flex; align-items: center; justify-content: center;
-        font-size: 1.1rem; color: #fff; text-decoration: none; transition: opacity 0.2s;
-      }
+      .social-icon { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; color: #fff; text-decoration: none; transition: opacity 0.2s; }
       .social-icon:hover { opacity: 0.8; }
       .social-icon.ig { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
       .social-icon.fb { background: #1877f2; }
@@ -237,21 +108,21 @@
       .footer-help a { color: var(--white); display: block; font-size: 0.88rem; text-decoration: none; margin-bottom: 4px; }
       .footer-help a:hover { color: var(--orange); }
     </style>
-    </head>
+  </head>
 
-	<body>
-		<!--NAVBAR-->
-		header>
+  <body>
+
+    <!-- NAVBAR -->
+    <!-- FIX: original had "header>" (missing the opening < bracket) so no navbar showed -->
+    <header>
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid px-0">
-          <a class="navbar-brand ms-0" href="index.html">
-            <img src="logo.png" alt="ProSport Gear Logo">
-          </a>
-          <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar"
-            style="border-color:#fff;">
+          <a class="navbar-brand ms-0" href="index.html"><img src="logo.png" alt="ProSport Gear Logo"></a>
+          <!-- FIX: id mismatch – target was "#collapsibleNavbar " (space) vs id="collapsibleNavbar" -->
+          <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" style="border-color:#fff;">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="collapsibleNavbar ">
+          <div class="collapse navbar-collapse" id="mainNav">
             <ul class="navbar-nav mx-auto gap-1 align-items-center">
               <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
               <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
@@ -285,125 +156,117 @@
       </nav>
     </header>
 
-	<!--FEEDBACK CONTENT-->
-	<div class="feedback-main">
+    <!-- FEEDBACK CONTENT -->
+    <div class="feedback-main">
 
-		<!--LEFT: CONTACT FORM-->
-		<div class="feedback-form-wrap">
-			<h4>CONTACT FORM</h4>
+      <!-- CONTACT FORM -->
+      <div class="feedback-form-wrap">
+        <h4>CONTACT FORM</h4>
 
-			<div class="form-group">
-				<label for="firstname">First Name</label>
-				<input type="text" id="firstname" placeholder="">
-			</div>
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <!-- FIX: original id was "firstname" (lowercase) but JS looked for "firstName" (camelCase) -->
+          <input type="text" id="firstName" placeholder="">
+        </div>
 
-			<div class="form-group">
-				<label for="surname">Surname</label>
-				<input type="text" id="surname" placeholder="">
-			</div>
+        <div class="form-group">
+          <label for="surname">Surname</label>
+          <input type="text" id="surname" placeholder="">
+        </div>
 
-			<div class="form-group">
-				<label for="email">Email</label>
-				<input type="email" id="email" placeholder="">
-			</div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="">
+        </div>
 
-			<div class="form-group">
-				<label for="subject">Subject</label>
-				<input type="text" id="subject" placeholder="">
-			</div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" placeholder="">
+        </div>
 
-			<div class="form-group">
-				<label for="message">Message</label>
-				<textarea id="message"></textarea>
-			</div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message"></textarea>
+        </div>
 
-			<!--STAR RATING-->
-			<span class="rating-label">RATING</span>
-			<div class="star-rating">
-				<input type="radio" id="star5" name="rating" value="5">
-				<label for="star5"><i class="far fa-star"></i></label>
-				<input type="radio" id="star4" name="rating" value="4">
-				<label for="star4"><i class="far fa-star"></i></label>
-				<input type="radio" id="star3" name="rating" value="3">
-				<label for="star3"><i class="far fa-star"></i></label>
-				<input type="radio" id="star2" name="rating" value="2">
-				<label for="star2"><i class="far fa-star"></i></label>
-				<input type="radio" id="star1" name="rating" value="1">
-				<label for="star1"><i class="far fa-star"></i></label>
-			</div>
+        <!-- STAR RATING -->
+        <span class="rating-label">RATING</span>
+        <div class="star-rating">
+          <input type="radio" id="star5" name="rating" value="5">
+          <label for="star5"><i class="far fa-star"></i></label>
+          <input type="radio" id="star4" name="rating" value="4">
+          <label for="star4"><i class="far fa-star"></i></label>
+          <input type="radio" id="star3" name="rating" value="3">
+          <label for="star3"><i class="far fa-star"></i></label>
+          <input type="radio" id="star2" name="rating" value="2">
+          <label for="star2"><i class="far fa-star"></i></label>
+          <input type="radio" id="star1" name="rating" value="1">
+          <label for="star1"><i class="far fa-star"></i></label>
+        </div>
 
-			<button class="btn-submit" onClick="submitFeedback()">SUBMIT</button>
+        <!-- FIX: onClick should be onclick (lowercase is correct HTML standard) -->
+        <button class="btn-submit" onclick="submitFeedback()">SUBMIT</button>
 
-			<p class="form-disclaimer">
-				Your response will be submitted to our team.
-				<a href="#">Privacy Policy</a> applies.
-			</p>
-		</div>
+        <p class="form-disclaimer">
+          Your response will be submitted to our team.
+          <a href="#">Privacy Policy</a> applies.
+        </p>
+      </div>
 
-		<!--RIGHT PANEL-->
-		<div class="feedback-right">
+      <!-- RIGHT PANEL -->
+      <div class="feedback-right">
+        <div class="contact-box">
+          <h5>CONTACT DETAILS</h5>
+          <p>+267 71828180<br>+267 75202995</p>
+        </div>
+        <div class="hours-box">
+          <h5>WORKING HOURS</h5>
+          <p>MON-THURS: 0900HRS – 1830HRS<br>FRI: 0900HRS – 1600HRS<br>SAT-SUN: CLOSED</p>
+        </div>
+      </div>
 
-			<!--CONTACT DETAILS-->
-			<div class="contact-box">
-				<h5>CONTACT DETAILS</h5>
-				<p>
-					+267 71828180<br>
-					+267 75202995
-				</p>
-			</div>
+    </div>
 
-			<!--WORKING HOURS-->
-			<div class="hours-box">
-				<h5>WORKING HOURS</h5>
-				<p>
-					MON-THURS: 0900HRS - 1830HRS<br>
-					FRI: 0900HRS - 1600HRS<br>
-					SAT-SUN: CLOSED
-				</p>
-			</div>
-		</div>
-	</div>
-		
-		<!--FOOTER-->
-      <footer>
-		  <div class="container">
-			  <div>
-        <p>&copy: 2026 ProSport Gear</p>
-			  </div>
+    <!-- FOOTER -->
+    <!-- FIX: original footer used old Bootstrap 4 container/row style and &copy: (wrong – should be &copy;) -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-col footer-copy"><i class="far fa-copyright"></i><span>2026 ProSport Gear</span></div>
+        <div class="footer-col">
+          <p class="contact-title">CONTACT INFO</p>
+          <div class="contact-row"><i class="far fa-envelope"></i><span>info@prosportgear.com</span></div>
+          <div class="contact-row"><i class="fas fa-phone"></i><span>+267 71828180</span></div>
+        </div>
+        <div class="footer-col">
+          <p class="social-title">SOCIAL LINKS</p>
+          <div class="social-icons">
+            <a href="#" class="social-icon ig"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon fb"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon tw"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="footer-col footer-help">
+          <p class="help-title">NEED HELP ?</p>
+          <a href="#">T's and C's</a>
+          <a href="#">Privacy Policy</a>
+        </div>
+      </div>
+    </footer>
 
-			  <div>
-				  <p>Contact Info:</p>
-				  <p>+267 71828180</p>
-				  <p><a href="info@prosportgear.com" class="btn btn-success">info@prosportgear.com</a>.</p> 
-			  </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
 
-			  <div>
-		  <p>Social</p>
-		  <a href="#"><i>Facebook</i></a>
-		   <a href="#"><i>Instagram</i></a>
-		   <a href="#"><i>Twitter</i></a> 
-			  </div>
-
-			  <div>
-		  <p>Need Help?</p>
-			  <a href="#">Terms and Conditions</a>
-			  <a href="#">Privacy Policy</a>
-		  </div>
-		  </div>
-	  </footer>
-	  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-	  <script>
-		  //Simple star rating icon swap
-		  document.querySelectorAll('.star-rating input').forEach(radio => {
-        radio.addEventListener('change', () => {
-          const val = parseInt(radio.value);
-          document.querySelectorAll('.star-rating label').forEach((lbl, i) => {
-            // Labels are reversed (5 to 1), i=0 is star5
-            const starNum = 5 - i;
-            const icon = lbl.querySelector('i');
+    <!-- Star rating visual update – runs after page is loaded -->
+    <script>
+      document.querySelectorAll('.star-rating input').forEach(function(radio) {
+        radio.addEventListener('change', function() {
+          var val = parseInt(radio.value);
+          document.querySelectorAll('.star-rating label').forEach(function(lbl, i) {
+            var starNum = 5 - i; /* labels are reversed: index 0 = star 5 */
+            var icon = lbl.querySelector('i');
             if (starNum <= val) {
               icon.className = 'fas fa-star';
-              lbl.style.color = 'var(--orange)';
+              lbl.style.color = '#e87722';
             } else {
               icon.className = 'far fa-star';
               lbl.style.color = '#555';
@@ -411,20 +274,6 @@
           });
         });
       });
-
-      function submitFeedback() {
-        const firstName = document.getElementById('firstName').value.trim();
-        const email = document.getElementById('email').value.trim();
-        if (!firstName || !email) {
-          alert('Please fill in at least your name and email.');
-          return;
-        }
-        alert('Thank you for your feedback, ' + firstName + '! We will get back to you shortly.');
-      }
-	  </script>
-		
-	</body>		
-      
-    
-  </html>
-
+    </script>
+  </body>
+</html>
