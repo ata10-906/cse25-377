@@ -6,31 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-     <script src="javascript.js"></script>
+    <script src="javascript.js"></script>
     <style>
-      :root {
-        --green-nav:  #4a6741;
-        --green-dark: #3d5a45;
-        --orange:     #e87722;
-        --orange-dark:#c96010;
-        --white:      #ffffff;
-        --card-bg:    #3d5a45;
-        --footer-bg:  #0d0d0d;
-      }
       * { 
         box-sizing: border-box;
         margin: 0; 
         padding: 0; 
       }
       body { 
-        font-family: 'Open Sans', sans-serif; 
+        font-family: sans-serif; 
         background: #b0b8b0;
       }
 
       /* NAVBAR */
       .navbar { 
-        background-color: var(--green-nav) !important; 
+        background-color: #4a6741; 
         padding: 0; 
         min-height: 90px;
       }
@@ -41,28 +31,28 @@
         background: #fff; 
       }
       .navbar .nav-link {
-        color: var(--white) !important; 
-        font-family: 'Oswald', sans-serif;
+        color: #ffffff; 
+        font-family: sans-serif;
         font-size: 1rem; 
         font-weight: 600;
         letter-spacing: 1px;
         padding: 0.5rem 1rem !important; 
         text-transform: uppercase;
       }
-      .navbar .nav-link:hover { color: var(--orange) !important;}
+      .navbar .nav-link:hover { color: #e87722;}
       .navbar .dropdown-menu { 
-        background-color: var(--green-dark);
+        background-color: #3d5a45;
         border: none; 
         border-radius: 0;
       }
       .navbar .dropdown-item { 
-        color: var(--white);
-        font-family: 'Oswald', sans-serif; 
+        color: #ffffff;
+        font-family: sans-serif; 
         letter-spacing: 1px; 
       }
       .navbar .dropdown-item:hover { 
-        background-color: var(--orange); 
-        color: var(--white); 
+        background-color: #e87722; 
+        color: #ffffff; 
       }
       .search-input {
         border-radius: 20px 0 0 20px; 
@@ -73,7 +63,7 @@
         width: 130px;
       }
       .search-btn {
-        background: var(--white);
+        background: #ffffff;
         border: none;
         border-radius: 0 20px 20px 0;
         padding: 6px 10px; 
@@ -81,7 +71,7 @@
         color: #555;
       }
       .cart-icon { 
-        color: var(--orange);
+        color: #e87722;
         font-size: 1.5rem;
         cursor: pointer; 
         margin-left: 8px; 
@@ -113,7 +103,7 @@
         align-items: center; 
         justify-content: center;
         font-size: 1.3rem; 
-        color: var(--green-dark); 
+        color: #3d5a45; 
         ointer-events: none;
       }
 
@@ -126,9 +116,9 @@
         background: #b0b8b0;
       }
       .btn-shop-now {
-        background: var(--orange); 
-        color: var(--white);
-        font-family: 'Oswald', sans-serif; 
+        background: #e87722; 
+        color: #ffffff;
+        font-family: sans-serif; 
         font-size: 0.9rem;
         font-weight: 700;
         letter-spacing: 2px; 
@@ -144,7 +134,7 @@
         transition: background 0.2s;
       }
       .btn-shop-now:hover { 
-        background: var(--orange-dark);
+        background: #c96010;
         color: #fff; 
       }
       .btn-shop-now .cart-circle {
@@ -161,7 +151,7 @@
 
       /* PRODUCTS + ADS */
       .products-ads-section {
-        background: var(--card-bg);
+        background: #3d5a45;
         padding: 16px;
         display: flex; 
         gap: 16px; 
@@ -230,7 +220,7 @@
         flex-wrap: wrap; 
       }
       .product-card {
-        background: var(--orange);
+        background: #e87722;
         border-radius: 8px;
         padding: 10px;
         width: 135px;
@@ -246,10 +236,10 @@
       .product-card:hover { 
         transform: translateY(-3px); 
         box-shadow: 0 5px 15px rgba(0,0,0,0.3); 
-        border-color: var(--white); 
+        border-color: #ffffff; 
       }
       .product-card.featured { 
-        border: 3px solid var(--white);
+        border: 3px solid #ffffff;
       }
       .product-card img { 
         width: 78px;
@@ -260,14 +250,14 @@
         padding: 4px;
       }
       .product-card .p-name { 
-        font-family: 'Oswald', sans-serif;
-        color: var(--white); 
+        font-family: sans-serif;
+        color: #ffffff; 
         font-size: 0.8rem;
         font-weight: 600;
         text-align: center;
       }
       .product-card .p-price { 
-        color: var(--white);
+        color: #ffffff;
         font-size: 0.77rem;
         font-weight: 700;
       }
@@ -281,12 +271,12 @@
         margin-top: 4px;
       }
       .btn-buy {
-        background: var(--orange); 
+        background: #e87722; 
         color: #fff;
         border: none;
         border-radius: 20px;
         padding: 6px 16px;
-        font-family: 'Oswald', sans-serif;
+        font-family: sans-serif;
         font-size: 0.83rem; 
         font-weight: 700;
         letter-spacing: 1px; 
@@ -295,16 +285,17 @@
         transition: background 0.2s;
       }
       .btn-buy:hover {
-        background: var(--orange-dark); 
+        background: #c96010
+        ; 
         color: #fff; 
       }
       .btn-add-cart {
         background: #000; 
-        color: var(--orange);
+        color: #e87722;
         border: none;
         border-radius: 20px;
         padding: 6px 14px;
-        font-family: 'Oswald', sans-serif;
+        font-family: sans-serif;
         font-size: 0.83rem;
         font-weight: 700;
         cursor: pointer; 
@@ -316,19 +307,19 @@
       }
       .btn-add-cart:hover {
         background: #222; 
-        color: var(--orange);
+        color: #e87722;
       }
       .or-text { 
-        color: var(--white); 
-        font-family: 'Oswald', sans-serif;
+        color: #ffffff; 
+        font-family: sans-serif;
         font-size: 0.9rem;
         font-weight: 600;
       }
 
       /* FOOTER */
       footer { 
-        background: var(--footer-bg);
-        color: var(--white); 
+        background: #0d0d0d;
+        color: #ffffff; 
         padding: 24px 0;
       }
       .footer-inner {
@@ -349,8 +340,8 @@
         font-size: 0.9rem; 
       }
       .contact-title, .social-title, .help-title {
-        color: var(--orange);
-        font-family: 'Oswald', sans-serif;
+        color: #e87722;
+        font-family: sans-serif;
         font-size: 1rem;
         font-weight: 600;
         letter-spacing: 1px;
@@ -364,7 +355,7 @@
         margin-bottom: 4px; 
       }
       .contact-row i { 
-        color: var(--orange);
+        color: #e87722;
         width: 18px;
       }
       .social-icons {
@@ -390,13 +381,13 @@
       .social-icon.fb { background: #1877f2; }
       .social-icon.tw { background: #1da1f2; }
       .footer-help a { 
-        color: var(--white);
+        color: #ffffff;
         display: block; 
         font-size: 0.88rem;
         text-decoration: none; 
         margin-bottom: 4px;
       }
-      .footer-help a:hover { color: var(--orange); }
+      .footer-help a:hover { color: #e87722; }
 
       @media (max-width: 700px) {
         .products-ads-section { flex-direction: column; }
