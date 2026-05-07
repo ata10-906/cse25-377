@@ -99,7 +99,7 @@
       /* HERO VIDEO */
       .hero-video-section {
         width: 100%; 
-        height: 220px;
+        height: 100%;
         background: #222;
         display: flex; 
         align-items: center;
@@ -109,7 +109,7 @@
       }
       .hero-video-section video { 
         width: 100%;
-        height: 220%; 
+        height: 100%; 
         object-fit: cover; 
       }
       .play-overlay {
@@ -203,7 +203,7 @@
       }
       .ad-video-box video, .ad-img-box img { 
         width: 100%;
-        height: 140%; 
+        height: 100%; 
         object-fit: cover;
       }
       .small-play { 
@@ -469,7 +469,7 @@
 
     <!-- HERO VIDEO -->
     <div class="hero-video-section">
-      <video controls poster="">
+      <video autoplay muted loop playsinline controls>
         <source src="videos/Dribvideo.mp4.mp4" type="video/mp4">
       </video>
        <div class="play-overlay"><span><i class="fas fa-play"></i></span></div>
@@ -489,7 +489,7 @@
       <!-- LEFT: video on top, banner below -->
       <div class="ads-left">
         <div class="ad-video-box">
-          <video>
+          <video autoplay muted playsinline controls>
             <source src="videos/TVideo.mp4.mp4" type="video/mp4">
           </video>
            <div class="play-overlay"><span><i class="fas fa-play"></i></span></div>
@@ -528,6 +528,18 @@
           <a href="#" class="btn-buy" onclick="buyNow('Jersey', 1000); return false;">BUY NOW</a>
           <span class="or-text">OR ADD TO</span>
           <a href="#" class="btn-add-cart" onclick="addToCart('Jersey', 1000); return false;">
+            <i class="fas fa-shopping-cart"></i>
+          </a>
+
+          <a href="#" class="btn-buy" onclick="buyNow('Soccer Boots', 800); return false;">BUY NOW</a>
+          <span class="or-text">OR ADD TO</span>
+          <a href="#" class="btn-add-cart" onclick="addToCart('Soccer Boots', 800); return false;">
+            <i class="fas fa-shopping-cart"></i>
+          </a>
+
+          <a href="#" class="btn-buy" onclick="buyNow('Racket', 2200); return false;">BUY NOW</a>
+          <span class="or-text">OR ADD TO</span>
+          <a href="#" class="btn-add-cart" onclick="addToCart('Racket', 2200); return false;">
             <i class="fas fa-shopping-cart"></i>
           </a>
         </div>
