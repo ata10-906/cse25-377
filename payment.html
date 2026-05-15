@@ -25,6 +25,9 @@
         --raspberry-pink: #cc2366;
         --facebook-blue: #1877f2;
         --sky-blue: #1da1f2;
+        --very dark-grey: #222;
+        --medium dark-grey: #555;
+        --black: #000;
         --Light-greyish-green: #b0b8b0;
         --very dark-grey: #222;
         --footer-bg: #0d0d0d;
@@ -38,35 +41,77 @@
         background:#b0b8b0;
       }
       
-      /* ================= NAVBAR ================= */
-      .navbar{
-        background: #4a6741;
+      /* --- NAVBAR SECTION --- */
+      * { 
+        box-sizing: border-box;
+        margin: 0; 
+        padding: 0; 
+      }
+      body { 
+        font-family: sans-serif; 
+        background: #b0b8b0;
+      }
+
+      /* NAVBAR */
+      .navbar { 
+        background-color: #4a6741; 
+        padding: 0; 
         min-height: 90px;
       }
-      
-      .navbar-brand img{
-        width: 90px;
-        height: 90px;
+      .navbar-brand img { 
+        width: 90px; 
+        height: 90px; 
         object-fit: contain;
-        background: #fff;
+        background: #fff; 
       }
-      
-      .navbar .nav-link{
-        color: #fff;
+      .navbar .nav-link {
+        color: #ffffff; 
+        font-family: sans-serif;
+        font-size: 1rem; 
         font-weight: 600;
+        letter-spacing: 1px;
+        padding: 0.5rem 1rem !important; 
         text-transform: uppercase;
       }
-      
-      .navbar .nav-link:hover{
-        color: #e87722;
+      .navbar .nav-link:hover { color: #e87722;}
+      .navbar .dropdown-menu { 
+        background-color: #3d5a45;
+        border: none; 
+        border-radius: 0;
       }
-      
-      .cart-icon{
-        color: #e87722;
-        font-size: 1.4rem;
+      .navbar .dropdown-item { 
+        color: #ffffff;
+        font-family: sans-serif; 
+        letter-spacing: 1px; 
       }
-      
-      /* ================= PAGE TITLE ================= */
+      .navbar .dropdown-item:hover { 
+        background-color: #e87722; 
+        color: #ffffff; 
+      }
+      .search-input {
+        border-radius: 20px 0 0 20px; 
+        border: none;
+        padding: 6px 12px; 
+        font-size: 0.88rem;
+        outline: none; 
+        width: 130px;
+      }
+      .search-btn {
+        background: #ffffff;
+        border: none;
+        border-radius: 0 20px 20px 0;
+        padding: 6px 10px; 
+        cursor: pointer; 
+        color: #555;
+      }
+      .cart-icon { 
+        color: #e87722;
+        font-size: 1.5rem;
+        cursor: pointer; 
+        margin-left: 8px; 
+      }
+
+      /* --- PAGE TITLE ---*/
       .payment-title{
         text-align: center;
         color: #fff;
@@ -75,7 +120,7 @@
         letter-spacing: 2px;
       }
       
-      /* ================= PAYMENT SECTION ================= */
+      /* --- PAYMENT SECTION --- */
       .payment-container{
         width: 90%;
         max-width: 900px;
@@ -161,7 +206,7 @@
         font-weight: bold;
       }
       
-      /* ================= FOOTER ================= */
+      /* --- FOOTER SECTION--- */
         /* FOOTER */
       footer { 
         background: #0d0d0d;
