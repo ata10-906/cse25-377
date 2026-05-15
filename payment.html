@@ -7,12 +7,224 @@
 
     <!--BOOTSTRAP-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
-
     <!--FONT AWESOME-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
     <!--JAVASCRIPT-->
     <script src="javascript.js"></script>
+
+    <style>
+      :root{
+        --green-nav: #4a6741;
+        --green-dark: #3d5a45;
+        --orange: #e87722;
+        --white: #ffffff;
+        --golden-orange: #f09433;
+        --crimson-red: #dc2743;
+        --deep-pink: #bc1888;
+        --facebook-blue: #1877f2;
+        --sky-blue: #1da1f2;
+        --Light-greyish-green: #b0b8b0;
+        --very dark-grey: #222;
+        --footer-bg: #0d0d0d;
+      }
+    
+  
+      /* ================= BODY ================= */
+      body{
+        margin:0;
+        font-family:sans-serif;
+        background:#b0b8b0;
+      }
+      
+      /* ================= NAVBAR ================= */
+      .navbar{
+        background: #4a6741;
+        min-height: 90px;
+      }
+      
+      .navbar-brand img{
+        width: 90px;
+        height: 90px;
+        object-fit: contain;
+        background: #fff;
+      }
+      
+      .navbar .nav-link{
+        color: #fff;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+      
+      .navbar .nav-link:hover{
+        color: #e87722;
+      }
+      
+      .cart-icon{
+        color: #e87722;
+        font-size: 1.4rem;
+      }
+      
+      /* ================= PAGE TITLE ================= */
+      .payment-title{
+        text-align: center;
+        color: #fff;
+        background: #3d5a45;
+        padding: 20px;
+        letter-spacing: 2px;
+      }
+      
+      /* ================= PAYMENT SECTION ================= */
+      .payment-container{
+        width: 90%;
+        max-width: 900px;
+        margin: 30px auto;
+        background: #3d5a45;
+        padding: 30px;
+        border-radius: 10px;
+      }
+      
+      /* PAYMENT OPTIONS */
+      .payment-options{
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+      }
+      
+      /* PAYMENT CARD */
+      .payment-card{
+        background: #e87722;
+        width: 180px;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      
+      .payment-card:hover{
+        transform: translateY(-5px);
+      }
+      
+      /* PAYMENT ICONS */
+      .payment-card i{
+        font-size: 3rem;
+        color: #fff;
+        margin-bottom: 10px;
+      }
+      
+      /* PAYMENT TEXT */
+      .payment-card h3{
+        color: #fff;
+        font-size: 1rem;
+      }
+      
+      /* FORM */
+      .payment-form{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      /* INPUTS */
+      .payment-form input{
+        padding: 12px;
+        border: none;
+        border-radius: 20px;
+        outline: none;
+      }
+      
+      /* BUTTON */
+      .pay-btn{
+        background: #000;
+        color: #e87722;
+        border: none;
+        padding: 12px;
+        border-radius: 25px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      
+      .pay-btn:hover{
+        background: #222;
+      }
+      
+      /* MESSAGE */
+      #paymentMessage{
+        text-align: center;
+        color: #fff;
+        margin-top: 20px;
+        font-size: 1rem;
+        font-weight: bold;
+      }
+      
+      /* ================= FOOTER ================= */
+      footer{
+        background: #0d0d0d;
+        color: #fff;
+        padding: 25px 0;
+      }
+      
+      .footer-inner{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+        max-width: 1000px;
+        margin: auto;
+        padding: 0 20px;
+      }
+      
+      .footer-col{
+        min-width: 150px;
+      }
+      
+      .footer-title{
+        color: #e87722;
+        margin-bottom: 10px;
+      }
+      
+      .footer-col a{
+        display: block;
+        color: #fff;
+        text-decoration: none;
+        margin-bottom: 5px;
+      }
+      
+      .footer-col a:hover{
+        color: #e87722;
+      }
+      
+      .social-icons{
+        display: flex;
+        gap: 10px;
+      }
+      
+      .social-icons a{
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        text-decoration: none;
+      }
+      
+      .ig{
+        background: linear-gradient(45deg,#f09433,#dc2743,#bc1888);
+      }
+      
+      .fb{
+        background: #1877f2;
+      }
+      
+      .tw{
+        background: #1da1f2;
+      }
+      
+    </style>
 
 
     
