@@ -283,20 +283,26 @@
       }
       
     </style>
+  </head>
 
     <body>
-        <!-- NAVBAR -->
+       <!-- NAVBAR -->
     <header>
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid px-0">
-          <a class="navbar-brand ms-0" href="index.html"><img src="equip images/logo.jpg.png" alt="ProSport Gear Logo"></a>
-          <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" style="border-color:#fff;">
+          <a class="navbar-brand ms-0" href="index.html">
+            <img src="equip images/logo.jpg.png" alt="ProSport Gear Logo">
+          </a>
+          <button class="navbar-toggler me-3" type="button"
+            data-bs-toggle="collapse" data-bs-target="#mainNav" style="border-color:#fff;">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="mainNav">
             <ul class="navbar-nav mx-auto gap-1 align-items-center">
+
               <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
               <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="clothing.html" role="button" data-bs-toggle="dropdown">Clothing</a>
                 <ul class="dropdown-menu">
@@ -305,19 +311,20 @@
                   <li><a class="dropdown-item" href="clothing.html#kids">Kids</a></li>
                 </ul>
               </li>
+
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="equipment.html" role="button" data-bs-toggle="dropdown">Equipment</a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#football" onclick="showEquipSection('football')">Football</a></li>
-                  <li><a class="dropdown-item" href="#basketball" onclick="showEquipSection('basketball')">Basketball</a></li>
-                  <li><a class="dropdown-item" href="#tennis" onclick="showEquipSection('tennis')">Tennis</a></li>
+                  <li><a class="dropdown-item" href="equipment.html#football">Football</a></li>
+                  <li><a class="dropdown-item" href="equipment.html#basketball">Basketball</a></li>
+                  <li><a class="dropdown-item" href="equipment.html#tennis">Tennis</a></li>
                 </ul>
               </li>
-              
+
               <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
 
               <li class="nav-item"><a class="nav-link" href="payment.html">Payment</a></li>
-              
+
               <li class="nav-item d-flex align-items-center ms-2">
                 <input type="text" placeholder="Search..." class="search-input">
                 <button class="search-btn"><i class="fas fa-search"></i></button>
@@ -325,50 +332,28 @@
               <li class="nav-item d-flex align-items-center">
                 <i class="fas fa-shopping-cart cart-icon"></i>
               </li>
+
             </ul>
           </div>
         </div>
       </nav>
     </header>
     
-    <!-- PAYMENT CONTENT -->
-    <div class="payment-main">
-
-      <!-- PAYMENT FORM -->
-      <div class="payment-form-wrap">
-        <h4>PAYMENT FORM</h4>
-
-        <div class="form-group">
-          <label for="card holder name">Card Holder Name</label>
-          <input type="text" id="Card Holder Name" placeholder="">
+    <!-- PAYMENT CONTENT-->
+      <h1 class="payment-title">
+        <li class="fas fa-credit"></li>
+        ONLINE PAYMENT
+      </h1>
+    <!-- PAYMENT SECTION -->
+      <section class="payment-container">
+        <div class="payment-options">
+          <div class>
+            <li></li>
+          </div>
         </div>
-
-         <div class="form-group">
-          <label for="card holder surname">Card Holder Surname</label>
-          <input type="text" id="Card Holder Surname" placeholder="">
-        </div>
-
-        <div class="form-group">
-          <label for="card number">Card Number</label>
-          <input type="text" id="CardNumber" placeholder="">
-        </div>
-
-        <div class="form-group">
-          <label for="card pin">Card PIN</label>
-          <input type="text" id="Card PIN" placeholder="">
-        </div>
-
-        <div class="form-group">
-          <label for="expiry date">Expiry Date</label>
-          <input type="text" id="Expiry Date" placeholder="">
-        </div>
-
-        <button type="button" class="pay-btn" onclick="completePayment()">PAY NOW</button>
-      </div>
-    </div>
-
-
-
+        
+      </section>
       
+   
     </body>
 </html>
