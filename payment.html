@@ -176,7 +176,7 @@
       }
       
       /* BUTTON */
-      .pay-buy {
+      .pay-btn {
         background: #e87722; 
         color: #fff;
         border: none;
@@ -190,7 +190,7 @@
         text-decoration: none;
         transition: background 0.2s;
       }
-      .pay-buy:hover {
+      .pay-btn:hover {
         background: #c96010; 
         color: #fff; 
       }
@@ -364,8 +364,33 @@
         </div>
 
         <!--PAYMENT FORM-->
-        
-        
+         <form class="payment-form-wrap">
+        <h4>PAYMENT FORM</h4>
+
+        <div class="form-group">
+          <label for="card holder names">Card Holder Names</label>
+          <input type="text" id="Card Holder Names" placeholder="">
+        </div>
+
+        <div class="form-group">
+          <label for="card number">Card Number</label>
+          <input type="text" id="cardNo" placeholder="">
+        </div>
+
+        <div class="form-group">
+          <label for="card pin">Card PIN</label>
+          <input type="text" id="Card PIN" placeholder="">
+        </div>
+
+        <div class="form-group">
+          <label for="expiry date">Expiry Date</label>
+          <input type="text" id="Expiry Date" placeholder="">
+        </div>
+         
+           <button type="button" class="pay-btn" onclick="completePayment()">
+             PAY NOW
+           </button>
+         </form>
       </section>
 
           
@@ -396,6 +421,5 @@
     
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
        
-   
     </body>
 </html>
