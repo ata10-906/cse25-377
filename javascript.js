@@ -333,7 +333,7 @@ function completePayment() {
     ) {
 
         message.innerHTML =
-        "❌ Incorrect or incomplete account details.";
+        "✅ Transaction complete. Await delivery of goods.";
 
         message.style.color = "red";
 
@@ -341,12 +341,9 @@ function completePayment() {
     }
 
     message.innerHTML =
-    "✅ Transaction complete. Await delivery of goods.";
+    "❌ Incorrect or incomplete account details.";
 
     message.style.color = "lightgreen";
-            
-    return;        
-
 
     localStorage.removeItem("cart");
 
