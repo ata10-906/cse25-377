@@ -344,6 +344,9 @@ function completePayment() {
     "✅ Transaction complete. Await delivery of goods.";
 
     message.style.color = "lightgreen";
+            
+    return;        
+
 
     localStorage.removeItem("cart");
 
