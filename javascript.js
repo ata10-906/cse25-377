@@ -1,20 +1,6 @@
-/* ============================================================
-   ProSport Gear – main.js
-   This file handles ALL interactive features across the site:
-     1. Search bar
-     2. Shopping cart
-     3. Buy Now / Add to Cart buttons
-     4. Clothing & Equipment section tabs
-     5. Star rating (feedback page)
-     6. Feedback form submission
-     7. Navbar scroll effect
-   ============================================================ */
-
 
 /* ============================================================
-   SECTION 1 – SEARCH BAR
-   Reads what the user typed and shows a simple alert.
-   You can later replace the alert with real search results.
+                        SEARCH BAR
    ============================================================ */
 
 function runSearch() {
@@ -37,111 +23,152 @@ function runSearch() {
   searchInput.value = "";
 }
 
+/* ===============================================================
+                        SHOPPING CART 
+================================================================ */
+
+//CART ARRAY
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+/* =============================================================
+                     ADD PRODUCT TO CART
+============================================================= */
+function addToCart(name, price) {
+   let product = {
+      name:name,
+      price:price
+   };
+
+   cart.push(product);
+
+   localStorage.setItem(
+      "cart",
+      JSON.stringify(cart)
+   );
+   alert(name + " added to shopping cart!");
+}
+
+/* ==============================================================
+                     DISPLAY CART PRODUCTS
+============================================================== */
+fuction displayCart() {
+   let cartContainer = document.getElementById("cart-items");
+
+   let totalContainer = document.getElementById("cart-total");
+
+   if (!cartContainer) return;
+
+   cartContainer.innerHTML = "";
+
+   let total = 0;
+
+   //LOOP PRODUCTS
+   cart.forEach((item,index) => {
+      total += item.price;
+      cartContainer.innerHTML +=
+
+      <div class="cart-product">
+          <div>
+               <input type="checkbox">
+               <strong>${item.name}</strong>
+               - P${item.price}
+         </div>
+
+         <button class="remove-btn" onclick="removeProduct(${index})">
+         Remove
+         </button>
+      </div>
+      
+   });
+   
+   totalContainer.innerHTML = "TOTAL: P" + total; 
+}
+
+
+/*=========================================
+          REMOVE A PRODUCT
+========================================= */
+
+function removeProduct(index) {
+   cart.splice(index,1);
+
+   localStorage.setItem("cart", JSON.stringify(cart));
+
+   displayCart();
+}
+
+/* ==========================================
+      PROCEED TO PAYMENT
+========================================== */
+function goToPayment() {
+   if (cart.length === 0) {
+      alert ("Shopping cart is empty!");
+
+      return;
+   }
+
+   window.location.href = "payment.html";
+}
+
+/* ==========================================
+       SELECT PAYMENT OPTION
+========================================= */
+let selectPayment = "";
+function choosePaymenr(method) {
+   selectedPayment = method;
+   alert (method + " selected");
+}
+
+/* =========================================
+      COMPLETE THE PAYMENT
+========================================= */
+function completePayment() {
+   let name = document.getElementById("cardName").value;
+
+   let number = document.getElemenById("cadNumber").value;
+
+   let expiry = document.getElementById("expiry").value;
+
+   let cvv = document.getElementaryById("cvv").value;
+
+   let message = document.getElementById("paymentMessage").value;
+
+   //VALIDATION
+   if (
+      name === "" ||
+      number === "" ||
+      expiry === "" ||
+      cvv === "" ||
+      selectedPayment === "" 
+   ){
+
+      message.innerHTML = "❌ WRONG OR INCOMPLETE ACCOUNT DETAILS.";
+      message.style.color = "red";
+
+      return;
+      
+   }
+
+   //SUCCESSFUL TRANSACTION
+   message.innerHTML = "✅ PAYMENT SUCCESSFUL AWAIT DELIVERY OF GOODS";
+   message.style.color = "lightgreen";
+
+   //CLEAR THE SHOPPING CART
+   localStorage.removeItem("cart");
+   cart = [];
+}
+
+
+/* ===========================================
+            AUTO LOAD THE CART
+========================================== */
+document.addEventListener("DOMContentLoaded", function() {
+   displayCart();
+}); 
+
 
 /* ============================================================
-   SECTION 2 – SHOPPING CART
-   A simple cart stored as an array of items.
-   Items are added when the user clicks "Add to Cart".
-   The cart icon shows how many items are inside.
-   ============================================================ */
-
-// This array holds all items added to the cart
-var cart = [];
-
-// This function adds a product to the cart
-function addToCart(productName, productPrice) {
-  // Create a simple product object
-  var product = {
-    name: productName,
-    price: productPrice
-  };
-
-  // Add the product to the cart array
-  cart.push(product);
-
-  // Update the cart counter badge on the icon
-  updateCartBadge();
-
-  // Tell the user the item was added
-  alert(productName + " has been added to your cart!");
-}
-
-// This function updates the little number badge on the cart icon
-function updateCartBadge() {
-  // Find the cart icon element
-  var cartIcon = document.querySelector(".cart-icon");
-
-  if (cartIcon) {
-    // Show the number of items next to the cart icon
-    cartIcon.setAttribute("title", cart.length + " item(s) in cart");
-
-    // If a badge element exists, update it; otherwise create one
-    var badge = document.getElementById("cart-badge");
-
-    if (!badge) {
-      // Create a new badge element
-      badge = document.createElement("span");
-      badge.id = "cart-badge";
-      badge.style.cssText =
-        "background: red; color: white; border-radius: 50%;" +
-        "padding: 2px 6px; font-size: 0.7rem; position: relative;" +
-        "top: -10px; left: -8px; font-weight: bold;";
-      cartIcon.parentNode.appendChild(badge);
-    }
-
-    // Set the number shown on the badge
-    badge.textContent = cart.length;
-  }
-}
-
-// This function shows all items currently in the cart
-function viewCart() {
-  // If the cart is empty
-  if (cart.length === 0) {
-    alert("Your cart is empty. Start shopping!");
-    return;
-  }
-
-  // Build a message listing all cart items
-  var cartMessage = "Your Cart:\n";
-  var total = 0;
-
-  for (var i = 0; i < cart.length; i++) {
-    cartMessage += (i + 1) + ". " + cart[i].name + " – P" + cart[i].price + "\n";
-    total += cart[i].price;
-  }
-
-  cartMessage += "\nTotal: P" + total.toFixed(2);
-  alert(cartMessage);
-}
-
-
-/* ============================================================
-   SECTION 3 – BUY NOW BUTTONS
-   When the user clicks "Buy Now" on a product, this function
-   confirms their intention and pretends to process the purchase.
-   ============================================================ */
-
-function buyNow(productName, productPrice) {
-  // Ask the user to confirm the purchase
-  var confirmed = confirm(
-    "You are about to buy:\n" +
-    productName + " for P" + productPrice + "\n\n" +
-    "Proceed to checkout?"
-  );
-
-  // If they clicked OK
-  if (confirmed) {
-    alert("Thank you! Your order for " + productName + " has been placed.");
-  } else {
-    // If they clicked Cancel, do nothing
-    alert("Purchase cancelled. You can continue shopping.");
-  }
-}
-
-
-/* ============================================================
-   SECTION 4 – CLOTHING PAGE: SECTION TABS (Men / Women / Kids)
+    CLOTHING PAGE: SECTION TABS (Men / Women / Kids)
    Shows one section at a time when a tab button is clicked.
    ============================================================ */
 
@@ -164,8 +191,7 @@ function showClothingSection(sectionId) {
     targetSection.classList.add("active");
   }
 
-  // Highlight the correct tab button
-  // The button whose text matches the sectionId gets highlighted
+   //Hightlights the correct tab button
   for (var i = 0; i < allTabs.length; i++) {
     if (allTabs[i].textContent.trim().toLowerCase().includes(sectionId.toLowerCase())) {
       allTabs[i].classList.add("active");
@@ -173,10 +199,9 @@ function showClothingSection(sectionId) {
   }
 }
 
-
 /* ============================================================
-   SECTION 5 – EQUIPMENT PAGE: SECTION TABS (Football / Basketball / Tennis)
-   Same logic as clothing tabs but for equipment sections.
+   EQUIPMENT PAGE: SECTION TABS (Football / Basketball / Tennis)
+   Also shows one section at a time when a tab button is clicked.
    ============================================================ */
 
 function showEquipmentSection(sectionId) {
@@ -244,9 +269,7 @@ function setRating(starNumber) {
 
 
 /* ============================================================
-   SECTION 7 – FEEDBACK FORM SUBMISSION
-   Reads all form fields, checks they are filled in,
-   then shows a success message.
+            FEEDBACK FORM SUBMISSION
    ============================================================ */
 
 function submitFeedback() {
@@ -260,7 +283,7 @@ function submitFeedback() {
   // Check that required fields are not empty
   if (!firstName || firstName.value.trim() === "") {
     alert("Please enter your first name.");
-    firstName.focus(); // Move cursor to that field
+    firstName.focus(); 
     return;
   }
 
@@ -317,7 +340,7 @@ function submitFeedback() {
   message.value   = "";
   selectedRating  = 0;
 
-  // Reset the star icons back to empty/grey
+  // Reset the star icons back to empty
   var stars = document.querySelectorAll(".star-rating label");
   for (var i = 0; i < stars.length; i++) {
     stars[i].querySelector("i").className = "far fa-star";
@@ -325,9 +348,8 @@ function submitFeedback() {
   }
 }
 
-
 /* ============================================================
-   SECTION 8 – NAVBAR SCROLL EFFECT
+                NAVBAR SCROLL EFFECT
    Makes the navbar slightly darker when the user scrolls down,
    so it stands out more against the page content.
    ============================================================ */
@@ -337,20 +359,19 @@ window.addEventListener("scroll", function () {
 
   if (navbar) {
     if (window.scrollY > 50) {
-      // User has scrolled down – darken the navbar
+      
       navbar.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.4)";
       navbar.style.opacity   = "0.97";
+       
     } else {
-      // User is at the top – restore original style
       navbar.style.boxShadow = "none";
       navbar.style.opacity   = "1";
     }
   }
 });
 
-
 /* ============================================================
-   SECTION 9 – PAGE LOAD: AUTO-DETECT WHICH PAGE IS OPEN
+                         PAGE LOAD
    Checks the URL hash (e.g. #men or #football) and
    automatically opens the right section on page load.
    ============================================================ */
@@ -384,6 +405,7 @@ window.addEventListener("DOMContentLoaded", function () {
   var searchInput = document.querySelector(".search-input");
   if (searchInput) {
     searchInput.addEventListener("keypress", function (event) {
+       
       // keyCode 13 is the Enter key
       if (event.key === "Enter" || event.keyCode === 13) {
         runSearch();
@@ -409,9 +431,10 @@ window.addEventListener("DOMContentLoaded", function () {
 
   // --- Attach star rating clicks ---
   var starLabels = document.querySelectorAll(".star-rating label");
+   
   // Stars are stored in reverse (5 to 1), so index 0 = star 5
   for (var i = 0; i < starLabels.length; i++) {
-    // Use a closure to capture the correct star number
+     
     (function (label, starNum) {
       label.addEventListener("click", function () {
         setRating(starNum);
@@ -420,12 +443,23 @@ window.addEventListener("DOMContentLoaded", function () {
   }
 
 });
-/* ============================================================
-   END OF main.js
-   To link this file to every HTML page, add this line just
-   before the closing </body> tag on each page:
 
-   <script src="main.js"></script>
 
-   Make sure Bootstrap's script tag comes BEFORE this line.
-   ============================================================ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
