@@ -1,449 +1,473 @@
+/* =========================================
+            PROSPORT GEAR WEBSITE
+========================================= */
 
-/* ============================================================
-                        SEARCH BAR
-   ============================================================ */
+/* =========================
+        SHOPPING CART
+========================= */
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let selectedPayment = "";
+
+/* =========================
+        SEARCH FUNCTION
+========================= */
 
 function runSearch() {
-  // Get the search input field
-  var searchInput = document.querySelector(".search-input");
 
-  // Read the text the user typed (trim removes extra spaces)
-  var searchText = searchInput.value.trim();
+    let searchInput = document.querySelector(".search-input");
 
-  // If the box is empty, remind the user to type something
-  if (searchText === "") {
-    alert("Please enter a product to search for.");
-    return; // Stop here, do not continue
-  }
+    if (!searchInput) return;
 
-  // Show what was searched (replace this with real search logic later)
-  alert('Searching for: "' + searchText + '"');
+    let searchText = searchInput.value.trim();
 
-  // Clear the search box after searching
-  searchInput.value = "";
+    if (searchText === "") {
+        alert("Please enter a product to search for.");
+        return;
+    }
+
+    alert("Searching for: " + searchText);
+
+    searchInput.value = "";
 }
 
-/* ===============================================================
-                        SHOPPING CART 
-================================================================ */
+/* =========================
+        ADD TO CART
+========================= */
 
-//CART ARRAY
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-/* =============================================================
-                     ADD PRODUCT TO CART
-============================================================= */
 function addToCart(name, price) {
-   let product = {
-      name:name,
-      price:price
-   };
 
-   cart.push(product);
+    let product = {
+        name: name,
+        price: Number(price)
+    };
 
-   localStorage.setItem(
-      "cart",
-      JSON.stringify(cart)
-   );
-   alert(name + " added to shopping cart!");
+    cart.push(product);
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    updateCartCount();
+
+    alert(name + " added to shopping cart!");
 }
 
-/* ==============================================================
-                     DISPLAY CART PRODUCTS
-============================================================== */
-fuction displayCart() {
-   let cartContainer = document.getElementById("cart-items");
+/* =========================
+        BUY NOW
+========================= */
 
-   let totalContainer = document.getElementById("cart-total");
+function buyNow(name, price) {
 
-   if (!cartContainer) return;
+    addToCart(name, price);
 
-   cartContainer.innerHTML = "";
-
-   let total = 0;
-
-   //LOOP PRODUCTS
-   cart.forEach((item,index) => {
-      total += item.price;
-      cartContainer.innerHTML +=
-
-      <div class="cart-product">
-          <div>
-               <input type="checkbox">
-               <strong>${item.name}</strong>
-               - P${item.price}
-         </div>
-
-         <button class="remove-btn" onclick="removeProduct(${index})">
-         Remove
-         </button>
-      </div>
-      
-   });
-   
-   totalContainer.innerHTML = "TOTAL: P" + total; 
+    toggleCart();
 }
 
+/* =========================
+        CREATE CART
+========================= */
 
-/*=========================================
-          REMOVE A PRODUCT
-========================================= */
+function createCartSidebar() {
 
-function removeProduct(index) {
-   cart.splice(index,1);
+    if (document.getElementById("cartSidebar")) return;
 
-   localStorage.setItem("cart", JSON.stringify(cart));
+    let cartHTML = `
+    
+    <div id="cartSidebar"
+    style="
+        position: fixed;
+        top: 0;
+        right: -420px;
+        width: 380px;
+        height: 100%;
+        background: white;
+        z-index: 9999;
+        transition: 0.3s;
+        overflow-y: auto;
+        padding: 20px;
+        box-shadow: -4px 0 10px rgba(0,0,0,0.3);
+    ">
 
-   displayCart();
+        <div style="
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            margin-bottom:20px;
+        ">
+
+            <h3 style="color:#4a6741;">
+                Shopping Cart
+            </h3>
+
+            <button onclick="toggleCart()"
+            style="
+                background:#e87722;
+                color:white;
+                border:none;
+                padding:6px 12px;
+                border-radius:6px;
+                cursor:pointer;
+            ">
+                Close
+            </button>
+
+        </div>
+
+        <div id="cart-items"></div>
+
+        <h4 id="cart-total"
+        style="
+            margin-top:20px;
+            color:#4a6741;
+        ">
+            TOTAL: P0
+        </h4>
+
+        <div style="
+            margin-top:20px;
+            display:flex;
+            gap:10px;
+            flex-wrap:wrap;
+        ">
+
+            <button onclick="removeSelectedProducts()"
+            style="
+                background:red;
+                color:white;
+                border:none;
+                padding:10px;
+                border-radius:6px;
+                cursor:pointer;
+            ">
+                Remove Selected
+            </button>
+
+            <button onclick="goToPayment()"
+            style="
+                background:#4a6741;
+                color:white;
+                border:none;
+                padding:10px;
+                border-radius:6px;
+                cursor:pointer;
+            ">
+                Proceed
+            </button>
+
+        </div>
+
+    </div>
+    `;
+
+    document.body.insertAdjacentHTML("beforeend", cartHTML);
 }
 
-/* ==========================================
-      PROCEED TO PAYMENT
-========================================== */
+/* =========================
+        TOGGLE CART
+========================= */
+
+function toggleCart() {
+
+    let sidebar = document.getElementById("cartSidebar");
+
+    if (!sidebar) return;
+
+    if (sidebar.style.right === "0px") {
+        sidebar.style.right = "-420px";
+    } else {
+        sidebar.style.right = "0px";
+        displayCart();
+    }
+}
+
+/* =========================
+        DISPLAY CART
+========================= */
+
+function displayCart() {
+
+    let cartContainer = document.getElementById("cart-items");
+    let totalContainer = document.getElementById("cart-total");
+
+    if (!cartContainer || !totalContainer) return;
+
+    cartContainer.innerHTML = "";
+
+    let total = 0;
+
+    if (cart.length === 0) {
+
+        cartContainer.innerHTML = `
+            <p>Your shopping cart is empty.</p>
+        `;
+
+        totalContainer.innerHTML = "TOTAL: P0";
+
+        return;
+    }
+
+    cart.forEach((item, index) => {
+
+        total += item.price;
+
+        cartContainer.innerHTML += `
+        
+        <div style="
+            border-bottom:1px solid #ddd;
+            padding:12px 0;
+        ">
+
+            <input type="checkbox"
+            class="cart-check"
+            data-index="${index}">
+
+            <strong>${item.name}</strong>
+
+            - P${item.price}
+
+        </div>
+        `;
+    });
+
+    totalContainer.innerHTML = "TOTAL: P" + total;
+}
+
+/* =========================
+    REMOVE SELECTED PRODUCTS
+========================= */
+
+function removeSelectedProducts() {
+
+    let selected = document.querySelectorAll(".cart-check:checked");
+
+    if (selected.length === 0) {
+
+        alert("Please select products to remove.");
+
+        return;
+    }
+
+    let indexes = [];
+
+    selected.forEach((check) => {
+        indexes.push(Number(check.dataset.index));
+    });
+
+    indexes.sort((a, b) => b - a);
+
+    indexes.forEach((index) => {
+        cart.splice(index, 1);
+    });
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    displayCart();
+
+    updateCartCount();
+
+    alert("Selected products removed.");
+}
+
+/* =========================
+        CART COUNT
+========================= */
+
+function updateCartCount() {
+
+    let count = document.getElementById("cart-count");
+
+    if (count) {
+        count.innerHTML = cart.length;
+    }
+}
+
+/* =========================
+        PAYMENT PAGE
+========================= */
+
 function goToPayment() {
-   if (cart.length === 0) {
-      alert ("Shopping cart is empty!");
 
-      return;
-   }
+    if (cart.length === 0) {
 
-   window.location.href = "payment.html";
+        alert("Shopping cart is empty!");
+
+        return;
+    }
+
+    window.location.href = "payment.html";
 }
 
-/* ==========================================
-       SELECT PAYMENT OPTION
-========================================= */
-let selectPayment = "";
-function choosePaymenr(method) {
-   selectedPayment = method;
-   alert (method + " selected");
+/* =========================
+    SELECT PAYMENT OPTION
+========================= */
+
+function choosePayment(method) {
+
+    selectedPayment = method;
+
+    alert(method + " selected successfully.");
 }
 
-/* =========================================
-      COMPLETE THE PAYMENT
-========================================= */
+/* =========================
+    COMPLETE PAYMENT
+========================= */
+
 function completePayment() {
-   let name = document.getElementById("cardName").value;
 
-   let number = document.getElemenById("cadNumber").value;
+    let name = document.getElementById("cardName");
+    let number = document.getElementById("cardNumber");
+    let expiry = document.getElementById("expiry");
+    let cvv = document.getElementById("cvv");
 
-   let expiry = document.getElementById("expiry").value;
+    let message = document.getElementById("paymentMessage");
 
-   let cvv = document.getElementaryById("cvv").value;
+    if (
+        !name ||
+        !number ||
+        !expiry ||
+        !cvv ||
+        name.value.trim() === "" ||
+        number.value.trim() === "" ||
+        expiry.value.trim() === "" ||
+        cvv.value.trim() === "" ||
+        selectedPayment === ""
+    ) {
 
-   let message = document.getElementById("paymentMessage").value;
+        message.innerHTML =
+        "❌ Incorrect or incomplete account details.";
 
-   //VALIDATION
-   if (
-      name === "" ||
-      number === "" ||
-      expiry === "" ||
-      cvv === "" ||
-      selectedPayment === "" 
-   ){
+        message.style.color = "red";
 
-      message.innerHTML = "❌ WRONG OR INCOMPLETE ACCOUNT DETAILS.";
-      message.style.color = "red";
+        return;
+    }
 
-      return;
-      
-   }
+    message.innerHTML =
+    "✅ Transaction complete. Await delivery of goods.";
 
-   //SUCCESSFUL TRANSACTION
-   message.innerHTML = "✅ PAYMENT SUCCESSFUL AWAIT DELIVERY OF GOODS";
-   message.style.color = "lightgreen";
+    message.style.color = "lightgreen";
 
-   //CLEAR THE SHOPPING CART
-   localStorage.removeItem("cart");
-   cart = [];
+    localStorage.removeItem("cart");
+
+    cart = [];
+
+    updateCartCount();
+
+    displayCart();
+
+    name.value = "";
+    number.value = "";
+    expiry.value = "";
+    cvv.value = "";
 }
 
-
-/* ===========================================
-            AUTO LOAD THE CART
-========================================== */
-document.addEventListener("DOMContentLoaded", function() {
-   displayCart();
-}); 
-
-
-/* ============================================================
-    CLOTHING PAGE: SECTION TABS (Men / Women / Kids)
-   Shows one section at a time when a tab button is clicked.
-   ============================================================ */
+/* =========================
+        CLOTHING TABS
+========================= */
 
 function showClothingSection(sectionId) {
-  // Hide ALL clothing sections first
-  var allSections = document.querySelectorAll(".clothing-section");
-  for (var i = 0; i < allSections.length; i++) {
-    allSections[i].classList.remove("active");
-  }
 
-  // Remove the active style from ALL tab buttons
-  var allTabs = document.querySelectorAll(".tab-btn");
-  for (var i = 0; i < allTabs.length; i++) {
-    allTabs[i].classList.remove("active");
-  }
+    let sections =
+    document.querySelectorAll(".clothing-section");
 
-  // Show only the section the user clicked
-  var targetSection = document.getElementById(sectionId);
-  if (targetSection) {
-    targetSection.classList.add("active");
-  }
+    sections.forEach((section) => {
+        section.classList.remove("active");
+    });
 
-   //Hightlights the correct tab button
-  for (var i = 0; i < allTabs.length; i++) {
-    if (allTabs[i].textContent.trim().toLowerCase().includes(sectionId.toLowerCase())) {
-      allTabs[i].classList.add("active");
+    let target = document.getElementById(sectionId);
+
+    if (target) {
+        target.classList.add("active");
     }
-  }
 }
 
-/* ============================================================
-   EQUIPMENT PAGE: SECTION TABS (Football / Basketball / Tennis)
-   Also shows one section at a time when a tab button is clicked.
-   ============================================================ */
+/* =========================
+        EQUIPMENT TABS
+========================= */
 
-function showEquipmentSection(sectionId) {
-  // Hide ALL equipment sections first
-  var allSections = document.querySelectorAll(".equip-section");
-  for (var i = 0; i < allSections.length; i++) {
-    allSections[i].classList.remove("active");
-  }
+function showEquipSection(sectionId) {
 
-  // Remove the active style from ALL tab buttons
-  var allTabs = document.querySelectorAll(".tab-btn");
-  for (var i = 0; i < allTabs.length; i++) {
-    allTabs[i].classList.remove("active");
-  }
+    let sections =
+    document.querySelectorAll(".equip-section");
 
-  // Show only the section the user clicked
-  var targetSection = document.getElementById(sectionId);
-  if (targetSection) {
-    targetSection.classList.add("active");
-  }
+    sections.forEach((section) => {
+        section.classList.remove("active");
+    });
 
-  // Highlight the correct tab button
-  for (var i = 0; i < allTabs.length; i++) {
-    if (allTabs[i].textContent.trim().toLowerCase().includes(sectionId.toLowerCase())) {
-      allTabs[i].classList.add("active");
+    let target = document.getElementById(sectionId);
+
+    if (target) {
+        target.classList.add("active");
     }
-  }
 }
 
-
-/* ============================================================
-   SECTION 6 – STAR RATING (Feedback Page)
-   When a star is clicked, fills in all stars up to that number.
-   ============================================================ */
-
-// This variable remembers the rating the user chose
-var selectedRating = 0;
-
-function setRating(starNumber) {
-  // Save the chosen rating
-  selectedRating = starNumber;
-
-  // Get all star labels
-  var stars = document.querySelectorAll(".star-rating label");
-
-  // Loop through each star and fill or empty it
-  for (var i = 0; i < stars.length; i++) {
-    var icon = stars[i].querySelector("i");
-
-    // Stars are in reverse order in the HTML (5, 4, 3, 2, 1)
-    // So star number = total stars - index
-    var thisStar = stars.length - i;
-
-    if (thisStar <= starNumber) {
-      // Fill this star (solid)
-      icon.className = "fas fa-star";
-      stars[i].style.color = "#e87722"; // Orange colour
-    } else {
-      // Empty this star (outline)
-      icon.className = "far fa-star";
-      stars[i].style.color = "#555"; // Grey colour
-    }
-  }
-}
-
-
-/* ============================================================
-            FEEDBACK FORM SUBMISSION
-   ============================================================ */
+/* =========================
+        FEEDBACK FORM
+========================= */
 
 function submitFeedback() {
-  // Get each form field by its ID
-  var firstName = document.getElementById("firstName");
-  var surname   = document.getElementById("surname");
-  var email     = document.getElementById("email");
-  var subject   = document.getElementById("subject");
-  var message   = document.getElementById("message");
 
-  // Check that required fields are not empty
-  if (!firstName || firstName.value.trim() === "") {
-    alert("Please enter your first name.");
-    firstName.focus(); 
-    return;
-  }
+    let firstName =
+    document.getElementById("firstName");
 
-  if (!surname || surname.value.trim() === "") {
-    alert("Please enter your surname.");
-    surname.focus();
-    return;
-  }
+    let surname =
+    document.getElementById("surname");
 
-  if (!email || email.value.trim() === "") {
-    alert("Please enter your email address.");
-    email.focus();
-    return;
-  }
+    let email =
+    document.getElementById("email");
 
-  // Simple email format check – must contain @ and a dot
-  if (!email.value.includes("@") || !email.value.includes(".")) {
-    alert("Please enter a valid email address (e.g. name@email.com).");
-    email.focus();
-    return;
-  }
+    let subject =
+    document.getElementById("subject");
 
-  if (!subject || subject.value.trim() === "") {
-    alert("Please enter a subject.");
-    subject.focus();
-    return;
-  }
+    let message =
+    document.getElementById("message");
 
-  if (!message || message.value.trim() === "") {
-    alert("Please write your message.");
-    message.focus();
-    return;
-  }
+    if (
+        firstName.value.trim() === "" ||
+        surname.value.trim() === "" ||
+        email.value.trim() === "" ||
+        subject.value.trim() === "" ||
+        message.value.trim() === ""
+    ) {
 
-  // Check that the user gave a star rating
-  if (selectedRating === 0) {
-    alert("Please select a star rating before submitting.");
-    return;
-  }
+        alert("Please complete all fields.");
 
-  // If everything is filled in, show a success message
-  alert(
-    "Thank you, " + firstName.value.trim() + "!\n" +
-    "Your feedback has been submitted.\n" +
-    "Rating given: " + selectedRating + " star(s).\n\n" +
-    "We will get back to you at " + email.value.trim() + " shortly."
-  );
+        return;
+    }
 
-  // Clear the form after successful submission
-  firstName.value = "";
-  surname.value   = "";
-  email.value     = "";
-  subject.value   = "";
-  message.value   = "";
-  selectedRating  = 0;
+    alert("Feedback submitted successfully!");
 
-  // Reset the star icons back to empty
-  var stars = document.querySelectorAll(".star-rating label");
-  for (var i = 0; i < stars.length; i++) {
-    stars[i].querySelector("i").className = "far fa-star";
-    stars[i].style.color = "#555";
-  }
+    firstName.value = "";
+    surname.value = "";
+    email.value = "";
+    subject.value = "";
+    message.value = "";
 }
 
-/* ============================================================
-                NAVBAR SCROLL EFFECT
-   Makes the navbar slightly darker when the user scrolls down,
-   so it stands out more against the page content.
-   ============================================================ */
+/* =========================
+        PAGE LOAD
+========================= */
 
-window.addEventListener("scroll", function () {
-  var navbar = document.querySelector(".navbar");
+document.addEventListener("DOMContentLoaded", function () {
 
-  if (navbar) {
-    if (window.scrollY > 50) {
-      
-      navbar.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.4)";
-      navbar.style.opacity   = "0.97";
-       
-    } else {
-      navbar.style.boxShadow = "none";
-      navbar.style.opacity   = "1";
+    createCartSidebar();
+
+    updateCartCount();
+
+    displayCart();
+
+    let searchBtn =
+    document.querySelector(".search-btn");
+
+    if (searchBtn) {
+        searchBtn.addEventListener("click", runSearch);
     }
-  }
+
+    let cartIcon =
+    document.querySelector(".cart-icon");
+
+    if (cartIcon) {
+        cartIcon.addEventListener("click", toggleCart);
+    }
 });
-
-/* ============================================================
-                         PAGE LOAD
-   Checks the URL hash (e.g. #men or #football) and
-   automatically opens the right section on page load.
-   ============================================================ */
-
-window.addEventListener("DOMContentLoaded", function () {
-
-  // Read the hash from the URL, e.g. "#men" becomes "men"
-  var hash = window.location.hash.replace("#", "");
-
-  // --- Clothing page sections ---
-  var clothingSections = ["men", "women", "kids"];
-  if (hash && clothingSections.includes(hash)) {
-    showClothingSection(hash);
-  }
-
-  // --- Equipment page sections ---
-  var equipmentSections = ["football", "basketball", "tennis"];
-  if (hash && equipmentSections.includes(hash)) {
-    showEquipmentSection(hash);
-  }
-
-  // --- Attach search button click event ---
-  var searchBtn = document.querySelector(".search-btn");
-  if (searchBtn) {
-    searchBtn.addEventListener("click", function () {
-      runSearch();
-    });
-  }
-
-  // --- Allow pressing Enter in the search box to search ---
-  var searchInput = document.querySelector(".search-input");
-  if (searchInput) {
-    searchInput.addEventListener("keypress", function (event) {
-       
-      // keyCode 13 is the Enter key
-      if (event.key === "Enter" || event.keyCode === 13) {
-        runSearch();
-      }
-    });
-  }
-
-  // --- Attach cart icon click to view cart ---
-  var cartIcon = document.querySelector(".cart-icon");
-  if (cartIcon) {
-    cartIcon.addEventListener("click", function () {
-      viewCart();
-    });
-  }
-
-  // --- Attach feedback form submit button ---
-  var submitBtn = document.querySelector(".btn-submit");
-  if (submitBtn) {
-    submitBtn.addEventListener("click", function () {
-      submitFeedback();
-    });
-  }
-
-  // --- Attach star rating clicks ---
-  var starLabels = document.querySelectorAll(".star-rating label");
-   
-  // Stars are stored in reverse (5 to 1), so index 0 = star 5
-  for (var i = 0; i < starLabels.length; i++) {
-     
-    (function (label, starNum) {
-      label.addEventListener("click", function () {
-        setRating(starNum);
-      });
-    })(starLabels[i], starLabels.length - i);
-  }
-
-});
-
 
 
 
