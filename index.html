@@ -17,6 +17,7 @@
         --black: #000;
         --strong-dark-gray: #222;
         --dark-grey: #444;
+        --red: #ff0000;
         --golden-orange: #f09433;
         --orange-red: #e6683c;
         --crimson-red: #dc2743;
@@ -362,6 +363,9 @@
         gap: 8px; 
         font-size: 0.9rem; 
       }
+      .footer-copy:hover {
+        color: #ff0000;
+      }
       .contact-title, .social-title, .help-title {
         color: #e87722;
         font-family: sans-serif;
@@ -381,6 +385,9 @@
         color: #e87722;
         width: 18px;
       }
+      .contact-row i:hover {
+        color: #ff0000;
+      }
       .social-icons {
         display: flex;
         gap: 10px;
@@ -397,7 +404,7 @@
         text-decoration: none;
         transition: opacity 0.2s;
       }
-      .social-icon:hover { opacity: 0.8; }
+      .social-icon:hover { opacity: 0.8; color:#ff0000;}
       .social-icon.ig { 
         background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); 
       }
@@ -410,7 +417,7 @@
         text-decoration: none; 
         margin-bottom: 4px;
       }
-      .footer-help a:hover { color: #e87722; }
+      .footer-help a:hover { color: #ff0000; }
 
       @media (max-width: 700px) {
         .products-ads-section { flex-direction: column; }
