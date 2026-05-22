@@ -39,7 +39,7 @@ function addToCart(name, price) {
 
     let product = {
         name: name,
-        price: Number(price)
+        price: number(price)
     };
 
     cart.push(product);
