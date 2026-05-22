@@ -452,36 +452,6 @@ function completePayment() {
         "paymentMessage"
     );
 
-    /* =========================
-        EMPTY FIELD CHECK
-    ========================= */
-
-    if (
-
-        !name ||
-        !number ||
-        !expiry ||
-        !cvv ||
-
-        name.value.trim() === "" ||
-        number.value.trim() === "" ||
-        expiry.value.trim() === "" ||
-        cvv.value.trim() === "" ||
-
-        selectedPayment === ""
-    ) {
-
-        alert(
-        "Please complete all payment fields."
-        );
-
-        message.innerHTML =
-        "❌ Wrong or incomplete payment details.";
-
-        message.style.color = "red";
-
-        return;
-    }
 
     /* =========================
             VALIDATION
@@ -513,7 +483,7 @@ function completePayment() {
         return;
     }
 
-    /* =========================
+  /* =========================
             SUCCESS
     ========================= */
 
@@ -539,6 +509,39 @@ function completePayment() {
         sidebar.style.right = "-420px";
     }
 }
+
+
+    /* =========================
+        EMPTY FIELD CHECK
+    ========================= */
+
+    if (
+
+        !name ||
+        !number ||
+        !expiry ||
+        !cvv ||
+
+        name.value.trim() === "" ||
+        number.value.trim() === "" ||
+        expiry.value.trim() === "" ||
+        cvv.value.trim() === "" ||
+
+        selectedPayment === ""
+    ) {
+
+        alert(
+        "Please complete all payment fields."
+        );
+
+        message.innerHTML =
+        "❌ Wrong or incomplete payment details.";
+
+        message.style.color = "red";
+
+        return;
+    }
+
 
 /* =========================================
             CLOTHING TABS
