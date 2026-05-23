@@ -11,17 +11,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!--JAVASCRIPT-->
     <script src="javascript.js"></script>
-  <style>
-    :root {
+    
+    <style>
+      :root {
         --golden-orange: #f09433;
         --orange-red: #e6683c;
-        --red: #ff0000;
         --crimson-red: #dc2743;
         --raspberry-pink: #cc2366;
         --deep-pink: #bc1888;
         --sage-gray: #b0b8b0;
         --black: #000;
-        --red: #ff0000;
         --very-dark-gray: #222;
         --charcoal: #333;
         --medium-dark-grey: #555;
@@ -309,7 +308,6 @@
         gap: 8px;
         font-size: 0.9rem; 
       }
-      .footer-copy:hover {color: #ff0000;}
       .contact-title, .social-title, .help-title { 
         color: #e87722;
         font-family: sans-serif;
@@ -329,10 +327,9 @@
         color: #e87722; 
         width: 18px;
       }
-    .contact-row:hover {color: #ff0000;}
-    .social-icons {
-       display: flex;
-       gap: 10px;
+       {
+         display: flex;
+         gap: 10px;
        }
       .social-icon {
         width: 38px; 
@@ -346,7 +343,7 @@
         text-decoration: none;
         transition: opacity 0.2s; 
       }
-      .social-icon:hover { opacity: 0.8; color: #ff0000;}
+      .social-icon:hover { opacity: 0.8; }
       .social-icon.ig { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
       .social-icon.fb { background: #1877f2; }
       .social-icon.tw { background: #1da1f2; }
@@ -357,11 +354,12 @@
         text-decoration: none;
         margin-bottom: 4px;
       }
-      .footer-help a:hover { color: #ff0000; }
-  </style>
+      .footer-help a:hover { color: #e87722; }
+    </style>
   </head>
 
   <body>
+
     <!-- NAVBAR -->
     <header>
       <nav class="navbar navbar-expand-lg">
@@ -457,7 +455,7 @@
               <img src="equip images/agility ladder.jpg" alt="Agility ladder">
               <div class="p-name">AGILITY LADDER</div>
               <div class="p-price">P250.00</div>
-              <a href="#" class="btn-buy" onclick="addToCart('Agility ladder',250);return false;">BUY NOW</a>
+              <a href="#" class="btn-buy" onclick="('Agility ladder',250);return false;">BUY NOW</a>
             </div>
           </div>
 
@@ -505,7 +503,7 @@
               <img src="equip images/pump.jpg" alt="Pump">
               <div class="p-name">BALL PUMP</div>
               <div class="p-price">P45.00</div>
-              <a href="#" class="btn-buy" onclick="addToCart('Ball Pump',45);return false;">BUY NOW</a>
+              <a href="#" class="btn-buy" onclick="buyNow('Ball Pump',45);return false;">BUY NOW</a>
             </div>
             
             <div class="product-card">
@@ -755,7 +753,7 @@
               <img src="equip images/Tscoreboard.jpg" alt="Scoreboard">
               <div class="p-name">SCOREBOARD</div>
               <div class="p-price">P2400.00</div>
-              <a href="#" class="btn-buy" onclick="addToCart('Scoreboard',2400);return false;">BUY NOW</a>
+              <a href="#" class="btn-buy" onclick="buyNow('Scoreboard',2400);return false;">BUY NOW</a>
             </div>
 
             <div class="product-card">
@@ -822,3 +820,4 @@
    
   </body>
 </html>
+
