@@ -11,11 +11,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!--JAVASCRIPT-->
     <script src="javascript.js"></script>
-  <style>
-    :root {
+
+    <style>
+      :root {
         --golden-orange: #f09433;
         --orange-red: #e6683c;
-        --red: #ff0000;
         --raspberry-pink: #cc2366;
         --crimson-red: #dc2743;
         --deep-pink: #bc1888;
@@ -282,7 +282,6 @@
         gap: 8px;
         font-size: 0.9rem; 
       }
-      .footer-copy:hover {color: #ff0000;}
       .contact-title, .social-title, .help-title { 
         color: #e87722;
         font-family: sans-serif;
@@ -302,7 +301,6 @@
         color: #e87722;
         width: 18px;
       }
-      .contact-row:hover {color: #ff0000;}
       .social-icons { 
         display: flex;
         gap: 10px;
@@ -319,7 +317,7 @@
         text-decoration: none; 
         transition: opacity 0.2s;
       }
-      .social-icon:hover { opacity: 0.8; color: #ff0000;}
+      .social-icon:hover { opacity: 0.8; }
       .social-icon.ig { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
       .social-icon.fb { background: #1877f2; }
       .social-icon.tw { background: #1da1f2; }
@@ -330,11 +328,12 @@
         text-decoration: none; 
         margin-bottom: 4px; 
       }
-      .footer-help a:hover { color: #ff0000; }
-  </style>
+      .footer-help a:hover { color: #e87722; }
+    </style>
   </head>
 
   <body>
+
     <!-- NAVBAR -->
      <header>
       <nav class="navbar navbar-expand-lg">
@@ -388,23 +387,28 @@
         <h4>CONTACT FORM</h4>
 
         <div class="form-group">
-          <input type="text" id="firstName" placeholder="First Name">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" placeholder="">
         </div>
 
         <div class="form-group">
-          <input type="text" id="surname" placeholder="Surname">
+          <label for="surname">Surname</label>
+          <input type="text" id="surname" placeholder="">
         </div>
 
         <div class="form-group">
-          <input type="email" id="email" placeholder="Email">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="">
         </div>
 
         <div class="form-group">
-          <input type="text" id="subject" placeholder="Subject">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" placeholder="">
         </div>
 
         <div class="form-group">
-          <textarea id="message" placeholder="Message"></textarea>
+          <label for="message">Message</label>
+          <textarea id="message"></textarea>
         </div>
 
         <!-- STAR RATING -->
@@ -436,7 +440,6 @@
           <h5>CONTACT DETAILS</h5>
           <p>+267 71828180<br>+267 75202995</p>
         </div>
-        
         <div class="hours-box">
           <h5>WORKING HOURS</h5>
           <p>MON-THURS: 0900HRS – 1830HRS<br>FRI: 0900HRS – 1600HRS<br>SAT-SUN: CLOSED</p>
@@ -474,3 +477,4 @@
     
   </body>
 </html>
+
