@@ -11,13 +11,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!--JAVASCRIPT-->
     <script src="javascript.js"></script>
-
-  <style>
-    :root {
+    
+    <style>
+      :root {
         --facebook-blue: #1877f2;
         --sky-blue: #1da1f2;
         --black: #000;
-        --red: #ff0000;
         --strong-dark-grey: #222;
         --charcoal: #333;
         --graphite-grey: #444;
@@ -297,7 +296,7 @@
       .product-card .btn-buy:hover { background: #222; }
 
       /* FOOTER */
-      .footer { 
+      footer { 
         background: #0d0d0d; 
         color: #ffffff;
         padding: 24px 0;
@@ -319,7 +318,6 @@
         gap: 8px; 
         font-size: 0.9rem;
       }
-      .footer-copy:hover {color: #ff0000;}
       .contact-title, .social-title, .help-title {
         color: #e87722; 
         font-family: sans-serif;
@@ -339,7 +337,6 @@
         color: #e87722;
         width: 18px; 
       }
-      .contact-row:hover {color: #ff0000;}
       .social-icons {
         display: flex;
         gap: 10px;
@@ -356,7 +353,7 @@
         text-decoration: none; 
         transition: opacity 0.2s;
       }
-      .social-icon:hover { opacity: 0.8; color: #ff0000;}
+      .social-icon:hover { opacity: 0.8; }
       .social-icon.ig { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
       .social-icon.fb { background: #1877f2; }
       .social-icon.tw { background: #1da1f2; }
@@ -367,7 +364,7 @@
         text-decoration: none;
         margin-bottom: 4px;
       }
-      .footer-help a:hover { color: #ff0000; }
+      .footer-help a:hover { color: #e87722; }
 
       @media (max-width: 700px) {
         .clothing-main { flex-direction: column; }
@@ -377,11 +374,12 @@
         }
         .clothing-hero { display: none; } /* collapse hero on small screens */
       }
-  </style>
+    </style>
   </head>
 
   <body>
-   <!-- NAVBAR -->
+
+    <!-- NAVBAR -->
     <header>
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid px-0">
@@ -759,3 +757,4 @@
    
   </body>
 </html>
+
