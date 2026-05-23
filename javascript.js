@@ -5,16 +5,9 @@
 /* =========================
         SHOPPING CART
 ========================= */
-function getCart() {
+
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 let selectedPayment = "";
-
-}
-
-function saveCart(cartArray) {
-  localStorage.setItem("cart", JSON.stringify(cartArray));
-}
-
 
 /* =========================
         SEARCH FUNCTION
@@ -43,57 +36,27 @@ function runSearch() {
 ========================= */
 
 function addToCart(name, price) {
-   var cart = getCart();
-   
+
     let product = {
         name: name,
         price: Number(price)
     };
 
     cart.push(product);
-    saveCart(cart);
-    updateCartCount();  
 
     localStorage.setItem("cart", JSON.stringify(cart));
 
+    updateCartCount();
+
     alert(name + " added to shopping cart!");
 }
-
-/* ============================================================
-                         CART COUNT
-   Shows a red number on the cart icon so the customer can see
-   how many items are waiting.
-   ============================================================ */
- 
-function updateCartCount() {
-  var cartIcon = document.querySelector('.cart-icon');
-  if (!cartIcon) return;
- 
-  var count = getCart().length;
-  var count = document.getElementById('cart-count');
- 
-  if (!count) {
-    count = document.createElement('span');
-    count.id = 'cart-count';
-     
-    count.style.cssText =
-      'background:red; color:white; border-radius:50%;' +
-      'padding:2px 7px; font-size:0.68rem; position:relative;' +
-      'top:-12px; left:-10px; font-weight:bold; pointer-events:none;';
-    cartIcon.parentNode.appendChild(count);
-  }
- 
-  count.textContent   = count;
-  count.style.display = count > 0 ? 'inline' : 'none';
-}
- 
 
 /* =========================
         BUY NOW
 ========================= */
 
 function buyNow(name, price) {
-   var cart = getCart();
+
     addToCart(name, price);
 
     toggleCart();
@@ -231,8 +194,6 @@ function displayCart() {
 
     let total = 0;
 
-    var cart = getCart();  
-
     if (cart.length === 0) {
 
         cartContainer.innerHTML = `
@@ -275,12 +236,12 @@ function displayCart() {
 ========================= */
 
 function removeSelectedProducts() {
-   //Collects the IDs of all the ticked checkboxes
+
     let selected = document.querySelectorAll(".cart-check:checked");
 
     if (selected.length === 0) {
 
-        alert("Please tick the checkboxes to select the products you want to remove.");
+        alert("Please select products to remove.");
 
         return;
     }
@@ -372,7 +333,7 @@ function completePayment() {
     ) {
 
         message.innerHTML =
-        "✅ Transaction complete. Await delivery of goods.";
+        "✅ Transaction complete. Await delivery of goods.";    
 
         message.style.color = "lightgreen";
 
@@ -380,7 +341,7 @@ function completePayment() {
     }
 
     message.innerHTML =
-    "❌ Incorrect or incomplete account details.";   
+    "❌ Incorrect or incomplete account details.";        
 
     message.style.color = "red";
 
@@ -467,8 +428,12 @@ function submitFeedback() {
         message.value.trim() === ""
     ) {
 
+        alert("Please complete all fields.");
+
+        return;
+    }
+
     alert("Feedback submitted successfully!");
-       return;
 
     firstName.value = "";
     surname.value = "";
@@ -477,34 +442,11 @@ function submitFeedback() {
     message.value = "";
 }
 
-/* ============================================================
-   SECTION 11  –  STAR RATING
-   ============================================================ */
- 
-function setRating(starNumber) {
-  selectedRating = starNumber;
-   
-  var stars = document.querySelectorAll('.star-rating label');
-   
-  for (var i = 0; i < stars.length; i++) {
-    var icon = stars[i].querySelector('i');
-    var thisStar = stars.length - i; // labels are stored reversed 5→1
-    if (thisStar <= starNumber) {
-      icon.className = 'fas fa-star';
-      stars[i].style.color = '#e87722';
-    } else {
-      icon.className = 'far fa-star';
-      stars[i].style.color = '#555';
-    }
-  }
-}
-
 /* =========================
         PAGE LOAD
 ========================= */
 
 document.addEventListener("DOMContentLoaded", function () {
-
 
     createCartSidebar();
 
