@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
     <!--FONT AWESOME-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <!--JAVASCRIPT-->
-    <script src="javascript.js"></script>
 
     <style>
       :root{
@@ -51,11 +49,19 @@
         padding: 0; 
         min-height: 90px;
       }
+      .navbar-brand {
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+        line-height: 90px;
+      }
       .navbar-brand img { 
-        width: 90px; 
-        height: 90px; 
+        width: 75px; 
+        height: 75px; 
         object-fit: contain;
-        background: #fff; 
+        background: #fff;
+        border-radius: 4px;
+        display: block;
       }
       .navbar .nav-link {
         color: #ffffff; 
@@ -97,6 +103,7 @@
         cursor: pointer; 
         color: #555;
       }
+      .cart-li {position: relative;}
       .cart-icon { 
         color: #e87722;
         font-size: 1.5rem;
@@ -109,20 +116,23 @@
         text-align: center;
         color: #fff;
         background: #3d5a45;
-        padding: 20px;
-        letter-spacing: 2px;
+        padding: 22px;
+        letter-spacing: 3px;
+        font-size: 1.4rem;
+        font-weight: 700;
       }
       
       /* PAYMENT FORM */
-      .payment-form-wrap {
-        flex: 1.2;
-        min-width: 280px; 
-        background: #111;
-        border-radius: 4px;
-        padding: 24px; 
-        color: #ffffff;
+      .payment-page-wrap {
+         max-width: 960px; 
+        margin: 28px auto;
+        padding: 0 16px 40px;
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap; 
+        align-items: flex-start;
       }
-      .payment-form-wrap h3 {
+      .payment-page-wrap h3 {
         font-family: sans-serif; 
         font-size: 1.1rem; 
         font-weight: 700;
@@ -131,60 +141,73 @@
         margin-bottom: 18px;
         color: #ffffff;
       }
-      .form-group { margin-bottom: 14px; }
+      .payment-form-box { 
+        background: #111; 
+        border-radius: 10px;
+        padding: 24px;
+        color: #fff;
+      }
+      .payment-form-box h4 {
+        font-size: 1rem;
+        letter-spacing: 2px; 
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        color: #fff;
+        border-left: 4px solid #e87722; 
+        padding-left: 10px;
+      }
+      .form-group { margin-bottom: 16px; }
       .form-group label { 
         display: block;
         font-size: 0.82rem;
         font-weight: 600;
         color: #ccc;
-        margin-bottom: 4px; 
+        margin-bottom: 5px; 
       }
-      .form-group input, .form-group textarea {
+      .form-group input {
         width: 100%; 
         background: transparent;
         border: none;
         border-bottom: 1px solid #555; 
-        color: #ffffff;
-        padding: 6px 0;
+        color: #fff;
+        padding: 8px;
         font-family: sans-serif;
         font-size: 0.9rem;
         outline: none;
         transition: border-color 0.2s;
       }
-      .form-group input:focus, .form-group textarea:focus { border-bottom-color: #e87722; }
+      .form-group input:focus { border-bottom-color: #e87722; }
+      .form-group input::placeholder {color: #666;}
       .form-group textarea { 
         resize: none; 
         height: 60px; 
       }
       
       /* --- PAYMENT SECTION --- */
-      .payment-container{
-        width: 90%;
-        max-width: 900px;
-        margin: 30px auto;
-        background: #3d5a45;
-        padding: 30px;
-        border-radius: 10px;
+      .payment-section {
+        flex: 1.4;
+        min-width: 280px;
       }
       
       /* PAYMENT OPTIONS */
       .payment-options{
         display: flex;
         justify-content: center;
-        gap: 20px;
+        gap: 16px;
         flex-wrap: wrap;
-        margin-bottom: 30px;
+        margin-bottom: 24px;
       }
       
       /* PAYMENT CARD */
       .payment-card{
         background: #e87722;
-        width: 180px;
-        padding: 20px;
-        border-radius: 10px;
+        width: 150px;
+        padding: 20px 14px;
+        border-radius: 12px;
+        border: 3px solid transparent;
         text-align: center;
         cursor: pointer;
-        transition: 0.2s;
+        transition: 0.2s, border 0.2s, background 0.2s;
       }
       
       .payment-card:hover{
@@ -214,30 +237,33 @@
       
       /* BUTTON */
       .pay-btn {
+        width: 100%;
         background: #e87722; 
         color: #fff;
         border: none;
-        border-radius: 20px;
-        padding: 6px 16px;
+        border-radius: 24px;
+        margin-top: 8px;
+        padding: 12px;
         font-family: sans-serif;
-        font-size: 0.83rem; 
+        font-size: 1rem; 
         font-weight: 700;
-        letter-spacing: 1px; 
+        letter-spacing: 2px; 
         cursor: pointer; 
-        text-decoration: none;
+        text-transform: uppercase;
         transition: background 0.2s;
       }
       .pay-btn:hover {
         background: #c96010; 
-        color: #fff; 
       }
       /* MESSAGE */
       #paymentMessage{
         text-align: center;
         color: #fff;
-        margin-top: 20px;
-        font-size: 1rem;
-        font-weight: bold;
+        margin-top: 18px;
+        line-height: 1.6;
+        font-size: 0.95rem;
+        font-weight: 600;
+        border-radius: 6px;
       }
       
       /* --- FOOTER SECTION--- */
@@ -264,6 +290,7 @@
         gap: 8px; 
         font-size: 0.9rem; 
       }
+      .footer-copy:hover{color: #e87722;}
       .contact-title, .social-title, .help-title {
         color: #e87722;
         font-family: sans-serif;
@@ -283,6 +310,7 @@
         color: #e87722;
         width: 18px;
       }
+      .contact-row:hover {color: #e87722;}
       .social-icons {
         display: flex;
         gap: 10px;
@@ -299,7 +327,7 @@
         text-decoration: none;
         transition: opacity 0.2s;
       }
-      .social-icon:hover { opacity: 0.8; }
+      .social-icon:hover { opacity: 0.8; color: #e87722;}
       .social-icon.ig { 
         background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); 
       }
@@ -313,11 +341,6 @@
         margin-bottom: 4px;
       }
       .footer-help a:hover { color: #e87722; }
-
-      @media (max-width: 700px) {
-        .products-ads-section { flex-direction: column; }
-        .ads-left { width: 100%; }
-      }
       
     </style>
   </head>
@@ -378,57 +401,81 @@
     
     <!-- PAYMENT CONTENT-->
       <h1 class="payment-title">
-        <li class="fas fa-credit-card"></li>
+        <i class="fas fa-credit-card"></i>
         ONLINE PAYMENT
       </h1>
-    <!-- PAYMENT SECTION -->
-      <section class="payment-container">
-        <div class="payment-options">
+    
+        <!--PAYMENT FORM-->
+         <div class="payment-page-wrap">
+           <div class="payment-section">
+ 
+        <!-- Step 1: Choose method -->
+        <section class="payment-options">
+         
           <div class="payment-card" onclick="choosePayment('Visa')">
-            <li class="fab fa-cc-visa"></li>
+            <i class="fab fa-cc-visa"></i>
             <h3>VISA</h3>
           </div>
-
+ 
           <div class="payment-card" onclick="choosePayment('Mastercard')">
-            <li class="fab fa-cc-mastercard"></li>
+            <i class="fab fa-cc-mastercard"></i>
             <h3>MASTERCARD</h3>
           </div>
-
+ 
           <div class="payment-card" onclick="choosePayment('PayPal')">
-            <li class="fab fa-cc-paypal"></li>
+            <i class="fab fa-cc-paypal"></i>
             <h3>PAYPAL</h3>
           </div>
+        </section>
+ 
+        <!-- Step 2: Fill in details -->
+        <section class="payment-form-box">
+          <h4><i class="fas fa-lock" style="margin-right:8px; color:#e87722;"></i>Payment Details</h4>
+ 
+          <!-- CARD FIELDS (shown for Visa / Mastercard) -->
+          <div id="cardFields">
+            <div class="form-group">
+              <label for="cardName">Card Holder Name</label>
+              <input type="text" id="cardName" placeholder="e.g. Kabo Setlhare">
+            </div>
+            <div class="form-group">
+              <label for="cardNumber">Card Number (16 digits)</label>
+              <input type="text" id="cardNumber" placeholder="e.g. 4111 1111 1111 1111" maxlength="19">
+            </div>
+            <div class="form-group">
+              <label for="expiry">Expiry Date (MM/YY)</label>
+              <input type="text" id="expiry" placeholder="e.g. 08/27" maxlength="5">
+            </div>
+            <div class="form-group">
+              <label for="cvv">CVV</label>
+              <input type="password" id="cvv" placeholder="3 or 4 digits" maxlength="4">
+            </div>
+          </div>
+ 
+          <!-- PAYPAL FIELDS (shown when PayPal is chosen) -->
+          <div id="paypalFields" style="display:none;">
+            <div class="form-group">
+              <label for="paypalEmail">PayPal Email</label>
+              <input type="email" id="paypalEmail" placeholder="e.g. you@paypal.com">
+            </div>
+            <div class="form-group">
+              <label for="paypalPass">PayPal Password</label>
+              <input type="password" id="paypalPass" placeholder="Your PayPal password">
+            </div>
+          </section>
+ 
+          <button type="button" class="pay-btn" onclick="completePayment()">
+            <i class="fas fa-lock" style="margin-right:6px;"></i> PAY NOW
+          </button>
+ 
+          <!-- Success or error message shown here by javascript.js -->
+          <div id="paymentMessage"></div>
+ 
         </div>
+         </div>
+  
 
-        <!--PAYMENT FORM-->
-         <form class="payment-form-wrap">
-        <h4>PAYMENT FORM</h4>
-
-        <div class="form-group">
-          <input type="text" id="Card Holder Names" placeholder="Card Holder Name">
-        </div>
-
-        <div class="form-group">
-          <input type="text" id="cardNo" placeholder="Card Number">
-        </div>
-
-        <div class="form-group">
-          <input type="text" id="Card PIN" placeholder="Expiry Date">
-        </div>
-
-        <div class="form-group">
-          <input type="text" id="Expiry Date" placeholder="CVV">
-        </div>
-         
-           <button type="button" class="pay-btn" onclick="completePayment()">
-             PAY NOW
-           </button>
-           <div id="paymentMessage"></div>
-         </form>
-      </section>
-
-          
-            <!-- FOOTER -->
+      <!-- FOOTER -->
         <footer>
           <div class="footer-inner">
             <div class="footer-col footer-copy"><i class="far fa-copyright"></i><span>2026 ProSport Gear</span></div>
@@ -454,7 +501,20 @@
         </footer>
     
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-       
+         <!--JAVASCRIPT-->
+        <script src="javascript.js"></script> 
+
+          <!--Show the saved order total on this page-->
+         <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              let savedTotal = localStorage.getItem("cartTotal");
+              let totalEl    = document.getElementById("orderTotal");
+              if (savedTotal && totalEl) {
+                totalEl.textContent = "P" + savedTotal;
+              }
+            });
+        </script>
     </body>
+    
 </html>
 
