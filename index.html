@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
     <!--FONT AWESOME-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <!--JAVASCRIPT-->
     <script src="javascript.js"></script>
     
     <style>
@@ -48,11 +47,19 @@
         padding: 0; 
         min-height: 90px;
       }
+      .navbar-brand{
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+        line-height: 90px;
+      }
       .navbar-brand img { 
-        width: 90px; 
-        height: 90px; 
+        width: 75px; 
+        height: 75px; 
         object-fit: contain;
         background: #fff; 
+        border-radius: 4px;
+        display: block;
       }
       .navbar .nav-link {
         color: #ffffff; 
@@ -94,6 +101,7 @@
         cursor: pointer; 
         color: #555;
       }
+      .cart-li {position: relative;}
       .cart-icon { 
         color: #e87722;
         font-size: 1.5rem;
@@ -116,6 +124,7 @@
         width: 100%;
         height: 100%; 
         object-fit: cover; 
+        display: block;
       }
       .play-overlay {
         position: absolute; 
@@ -150,7 +159,7 @@
         border: none; 
         border-radius: 30px;
         display: inline-flex; 
-        align-items:center;
+        align-items: center;
         gap: 8px;
         text-decoration: none;
         text-transform: uppercase;
@@ -193,15 +202,14 @@
       }
       .ad-video-box { 
         width: 100%;
-        height: 140px; 
+        height: 150px; 
         background: #222;
         overflow: hidden;
-        position: relative; 
         border-radius: 4px;
       }
       .ad-img-box   { 
         width: 100%;
-        height: 140px;
+        height: 120px;
         background: #444;
         overflow: hidden;
         border-radius: 4px; 
@@ -210,6 +218,7 @@
         width: 100%;
         height: 100%; 
         object-fit: cover;
+        display: block;
       }
       .small-play { 
         position: absolute;
@@ -242,6 +251,7 @@
         display: flex; 
         gap: 10px;
         flex-wrap: wrap; 
+        justify-content: center;
       }
       .product-card {
         background: #e87722;
@@ -282,7 +292,7 @@
       }
       .product-card .p-price { 
         color: #ffffff;
-        font-size: 0.77rem;
+        font-size: 0.78rem;
         font-weight: 700;
       }
 
@@ -293,6 +303,7 @@
         gap: 10px;
         flex-wrap: wrap; 
         margin-top: 4px;
+        justify-content: center;
       }
       .btn-buy {
         background: #e87722; 
@@ -329,7 +340,7 @@
         transition: background 0.2s;
       }
       .btn-add-cart:hover {
-        background: #222; 
+        background: #c96010; 
         color: #e87722;
       }
       .or-text { 
@@ -362,6 +373,7 @@
         gap: 8px; 
         font-size: 0.9rem; 
       }
+      .footer-copy:hover {color: #e87722; }
       .contact-title, .social-title, .help-title {
         color: #e87722;
         font-family: sans-serif;
@@ -381,6 +393,7 @@
         color: #e87722;
         width: 18px;
       }
+      .contact-row:hover {color: #e87722;}
       .social-icons {
         display: flex;
         gap: 10px;
@@ -397,7 +410,7 @@
         text-decoration: none;
         transition: opacity 0.2s;
       }
-      .social-icon:hover { opacity: 0.8; }
+      .social-icon:hover { opacity: 0.8; color: #e87722;}
       .social-icon.ig { 
         background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); 
       }
@@ -464,7 +477,8 @@
                 <input type="text" placeholder="Search..." class="search-input">
                 <button class="search-btn"><i class="fas fa-search"></i></button>
               </li>
-              <li class="nav-item d-flex align-items-center">
+              
+              <li class="nav-item d-flex align-items-center cart-li">
                 <i class="fas fa-shopping-cart cart-icon"><a href="payment.html" class="checkout-btn"></a></i>
               </li>
 
@@ -571,7 +585,7 @@
 
     <!-- Bootstrap JS first, then our script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-    <script src="javascipt.js"></script>
+    <script src="javascript.js"></script>
 
   </body>
 </html>
