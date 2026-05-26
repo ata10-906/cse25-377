@@ -9,9 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
     <!--FONT AWESOME-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <!--JAVASCRIPT-->
-    <script src="javascript.js"></script>
-    
+  
     <style>
       :root {
         --golden-orange: #f09433;
@@ -51,11 +49,19 @@
         padding: 0;
         min-height: 90px; 
       }
+      .navbar-brand {
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+        line-height: 90px;
+      }
       .navbar-brand img { 
-        width: 90px; 
-        height: 90px; 
+        width: 75px; 
+        height: 75px; 
         object-fit: contain;
         background: #fff; 
+        border-radius: 4px;
+        display: block;
       }
       .navbar .nav-link {
         color: #ffffff; 
@@ -97,6 +103,7 @@
         cursor: pointer; 
         color: #555;
       }
+      .cart-li {position: relative;]
       .cart-icon {
         color: #e87722; 
         font-size: 1.5rem;
@@ -308,6 +315,7 @@
         gap: 8px;
         font-size: 0.9rem; 
       }
+      .footer-copy:hover {color: #e87722;}
       .contact-title, .social-title, .help-title { 
         color: #e87722;
         font-family: sans-serif;
@@ -327,7 +335,8 @@
         color: #e87722; 
         width: 18px;
       }
-       {
+      .contact-row:hover {color: #e87722;}
+      .social-icons{
          display: flex;
          gap: 10px;
        }
@@ -343,7 +352,7 @@
         text-decoration: none;
         transition: opacity 0.2s; 
       }
-      .social-icon:hover { opacity: 0.8; }
+      .social-icon:hover {opacity: 0.8; color: #e87722;}
       .social-icon.ig { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
       .social-icon.fb { background: #1877f2; }
       .social-icon.tw { background: #1da1f2; }
@@ -354,7 +363,7 @@
         text-decoration: none;
         margin-bottom: 4px;
       }
-      .footer-help a:hover { color: #e87722; }
+      .footer-help a:hover {color: #e87722; }
     </style>
   </head>
 
@@ -817,7 +826,9 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-   
+     <!--JAVASCRIPT-->
+    <script src="javascript.js"></script>
+      
   </body>
 </html>
 
