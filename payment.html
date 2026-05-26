@@ -375,76 +375,54 @@
         ONLINE PAYMENT
       </h1>
     
-        <!--PAYMENT FORM-->
-         <div class="payment-page-wrap">
-           <div class="payment-section">
- 
-        <!-- Step 1: Choose method -->
-        <section class="payment-options">
-         
+        
+    <!-- PAYMENT SECTION -->
+      <section class="payment-container">
+        <div class="payment-options">
           <div class="payment-card" onclick="choosePayment('Visa')">
-            <i class="fab fa-cc-visa"></i>
+            <li class="fab fa-cc-visa"></li>
             <h3>VISA</h3>
           </div>
- 
+
           <div class="payment-card" onclick="choosePayment('Mastercard')">
-            <i class="fab fa-cc-mastercard"></i>
+            <li class="fab fa-cc-mastercard"></li>
             <h3>MASTERCARD</h3>
           </div>
- 
+
           <div class="payment-card" onclick="choosePayment('PayPal')">
-            <i class="fab fa-cc-paypal"></i>
+            <li class="fab fa-cc-paypal"></li>
             <h3>PAYPAL</h3>
           </div>
-        </section>
- 
-        <!-- Step 2: Fill in details -->
-        <section class="payment-form-box">
-          <h4><i class="fas fa-lock" style="margin-right:8px; color:#e87722;"></i>Payment Details</h4>
- 
-          <!-- CARD FIELDS (shown for Visa / Mastercard) -->
-          <div id="cardFields">
-            <div class="form-group">
-              <label for="cardName">Card Holder Name</label>
-              <input type="text" id="cardName" placeholder="e.g. Kabo Setlhare">
-            </div>
-            <div class="form-group">
-              <label for="cardNumber">Card Number (16 digits)</label>
-              <input type="text" id="cardNumber" placeholder="e.g. 4111 1111 1111 1111" maxlength="19">
-            </div>
-            <div class="form-group">
-              <label for="expiry">Expiry Date (MM/YY)</label>
-              <input type="text" id="expiry" placeholder="e.g. 08/27" maxlength="5">
-            </div>
-            <div class="form-group">
-              <label for="cvv">CVV</label>
-              <input type="password" id="cvv" placeholder="3 or 4 digits" maxlength="4">
-            </div>
-          </div>
- 
-          <!-- PAYPAL FIELDS (shown when PayPal is chosen) -->
-          <div id="paypalFields" style="display:none;">
-            <div class="form-group">
-              <label for="paypalEmail">PayPal Email</label>
-              <input type="email" id="paypalEmail" placeholder="e.g. you@paypal.com">
-            </div>
-            <div class="form-group">
-              <label for="paypalPass">PayPal Password</label>
-              <input type="password" id="paypalPass" placeholder="Your PayPal password">
-            </div>
-          </section>
- 
-          <button type="button" class="pay-btn" onclick="completePayment()">
-            <i class="fas fa-lock" style="margin-right:6px;"></i> PAY NOW
-          </button>
- 
-          <!-- Success or error message shown here by javascript.js -->
-          <div id="paymentMessage"></div>
- 
         </div>
-         </div>
-  
 
+        <!--PAYMENT FORM-->
+         <form class="payment-form-wrap">
+        <h4>PAYMENT FORM</h4>
+
+        <div class="form-group">
+          <input type="text" id="Card Holder Names" placeholder="Card Holder Name">
+        </div>
+
+        <div class="form-group">
+          <input type="text" id="cardNo" placeholder="Card Number">
+        </div>
+
+        <div class="form-group">
+          <input type="text" id="Card PIN" placeholder="Expiry Date">
+        </div>
+
+        <div class="form-group">
+          <input type="text" id="Expiry Date" placeholder="CVV">
+        </div>
+         
+           <button type="button" class="pay-btn" onclick="completePayment()">
+             PAY NOW
+           </button>
+           <div id="paymentMessage"></div>
+         </form>
+      </section>
+      
+         
       <!-- FOOTER -->
         <footer>
           <div class="footer-inner">
