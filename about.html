@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
     <!--FONT AWESOME-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <!--JAVASCRIPT-->
-    <script src="javascript.js"></script>
 
     <style>
       :root {
@@ -47,11 +45,19 @@
         padding: 0;
         min-height: 90px; 
       }
+      .navbar-brand {
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+        line-height: 90px;
+      }
       .navbar-brand img { 
-        width: 90px;
-        height: 90px; 
+        width: 75px;
+        height: 75px; 
         object-fit: contain; 
         background: #fff; 
+        border-radius: 4px;
+        display: block;
       }
       .navbar .nav-link {
         color: #ffffff; 
@@ -93,6 +99,7 @@
         cursor: pointer;
         color: #555; 
       }
+      .cart-li {position: relative;}
       .cart-icon { 
         color: #e87722; 
         font-size: 1.5rem; 
@@ -136,7 +143,7 @@
         transition: transform 0.2s;
         background: #555;
       }
-      .about-card:hover { transform: scale(1.03); }
+      .about-card:hover { transform: scale(1.03); color: #e87722;}
       .about-card img {
         width: 100%;
         height: 100%; 
@@ -206,6 +213,7 @@
         gap: 8px; 
         font-size: 0.9rem; 
       }
+      .footer-copy:hover {color: #e87722;}
       .contact-title, .social-title, .help-title {
         color: #e87722; 
         font-family: sans-serif;
@@ -225,6 +233,7 @@
         color: #e87722;
         width: 18px;
       }
+      .contact-row:hover {color: #e87722;}
       .social-icons {
         display: flex; 
         gap: 10px;
@@ -241,7 +250,7 @@
         text-decoration: none;
         transition: opacity 0.2s;
       }
-      .social-icon:hover { opacity: 0.8; }
+      .social-icon:hover {opacity: 0.8; color: #e87722;}
       .social-icon.ig { 
         background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); 
       }
@@ -359,7 +368,8 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-    <script src="main.js"></script>
+     <!--JAVASCRIPT-->
+    <script src="javascript.js"></script>
   </body>
 </html>
 
